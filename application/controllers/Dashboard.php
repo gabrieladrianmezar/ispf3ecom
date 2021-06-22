@@ -9,7 +9,7 @@ class Dashboard extends CI_Controller {
 			redirect(base_url());
 		}
 	}
-    
+
 	public function index(){	
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
