@@ -8,6 +8,7 @@
                 <h1>
                 Usuarios
                 <small>Listado</small>
+                <div class="float-right d-none d-sm-inline-block"> <a href="<?php echo base_url();?>usuarios/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
                 </h1>
             </section>
             <!-- Main content -->
@@ -17,7 +18,7 @@
                     <div class="box-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- <a href="<?php/* echo base_url();*/?>usuarios/add" class="btn btn-primary btn-flat"><span class="fa fa-plus"> Agregar Usuarios</span></a> -->                            
+                             <!-- <a href="<?php/* echo base_url();*/?>usuarios/add" class="btn btn-primary"><span class="fa fa-plus"></span></a>  -->                           
                         </div>
                     </div>
                     <hr>
@@ -30,9 +31,7 @@
                                             <th>Email</th>
                                             <th><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Password(For demo purposes)</a></th>
                                             <th>Nombre</th>
-                                            <th>Opciones 
-                                                <a href="<?php echo base_url();?>usuarios/add" class="btn btn-primary"><span class="fa fa-plus"> Agregar</span></a> 
-                                            </th>
+                                            <th>Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
