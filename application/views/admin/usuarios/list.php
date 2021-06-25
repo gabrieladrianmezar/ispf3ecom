@@ -18,7 +18,7 @@
                     <div class="box-body">
                     <div class="row">
                         <div class="col-md-12">
-                             <!-- <a href="<?php/* echo base_url();*/?>usuarios/add" class="btn btn-primary"><span class="fa fa-plus"></span></a>  -->                           
+                             <!-- <a href="<?php /* echo base_url();*/?>usuarios/add" class="btn btn-primary"><span class="fa fa-plus"></span></a>  -->                           
                         </div>
                     </div>
                     <hr>

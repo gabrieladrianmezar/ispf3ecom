@@ -128,7 +128,7 @@
             <a href="<?php echo base_url();?>productos/productos" class="nav-link">
               <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
-                Productos <?php/* echo base_url();?*/?>
+                Productos <?php /* echo base_url();?*/ ?>
                 <!-- <i class="right fas fa-angle-left"></i> -->
               </p>
             </a>
