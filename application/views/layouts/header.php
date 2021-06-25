@@ -1,7 +1,13 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
+<?php 
+        
+  /*session_start(); */
+  if( isset($_SESSION['id'])==false ){
+    header("location: index.php");
+  }
+
+?>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,6 +51,10 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contacto</a>
       </li>
+      <!-- For demo purposes -->
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="https://github.com/iamSopapo/ispf3ecom" class="nav-link"><i class="fab fa-github"></i> GitHub Repo</a>
+      </li>
     </ul>
 
     <!-- SEARCH FORM -->
@@ -61,9 +71,9 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <div class="pull-right">
-        <a href="<?php echo base_url(); ?>auth/logout"> Logout</a>
-        </div>
+      <li class="nav-item">
+          <a href="<?php echo base_url(); ?>auth/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+      </li>
     </ul>
   </nav>
   <!-- /.navbar -->

@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+        
+  /*session_start(); *//*Eliminar*/
+  if( isset($_SESSION['id'])==false ){
+  header("location: index.php");
+  }
+  /*$modulo=$_REQUEST['modulo']??'';*/
+?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +31,11 @@
     </div>
     <div class="card-body">
       <p class="login-box-msg">Ingresa tus datos para iniciar sesión</p>
+      <?php if($this->session->flashdata("error")):?>
+        <div class="alert alert-danger">
+          <p><?php echo $this->session->flashdata("error")?></p>
+        </div>
+      <?php endif;?>
       <form action="<?php echo base_url();?>auth/login" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email">
