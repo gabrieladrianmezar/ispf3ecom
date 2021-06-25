@@ -16,7 +16,25 @@
                 <!-- Default box -->
                 <div class="box box-solid">
                     <div class="box-body">
-                    Esta vista es la del dashboard
+                    <p>
+                        <?php 
+                            echo "Login:";
+                            echo $this->session->userdata("login");
+                        ?>
+                    </p>
+                    <p>
+                        <?php
+                            echo "ID: ";
+                            echo $this->session->userdata("id");
+                        ?>
+                    </p>
+                    <p>
+                        <?php 
+                            echo " Nombre: ";
+                            echo $this->session->userdata("nombre");
+                        ;?>
+                    </p>
+                    <p>Esta vista es la del dashboard</p>
                     </div>
                     <!-- /.box-body -->
                 </div>

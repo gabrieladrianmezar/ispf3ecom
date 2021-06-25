@@ -29,12 +29,22 @@
       <a href="index2.html" class="h1"><b>Fermosa</b>Workout</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Ingresa tus datos para iniciar sesión</p>
+    <div class="mb-4">
+      <div class="d-flex justify-content-center links">
+				No tienes una cuenta? <a href="#" class="ml-2">Regístrate</a>
+			</div>
+    </div>
+      <!--<p class="login-box-msg">Ingresa tus datos para iniciar sesión</p> -->
       <?php if($this->session->flashdata("error")):?>
         <div class="alert alert-danger">
           <p><?php echo $this->session->flashdata("error")?></p>
         </div>
-      <?php endif;?>
+      <?php endif; ?>
+      <?php 
+        /* Clearing flashdata on without redirect*/
+        if($this->session->flashdata("error")){
+        unset($_SESSION['error']);
+      }?>
       <form action="<?php echo base_url();?>auth/login" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email">
@@ -45,7 +55,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name="password"> 
+          <input type="password" class="form-control" placeholder="Contraseña" name="password"> 
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -53,22 +63,24 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
+          <!-- Will make do with browser password remember for now-->
+          <!--<div class="col-8">
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
               <label for="remember">
                 Recordar mis datos
               </label>
-            </div>
+            </div> -->
           </div>
           <!-- /.col -->
-          <div class="col-4">
+          <div class="social-auth-links text-center">
             <button type="submit" class="btn btn-primary btn-block" name="login">Iniciar sesión</button>
           </div>
-          <!-- /.col -->
+          <!-- /.col ex col-4 class -->
         </div>
       </form>
 
+      <!-- No social auth for now
       <div class="social-auth-links text-center mt-2 mb-3">
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
@@ -77,14 +89,23 @@
           <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
         </a>
       </div>
+      -->
       <!-- /.social-auth-links -->
+      
+      <div class="mb-4">
+					<div class="d-flex justify-content-center links">
+						<a href="#">Olvidaste tu contraseña?</a>
+					</div>
+      </div>
 
+      <!-- Old, superseeded by text above
       <p class="mb-1">
-        <a href="forgot-password.html">Olvidé mi contraseña</a>
+        <a href="forgot-password.html">Olvidaste tu contraseña?</a>
       </p>
       <p class="mb-0">
         <a href="register.html" class="text-center">Registrar una nueva cuenta</a>
       </p>
+      -->
     </div>
     <!-- /.card-body -->
   </div>

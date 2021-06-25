@@ -1,9 +1,9 @@
 <!-- =============================================== -->
 <footer class="main-footer">
-<a href="<?php echo base_url();?>licensepage"><strong>Copyright &copy; </a> 2021 <a href="https://github.com/iamSopapo">iamSopapo</a>.</strong>
-    All rights reserved.
+<a href="<?php echo base_url();?>licensepage"><strong>Copyright &copy; </a> 2021 <a href="https://github.com/iamSopapo" target="_blank">iamSopapo</a>.</strong>
+    Todos los derechos reservados.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.0.1
+      <b>Versión</b> 1.0.0
     </div>
   </footer>
 

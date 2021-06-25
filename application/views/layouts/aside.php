@@ -64,7 +64,7 @@
             </ul> -->
           </li> 
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url();?>estadisticas/estadisticas" class="nav-link"> >
+            <a href="<?php echo base_url();?>estadisticas/estadisticas" class="nav-link">
               <i class="nav-icon fas fa-chart-bar"></i>
               <p>
                 Estadisticas

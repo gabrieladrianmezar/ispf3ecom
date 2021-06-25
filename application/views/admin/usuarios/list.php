@@ -28,7 +28,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Email</th>
-                                            <th>Password</th>
+                                            <th><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Password(For demo purposes)</a></th>
                                             <th>Nombre</th>
                                             <th>Opciones 
                                                 <a href="<?php echo base_url();?>usuarios/add" class="btn btn-primary"><span class="fa fa-plus"> Agregar</span></a> 

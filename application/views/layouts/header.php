@@ -36,7 +36,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed"> <!-- Tweak this to keep sidebar collapsed-->
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -54,7 +54,7 @@
       </li>
       <!-- For demo purposes -->
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="https://github.com/iamSopapo/ispf3ecom" class="nav-link"><i class="fab fa-github"></i> GitHub Repo</a>
+        <a href="https://github.com/iamSopapo/ispf3ecom" class="nav-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
       </li>
     </ul>
 
