@@ -11,12 +11,12 @@ class Auth extends CI_Controller {
     public function index()
     {
         /*Si esta logeado lo manda al dashboard de admin*/
-		/*if ($this->session->userdata("login")){
+		if ($this->session->userdata("login")){
 			redirect(base_url()."dashboard");
 		}
-		else{*/
+		else{
 		$this->load->view('admin/login');
-		/*}*/
+		}
     }
 
     public function login()
@@ -26,8 +26,8 @@ class Auth extends CI_Controller {
         $res = $this->Usuarios_model->login($email, sha1($password));
 
         if(!$res) {
-            /*$this->session->set_flashdata("error","El email y o contraseña son incorrectos");
-            redirect(base_url());*/
+            $this->session->set_flashdata("error","El email y o contraseña son incorrectos");
+            redirect(base_url());
         }
         else{
             $data = array(

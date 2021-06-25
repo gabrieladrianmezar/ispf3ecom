@@ -1,26 +1,23 @@
 {
-  "name": "almasaeed2010/adminlte",
-  "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 4",
-  "homepage": "https://adminlte.io/",
-  "keywords": [
-    "css",
-    "js",
-    "less",
-    "responsive",
-    "back-end",
-    "template",
-    "theme",
-    "web",
-    "admin"
-  ],
+  "name": "iamSopapo/ispf3ecom/",
+  "description": "ISPF3Ecom Projec for Programming 3 Course taught by Professor Christian Cerquand from Instituto Superior Fermosa 2021",
+  "type": "project",
+	"homepage": "https://github.com/iamSopapo/ispf3ecom",
   "authors": [
     {
-      "name": "Colorlib"
+      "name": "iamSopapo"
     }
   ],
   "license": "MIT",
   "support": {
-    "issues": "https://github.com/ColorlibHQ/AdminLTE/issues"
+    "issues": "https://github.com/iamSopapo/ispf3ecom/issues"
   }
+		"require": {
+		"php": ">=8.0.7"
+	},
+		"require-dev": {
+		"mikey179/vfsStream": "1.1.*",
+		"phpunit/phpunit": "4.* || 5.*"
+	}
 }
 git remote add origin master https://github.com/iamSopapo/ispf3ecom.git
