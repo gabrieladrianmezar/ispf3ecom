@@ -29,7 +29,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Email</th>
-                                            <th><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Password(For demo purposes)</a></th>
+                                            <th><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Contraseña (For demo purposes)</a></th>
                                             <th>Nombre</th>
                                             <th>Opciones</th>
                                         </tr>
@@ -51,7 +51,16 @@
                                                     <!-- <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a> -->                
 
                                                     <a href="<?php echo base_url()?>usuarios/edit/<?php echo $usuario->id;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
-                                                    <a href="#" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <a href="<?php echo base_url();?>usuarios/delete/<?php echo $usuario->id;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <script type="text/javascript">
+                                                        var elems = document.getElementsByClassName('btn btn-danger');
+                                                        var confirmIt = function (e) {
+                                                            if (!confirm('Estas seguro de que deseas eliminar ese registro?')) e.preventDefault();
+                                                        };
+                                                        for (var i = 0, l = elems.length; i < l; i++) {
+                                                            elems[i].addEventListener('click', confirmIt, false);
+                                                        }
+                                                    </script>
                                                 </div>
                                             </td>
                                         </tr>

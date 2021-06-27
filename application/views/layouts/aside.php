@@ -1,7 +1,7 @@
 <?php 
         
         /*session_start(); *//*Eliminar
-        if( isset($_SESSION['id'])==false ){
+        if( isset($_SESSION['id'])==false){
             header("location: index.php");
         }
 

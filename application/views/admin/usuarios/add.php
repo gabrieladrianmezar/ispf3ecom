@@ -6,8 +6,8 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Categorias
-                <small>Listado</small>
+                Usuarios
+                <small>Agregar</small>
                 </h1>
             </section>
             <!-- Main content -->
@@ -16,26 +16,33 @@
                 <div class="box box-solid">
                     <div class="box-body">
                     <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12">                                
                                 <?php if ($this->session->flashdata("error")): ?>
                                     <div class="alert alert-danger alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <p><i class="icon fa fa-ban"></i><?php $this->session->flashdata("error"); ?></p>
-                                        
-                                    </div>
-                                <<?php endif; ?>
+                                        <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error")?></p>           
+                                </div>
+                                <?php endif; ?>
+                                <?php 
+                                    /* Clearing flashdata on without redirect*/
+                                    if($this->session->flashdata("error")){
+                                    unset($_SESSION['error']);
+                                 }?>
                                 <form action="<?php echo base_url();?>usuarios/store" method="POST">
                                     <div class="form-group">   
-                                        <label for="nombre">Nombre:</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre">
+                                        <label for="email">Email:</label>
+                                        <input type="email" class="form-control" id="email" name="email" minlength="3" maxlength="200">
                                     </div>
                                     <div class="form-group">   
-                                        <label for="descripcion">Descripcion:</label>
-                                        <input type="text" class="form-control" id="descripcion" name="descripcion">
+                                        <label for="password">Contraseña:</label>
+                                        <input type="text" class="form-control" id="password" name="password" maxlength="255">
+                                    </div>
+                                    <div class="form-group">   
+                                        <label for="nombre">Nombre:</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="255">
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>
-                                        
                                     </div>
                                 </form> 
                             </div>
