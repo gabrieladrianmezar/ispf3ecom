@@ -1,4 +1,3 @@
-
         <!-- =============================================== -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -25,18 +24,21 @@
                                     </div>
                                 <<?php endif; ?>
                                 <form action="<?php echo base_url();?>usuarios/update" method="POST">
-                                    <input type="hidden" value="<?php echo $usuario->id;?>" name="id">
+                                    <input type="hidden" value="<?php echo $usuario->idusuario;?>" name="idusuario">
                                     <div class="form-group">   
-                                        <label for="email">Email:</label>
-                                        <input type="email" class="form-control" id="email" name="email" maxlength="200" value="<?php echo $usuario->email?>">
+                                        <label for="email" class="<?php echo !empty(form_error("email"))? 'text-danger':'';?>">Email:</label>
+                                        <input type="email" class="form-control <?php echo !empty(form_error("email"))? 'is-invalid':'';?>" id="email" name="email" maxlength="200" value="<?php echo !empty(form_error("email"))? set_value("email"):$usuario->email;?>">
+                                        <?php echo form_error("email", "<span class='help-block text-danger'>","</span>");?>
+                                    </div>      
+                                    <div class="form-group">   
+                                        <label for="password" class="<?php echo !empty(form_error("password"))? 'text-danger':'';?>"><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Contraseña (for demo purposes) *Debe introducirse el hash de SHA1 para la contraseña:</a></label>
+                                        <input type="text" class="form-control <?php echo !empty(form_error("password"))? 'is-invalid':'';?>" id="password" name="password" maxlength="255" value="<?php echo $usuario->password?>">  
+                                        <?php echo form_error("password", "<span class='help-block text-danger'>","</span>");?>
                                     </div>
                                     <div class="form-group">   
-                                        <label for="password"><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Contraseña (for demo purposes) *Debe introducirse el hash de SHA1 para la contraseña:</a></label>
-                                        <input type="text" class="form-control" id="password" name="password" maxlength="255" value="<?php echo $usuario->password?>">  
-                                    </div>
-                                    <div class="form-group">   
-                                        <label for="nombre">Nombre:</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="255" value="<?php echo $usuario->nombre?>">  
+                                        <label for="nombre" class="<?php echo !empty(form_error("nombre"))? 'text-danger':'';?>">Nombre:</label>
+                                        <input type="text" class="form-control <?php echo !empty(form_error("nombre"))? 'is-invalid':'';?>" id="nombre" name="nombre" maxlength="255" value="<?php echo $usuario->nombre?>"> 
+                                        <?php echo form_error("nombre", "<span class='help-block text-danger'>","</span>");?> 
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>

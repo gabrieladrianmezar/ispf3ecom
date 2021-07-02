@@ -1,3 +1,4 @@
+
         <!-- =============================================== -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -37,20 +38,20 @@
                                         <?php if(!empty($productos)) ?>
                                             <?php foreach ($productos as $producto):?>
                                         <tr>
-                                            <td><?php echo $producto->id;?></td>
+                                            <td><?php echo $producto->idproducto;?></td>
                                             <td><?php echo $producto->nombre;?></td>
                                             <td><?php echo $producto->precio;?></td>
                                             <td><?php echo $producto->stock;?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                <button type="button" class="viewProducto btn btn-info btn-view" value="<?php echo $producto->id;?>" data-toggle="modal" data-target="#viewProductoModal">
+                                                <button type="button" class="viewProducto btn btn-info btn-view" value="<?php echo $producto->idproducto;?>" data-toggle="modal" data-target="#viewProductoModal">
                                                         <span class="fas fa-search"></span>
                                                     </button>
                                                     
                                                     <!-- <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a> -->                
 
-                                                    <a href="<?php echo base_url()?>productos/edit/<?php echo $producto->id;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
-                                                    <a href="<?php echo base_url();?>productos/delete/<?php echo $producto->id;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <a href="<?php echo base_url()?>productos/edit/<?php echo $producto->idproducto;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
+                                                    <a href="<?php echo base_url();?>productos/delete/<?php echo $producto->idproducto;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
                                                     <script type="text/javascript">
                                                         var elems = document.getElementsByClassName('btn btn-danger');
                                                         var confirmIt = function (e) {

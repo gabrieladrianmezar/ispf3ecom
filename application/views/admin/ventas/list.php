@@ -1,4 +1,3 @@
-
         <!-- =============================================== -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -6,9 +5,9 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Clientes
+                Ventas
                 <small>Listado</small>
-                <div class="float-right d-none d-sm-inline-block"> <a href="<?php echo base_url();?>clientes/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
+                <div class="float-right d-none d-sm-inline-block"> <a href="<?php echo base_url();?>ventas/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
                 </h1>
             </section>
             <!-- Main content -->
@@ -18,7 +17,7 @@
                     <div class="box-body">
                     <div class="row">
                         <div class="col-md-12">
-                             <!-- <a href="<?php /* echo base_url();*/?>clientes/add" class="btn btn-primary"><span class="fa fa-plus"></span></a>  -->                           
+                             <!-- <a href="<?php /* echo base_url();*/?>ventas/add" class="btn btn-primary"><span class="fa fa-plus"></span></a>  -->                           
                         </div>
                     </div>
                     <hr>
@@ -35,23 +34,27 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php if(!empty($clientes)) ?>
-                                            <?php foreach ($clientes as $cliente):?>
+                                        <?php if(!empty($ventas)) ?>
+                                            <?php foreach ($ventas as $venta):?>
                                         <tr>
-                                            <td><?php echo $cliente->idcliente;?></td>
-                                            <td><?php echo $cliente->email;?></td>
-                                            <td><?php echo $cliente->password;?></td>
-                                            <td><?php echo $cliente->nombre;?></td>
+                                            <td><?php echo $venta->idventa;?></td>
+                                            <td><?php echo $venta->email;?></td>
+                                            <td><?php echo $venta->password;?></td>
+                                            <td><?php echo $venta->nombre;?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                <button type="button" class="viewCliente btn btn-info btn-view" value="<?php echo $cliente->idcliente;?>" data-toggle="modal" data-target="#viewClienteModal">
+                                                    <!-- <a data-toggle="modal" value="" title="Ver venta" class="open-ViewventaDialog btn btn-info btn-view" href="#viewventaDialog">
+                                                        <span class="fas fa-search"></span>
+                                                    </a> -->
+                                                   
+                                                    <button type="button" class="viewVenta btn btn-info btn-view" value="<?php echo $venta->idventa;?>" data-toggle="modal" data-target="#viewVentaModal">
                                                         <span class="fas fa-search"></span>
                                                     </button>
                                                     
                                                     <!-- <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a> -->                
 
-                                                    <a href="<?php echo base_url()?>clientes/edit/<?php echo $cliente->idcliente;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
-                                                    <a href="<?php echo base_url();?>clientes/delete/<?php echo $cliente->idcliente;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <a href="<?php echo base_url()?>ventas/edit/<?php echo $venta->idventa;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
+                                                    <a href="<?php echo base_url();?>ventas/delete/<?php echo $venta->idventa;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
                                                     <script type="text/javascript">
                                                         var elems = document.getElementsByClassName('btn btn-danger');
                                                         var confirmIt = function (e) {
@@ -78,11 +81,11 @@
         </div>
         <!-- /.content-wrapper -->
 
-<div class="modal fade" id="viewClienteModal">
+<div class="modal fade" id="viewVentaModal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Informacion del Cliente</h4>
+        <h4 class="modal-title">Informacion del venta</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
       </div>
@@ -98,3 +101,18 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<!-- <div class="modal fade" id="viewventaDialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Información del venta</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div> -->

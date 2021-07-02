@@ -47,10 +47,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="<?php echo base_url();?>" class="nav-link">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contacto</a>
+        <a href="<?php echo base_url();?>contact" class="nav-link">Contacto</a>
       </li>
       <!-- For demo purposes -->
       <li class="nav-item d-none d-sm-inline-block">
@@ -59,7 +59,7 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    <!--  <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
         <div class="input-group-append">
@@ -68,7 +68,7 @@
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">

@@ -98,6 +98,22 @@ $(document).ready(function () {
     }); 
   });
 
+// Modal viewVenta de ventas/list
+$(document).ready(function () {
+    var base_url= "<?php  echo base_url();?>";
+    $(".viewVenta").on("click", function(){
+        var id = $(this).val(); 
+        $.ajax({
+            url: base_url + "ventas/view/" + id,
+            type:"POST",
+            success:function(resp){
+              $("#viewVentaModal .modal-body").html(resp);
+              //alert(resp);
+            }
+        });
+    }); 
+  });
+
 //$(document).on("click", ".open-viewUsuarioDialog", function () {
 //    var id = $(this).val(); 
 //        $.ajax({

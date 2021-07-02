@@ -20,7 +20,7 @@
                                     <div class="alert alert-danger alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                         <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error")?></p>           
-                                    </div>
+                                </div>
                                 <?php endif; ?>
                                 <?php 
                                     /* Clearing flashdata on without redirect*/
@@ -29,16 +29,19 @@
                                  }?>
                                 <form action="<?php echo base_url();?>productos/store" method="POST">
                                     <div class="form-group">   
-                                        <label for="nombre">Nombre:</label>
-                                        <input type="nombre" class="form-control" id="nombre" name="nombre" minlength="3" maxlength="200">
+                                        <label for="nombre" class="<?php echo !empty(form_error("nombre"))? 'text-danger':'';?>">Nombre:</label>
+                                        <input type="text" class="form-control <?php echo !empty(form_error("nombre"))? 'is-invalid':'';?>" id="nombre" name="nombre" minlength="3" maxlength="200" value="<?php echo set_value("nombre");?>">
+                                        <?php echo form_error("nombre", "<span class='help-block text-danger'>","</span>");?>
                                     </div>
-                                    <div class="form-group">   
-                                        <label for="precio">Precio:</label>
-                                        <input type="text" class="form-control" id="precio" name="precio" maxlength="255">
+                                    <div class="form-group <?php echo !empty(form_error("precio"))? 'has-error':'';?>">   
+                                        <label for="precio" class="<?php echo !empty(form_error("precio"))? 'text-danger':'';?>">Precio:</label>
+                                        <input type="number" step="0.01" class="form-control <?php echo !empty(form_error("precio"))? 'is-invalid':'';?>" id="precio" name="precio" maxlength="255" value="<?php echo set_value("precio");?>">
+                                        <?php echo form_error("precio", "<span class='help-block text-danger'>","</span>");?>
                                     </div>
-                                    <div class="form-group">   
-                                        <label for="stock">Stock:</label>
-                                        <input type="text" class="form-control" id="stock" name="stock" maxlength="255">
+                                    <div class="form-group <?php echo !empty(form_error("stock"))? 'has-error':'';?>">   
+                                        <label for="stock" class="<?php echo !empty(form_error("stock"))? 'text-danger':'';?>">Stock:</label>
+                                        <input type="number" class="form-control <?php echo !empty(form_error("stock"))? 'is-invalid':'';?>" id="stock" name="stock" maxlength="255" value="<?php echo set_value("stock");?>">
+                                        <?php echo form_error("stock", "<span class='help-block text-danger'>","</span>");?>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>
