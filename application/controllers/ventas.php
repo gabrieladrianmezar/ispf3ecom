@@ -91,7 +91,7 @@ class Ventas extends CI_Controller {
 
 	public function edit($id){
 		$data = array(
-			'usuario' => $this->Ventas_model->getUsuario($id),
+			'venta' => $this->Ventas_model->getVenta($id),
 		);
 
 		$this->load->view('layouts/header');
@@ -106,9 +106,9 @@ class Ventas extends CI_Controller {
 		$password = $this->input->post("password");
         $nombre = $this->input->post("nombre");
 	
-		$usuarioActual = $this->Ventas_model->getUsuario($id);
+		$ventaActual = $this->Ventas_model->getVenta($id);
 
-		if ($email == $usuarioActual->email) {
+		if ($email == $ventaActual->email) {
 			$unique = '';
 		 }
 		 else{
@@ -146,7 +146,7 @@ class Ventas extends CI_Controller {
 
 	public function view($id){
 		$data = array(
-			'usuario' => $this->Ventas_model->getUsuario($id),
+			'venta' => $this->Ventas_model->getVenta($id),
 		);
 
 		$this->load->view("admin/ventas/view",$data);
