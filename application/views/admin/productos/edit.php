@@ -1,4 +1,3 @@
-
         <!-- =============================================== -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -6,7 +5,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Usuarios
+                Productos
                 <small>Editar</small>
                 </h1>
             </section>
@@ -24,19 +23,19 @@
                                         
                                     </div>
                                 <<?php endif; ?>
-                                <form action="<?php echo base_url();?>usuarios/update" method="POST">
-                                    <input type="hidden" value="<?php echo $usuario->id;?>" name="id">
-                                    <div class="form-group">   
-                                        <label for="email">Email:</label>
-                                        <input type="email" class="form-control" id="email" name="email" maxlength="200" value="<?php echo $usuario->email?>">
-                                    </div>
-                                    <div class="form-group">   
-                                        <label for="password"><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Contraseña (for demo purposes) *Debe introducirse el hash de SHA1 para la contraseña:</a></label>
-                                        <input type="text" class="form-control" id="password" name="password" maxlength="255" value="<?php echo $usuario->password?>">  
-                                    </div>
+                                <form action="<?php echo base_url();?>productos/update" method="POST">
+                                    <input type="hidden" value="<?php echo $producto->id;?>" name="id">
                                     <div class="form-group">   
                                         <label for="nombre">Nombre:</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="255" value="<?php echo $usuario->nombre?>">  
+                                        <input type="nombre" class="form-control" id="nombre" name="nombre" maxlength="200" value="<?php echo $producto->nombre?>">
+                                    </div>
+                                    <div class="form-group">   
+                                        <label for="precio">Precio:</label>
+                                        <input type="text" class="form-control" id="precio" name="precio" maxlength="255" value="<?php echo $producto->precio?>">  
+                                    </div>
+                                    <div class="form-group">   
+                                        <label for="stock">Stock:</label>
+                                        <input type="text" class="form-control" id="stock" name="stock" maxlength="255" value="<?php echo $producto->stock?>">  
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>

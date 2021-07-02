@@ -1,21 +1,21 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Usuarios extends CI_Controller {
+class Clientes extends CI_Controller {
 
 	 public function __construct(){
 		parent::__construct();
-		$this->load->model("Usuariosadmin_model");
+		$this->load->model("Clientes_model");
 	}
 
 	public function index()
 	{	
 		$data = array(
-			'usuarios' => $this->Usuariosadmin_model->getUsuarios(),
+			'clientes' => $this->Clientes_model->getClientes(),
 		);	
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('admin/usuarios/list',$data);
+		$this->load->view('admin/clientes/list',$data);
 		$this->load->view('layouts/footer');
 	}
 
@@ -23,7 +23,7 @@ class Usuarios extends CI_Controller {
     {
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('admin/usuarios/add');
+		$this->load->view('admin/clientes/add');
 		$this->load->view('layouts/footer');	
     }
 
@@ -37,17 +37,17 @@ class Usuarios extends CI_Controller {
     	$email = $this->input->post("email");	
 		/*if (empty($email)){
 			$this->session->set_flashdata("error", "Rellene el campo email");
-			redirect(base_url()."usuarios/add");
+			redirect(base_url()."clientes/add");
 		}*/
     	$password = $this->input->post("password");
 		/*if (empty($password)){	
 			$this->session->set_flashdata("error", "Rellene el campo contraseña");
-			redirect(base_url()."usuarios/add");
+			redirect(base_url()."clientes/add");
 		}*/
         $nombre = $this->input->post("nombre");
 		/*if ($nombre = ""){
 			$this->session->set_flashdata("error", "Rellene el campo nombre");
-			redirect(base_url()."usuarios/add");
+			redirect(base_url()."clientes/add");
 		}*/
 		$data = array(
 			'email' => $email,
@@ -55,47 +55,47 @@ class Usuarios extends CI_Controller {
 			'nombre' => $nombre
 		);
 
-		$emailrepetido = $this->Usuariosadmin_model->doesEmailExist($email);
+		$emailrepetido = $this->Clientes_model->doesEmailExist($email);
 		if ($emailrepetido != 0){
 			$this->session->set_flashdata("error", "El email ingresado ya se encuentra registrado");
-			redirect(base_url()."usuarios/add");
+			redirect(base_url()."clientes/add");
 		};
-		/*$datatwo =	 $this->Usuariosadmin_model->doesEmailExist($email);
+		/*$datatwo =	 $this->Clientes_model->doesEmailExist($email);
 		$this->session->set_flashdata("error", $datatwo);
 		$errormsg = $this->session->flashdata("error");
 		echo $errormsg;
 		exit;
-		redirect(base_url()."usuarios/add");*/	
+		redirect(base_url()."clientes/add");*/	
 
-		#if ($this->Usuariosadmin_model->doesEmailExist($email))
+		#if ($this->Clientes_model->doesEmailExist($email))
 
 		#if ($email or $password or $nombre)	
 		if (!in_array("", $data) and !in_array("da39a3ee5e6b4b0d3255bfef95601890afd80709", $data))
 		{	
 			#echo "empty email:", empty($email),",empty nombre:", empty($nombre), ",in array hash blank:", in_array("da39a3ee5e6b4b0d3255bfef95601890afd80709", $data), ",password empty:",empty($password);
-			if ($this->Usuariosadmin_model->save($data)){
-				redirect(base_url()."usuarios");
+			if ($this->Clientes_model->save($data)){
+				redirect(base_url()."clientes");
 			}
 			else{
 				$this->session->set_flashdata("error", "No se puedo guardar la informacion");
-				redirect(base_url()."usuarios/add");
+				redirect(base_url()."clientes/add");
     		}
 		}		
 			else {
 				$this->session->set_flashdata("error", "Todos los campos deben estar rellenados");
-				redirect(base_url()."usuarios/add");
+				redirect(base_url()."clientes/add");
 		}
 	#}
 	}
 
 	public function edit($id){
 		$data = array(
-			'usuario' => $this->Usuariosadmin_model->getUsuario($id),
+			'cliente' => $this->Clientes_model->getCliente($id),
 		);
 
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('admin/usuarios/edit',$data);
+		$this->load->view('admin/clientes/edit',$data);
 		$this->load->view('layouts/footer');	
 	}
 
@@ -113,27 +113,27 @@ class Usuarios extends CI_Controller {
             'nombre' => $nombre
     	);
 
-		/*$emailrepetido = $this->Usuariosadmin_model->doesEmailExist($email);
+        /*$emailrepetido = $this->Clientes_model->doesEmailExist($email);
 		if ($emailrepetido != 0){
 			$this->session->set_flashdata("error", "El email ingresado ya se encuentra registrado");
-			redirect(base_url()."usuarios/edit");
+			redirect(base_url()."clientes/edit");
 		};*/
-
-    	if ($this->Usuariosadmin_model->update($id,$data)){
-    		redirect(base_url()."usuarios");
+        
+    	if ($this->Clientes_model->update($id,$data)){
+    		redirect(base_url()."clientes");
     	}
     	else{
     		$this->session->set_flashdata("error", "No se puedo actualizar la informacion");
-    		redirect(base_url()."usuarios/edit".$id);
-    	}
+    		redirect(base_url()."clientes/edit".$id);
+		}
 	}
 
 	public function view($id){
 		$data = array(
-			'usuario' => $this->Usuariosadmin_model->getUsuario($id),
+			'cliente' => $this->Clientes_model->getCliente($id),
 		);
 
-		$this->load->view("admin/usuarios/view",$data);
+		$this->load->view("admin/clientes/view",$data);
 	}
 
 	#No es una eliminacion logica sino fisica.
@@ -143,12 +143,12 @@ class Usuarios extends CI_Controller {
 		);
 		$this->Categorias_model->update($id,$data);
 		echo "mantenimiento/categorias";*/
-		if ($this->Usuariosadmin_model->delete($id)){
-    		redirect(base_url()."usuarios");
+		if ($this->Clientes_model->delete($id)){
+    		redirect(base_url()."clientes");
     	}
     	else{
     		$this->session->set_flashdata("error", "No se puedo guardar la informacion");
-    		redirect(base_url()."usuarios/add");
+    		redirect(base_url()."clientes/add");
     	}
 	}
 }

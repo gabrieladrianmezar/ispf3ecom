@@ -1,3 +1,4 @@
+
         <!-- =============================================== -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -5,7 +6,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Usuarios
+                Clientes
                 <small>Agregar</small>
                 </h1>
             </section>
@@ -27,11 +28,10 @@
                                     if($this->session->flashdata("error")){
                                     unset($_SESSION['error']);
                                  }?>
-                                <form action="<?php echo base_url();?>usuarios/store" method="POST">
-                                    <div class="form-group <?php echo !empty(form_error("nombre"))? 'has-error':'';?>">   
+                                <form action="<?php echo base_url();?>clientes/store" method="POST">
+                                    <div class="form-group">   
                                         <label for="email">Email:</label>
-                                        <input type="email" class="form-control" id="email" name="email" minlength="3" maxlength="200" value="<?php echo set_value("email");?>">
-                                        <?php echo form_error("nombre", "<span class='help-block'>","</span>");?>
+                                        <input type="email" class="form-control" id="email" name="email" minlength="3" maxlength="200">
                                     </div>
                                     <div class="form-group">   
                                         <label for="password">Contraseña:</label>

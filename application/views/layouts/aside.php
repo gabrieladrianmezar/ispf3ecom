@@ -125,7 +125,15 @@
             </ul> -->
           </li>
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url();?>productos/productos" class="nav-link">
+            <a href="<?php echo base_url();?>clientes" class="nav-link"> 
+              <i class="nav-icon fas fa-id-card"></i>
+              <p>
+                Clientes
+                <!-- <i class="fas fa-angle-left right"></i> -->
+              </p>
+            </a>
+          <li class="nav-item has-treeview">
+            <a href="<?php echo base_url();?>productos" class="nav-link">
               <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
                 Productos <?php /* echo base_url();?*/ ?>
@@ -154,7 +162,7 @@
             </ul> -->
           </li>
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url();?>ventas/ventas" class="nav-link">
+            <a href="<?php echo base_url();?>ventas" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Ventas

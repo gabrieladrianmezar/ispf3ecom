@@ -1,3 +1,4 @@
+
         <!-- =============================================== -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -5,8 +6,8 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Usuarios
-                <small>Agregar</small>
+                Clientes
+                <small>Editar</small>
                 </h1>
             </section>
             <!-- Main content -->
@@ -15,31 +16,27 @@
                 <div class="box box-solid">
                     <div class="box-body">
                     <div class="row">
-                            <div class="col-md-12">                                
+                            <div class="col-md-12">
                                 <?php if ($this->session->flashdata("error")): ?>
                                     <div class="alert alert-danger alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error")?></p>           
-                                </div>
-                                <?php endif; ?>
-                                <?php 
-                                    /* Clearing flashdata on without redirect*/
-                                    if($this->session->flashdata("error")){
-                                    unset($_SESSION['error']);
-                                 }?>
-                                <form action="<?php echo base_url();?>usuarios/store" method="POST">
-                                    <div class="form-group <?php echo !empty(form_error("nombre"))? 'has-error':'';?>">   
+                                        <p><i class="icon fa fa-ban"></i><?php $this->session->flashdata("error"); ?></p>
+                                        
+                                    </div>
+                                <<?php endif; ?>
+                                <form action="<?php echo base_url();?>clientes/update" method="POST">
+                                    <input type="hidden" value="<?php echo $cliente->id;?>" name="id">
+                                    <div class="form-group">   
                                         <label for="email">Email:</label>
-                                        <input type="email" class="form-control" id="email" name="email" minlength="3" maxlength="200" value="<?php echo set_value("email");?>">
-                                        <?php echo form_error("nombre", "<span class='help-block'>","</span>");?>
+                                        <input type="email" class="form-control" id="email" name="email" maxlength="200" value="<?php echo $cliente->email?>">
                                     </div>
                                     <div class="form-group">   
-                                        <label for="password">Contraseña:</label>
-                                        <input type="text" class="form-control" id="password" name="password" maxlength="255">
+                                        <label for="password"><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Contraseña (for demo purposes) *Debe introducirse el hash de SHA1 para la contraseña:</a></label>
+                                        <input type="text" class="form-control" id="password" name="password" maxlength="255" value="<?php echo $cliente->password?>">  
                                     </div>
                                     <div class="form-group">   
                                         <label for="nombre">Nombre:</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="255">
+                                        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="255" value="<?php echo $cliente->nombre?>">  
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>

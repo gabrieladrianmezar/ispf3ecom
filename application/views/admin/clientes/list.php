@@ -6,9 +6,9 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Usuarios
+                Clientes
                 <small>Listado</small>
-                <div class="float-right d-none d-sm-inline-block"> <a href="<?php echo base_url();?>usuarios/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
+                <div class="float-right d-none d-sm-inline-block"> <a href="<?php echo base_url();?>clientes/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
                 </h1>
             </section>
             <!-- Main content -->
@@ -18,7 +18,7 @@
                     <div class="box-body">
                     <div class="row">
                         <div class="col-md-12">
-                             <!-- <a href="<?php /* echo base_url();*/?>usuarios/add" class="btn btn-primary"><span class="fa fa-plus"></span></a>  -->                           
+                             <!-- <a href="<?php /* echo base_url();*/?>clientes/add" class="btn btn-primary"><span class="fa fa-plus"></span></a>  -->                           
                         </div>
                     </div>
                     <hr>
@@ -35,27 +35,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php if(!empty($usuarios)) ?>
-                                            <?php foreach ($usuarios as $usuario):?>
+                                        <?php if(!empty($clientes)) ?>
+                                            <?php foreach ($clientes as $cliente):?>
                                         <tr>
-                                            <td><?php echo $usuario->id;?></td>
-                                            <td><?php echo $usuario->email;?></td>
-                                            <td><?php echo $usuario->password;?></td>
-                                            <td><?php echo $usuario->nombre;?></td>
+                                            <td><?php echo $cliente->id;?></td>
+                                            <td><?php echo $cliente->email;?></td>
+                                            <td><?php echo $cliente->password;?></td>
+                                            <td><?php echo $cliente->nombre;?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <!-- <a data-toggle="modal" value="" title="Ver usuario" class="open-ViewUsuarioDialog btn btn-info btn-view" href="#viewUsuarioDialog">
-                                                        <span class="fas fa-search"></span>
-                                                    </a> -->
-                                                   
-                                                    <button type="button" class="viewUsuario btn btn-info btn-view" value="<?php echo $usuario->id;?>" data-toggle="modal" data-target="#viewUsuarioModal">
+                                                <button type="button" class="viewCliente btn btn-info btn-view" value="<?php echo $cliente->id;?>" data-toggle="modal" data-target="#viewClienteModal">
                                                         <span class="fas fa-search"></span>
                                                     </button>
                                                     
                                                     <!-- <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a> -->                
 
-                                                    <a href="<?php echo base_url()?>usuarios/edit/<?php echo $usuario->id;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
-                                                    <a href="<?php echo base_url();?>usuarios/delete/<?php echo $usuario->id;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <a href="<?php echo base_url()?>clientes/edit/<?php echo $cliente->id;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
+                                                    <a href="<?php echo base_url();?>clientes/delete/<?php echo $cliente->id;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
                                                     <script type="text/javascript">
                                                         var elems = document.getElementsByClassName('btn btn-danger');
                                                         var confirmIt = function (e) {
@@ -82,11 +78,11 @@
         </div>
         <!-- /.content-wrapper -->
 
-<div class="modal fade" id="viewUsuarioModal">
+<div class="modal fade" id="viewClienteModal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Informacion del Usuario</h4>
+        <h4 class="modal-title">Informacion del Cliente</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
       </div>
@@ -102,18 +98,3 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
-<!-- <div class="modal fade" id="viewUsuarioDialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Información del Usuario</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-
-            </div>
-        </div>
-    </div>
-</div> -->

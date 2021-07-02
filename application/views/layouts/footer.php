@@ -49,5 +49,71 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script>
+// Modal viewUsuario de usuarios/list
+$(document).ready(function () {
+    var base_url= "<?php  echo base_url();?>";
+    $(".viewUsuario").on("click", function(){
+        var id = $(this).val(); 
+        $.ajax({
+            url: base_url + "usuarios/view/" + id,
+            type:"POST",
+            success:function(resp){
+              $("#viewUsuarioModal .modal-body").html(resp);
+              //alert(resp);
+            }
+        });
+    }); 
+  });
+
+// Modal viewCliente de clientes/list
+$(document).ready(function () {
+    var base_url= "<?php  echo base_url();?>";
+    $(".viewCliente").on("click", function(){
+        var id = $(this).val(); 
+        $.ajax({
+            url: base_url + "clientes/view/" + id,
+            type:"POST",
+            success:function(resp){
+              $("#viewClienteModal .modal-body").html(resp);
+              //alert(resp);
+            }
+        });
+    }); 
+  });
+
+// Modal viewProducto de productos/list
+$(document).ready(function () {
+    var base_url= "<?php  echo base_url();?>";
+    $(".viewProducto").on("click", function(){
+        var id = $(this).val(); 
+        $.ajax({
+            url: base_url + "productos/view/" + id,
+            type:"POST",
+            success:function(resp){
+              $("#viewProductoModal .modal-body").html(resp);
+              //alert(resp);
+            }
+        });
+    }); 
+  });
+
+//$(document).on("click", ".open-viewUsuarioDialog", function () {
+//    var id = $(this).val(); 
+//        $.ajax({
+//            url: base_url + "usuarios/view" + id,
+//            type:"POST",
+//            success:function(resp){
+//                $("#viewUsuarioDialog .modal-body").html(resp);
+//                alert(resp);
+//            }
+     //var myBookId = $(this).data('id');
+     //$(".modal-body #bookId").val( myBookId );
+     // As pointed out in comments,  
+     // it is unnecessary to have to manually call the modal.
+     // $('#addBookDialog').modal('show');
+//})
+//});
+</script>
 </body>
 </html>
