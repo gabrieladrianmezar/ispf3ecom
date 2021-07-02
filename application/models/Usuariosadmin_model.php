@@ -9,16 +9,6 @@ class Usuariosadmin_model extends CI_Model {
 		return $resultados->result();
 	}
 
-	/*public function doesEmailExist($email){
-		/*$this->db->where("email",$email);
-		$resultado = $this->db->get("usuarios");*//*
-		$this->db->select('*');	
-		$this->db->like("email", $email);
-		$this->db->from("usuarios");
-		$resultado = $this->db->count_all_results();
-		return $resultado;		
-		}*/
-
 	public function save($data){
 		return $this->db->insert("usuarios",$data);
 	}

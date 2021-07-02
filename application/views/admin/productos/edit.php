@@ -24,7 +24,7 @@
                                     </div>
                                 <<?php endif; ?>
                                 <form action="<?php echo base_url();?>productos/update" method="POST">
-                                    <input type="hidden" value="<?php echo $producto->id;?>" name="id">
+                                    <input type="hidden" value="<?php echo $producto->idproducto;?>" name="idproducto">
                                     <div class="form-group">   
                                         <label for="nombre" class="<?php echo !empty(form_error("nombre"))? 'text-danger':'';?>">Nombre:</label>
                                         <input type="nombre" class="form-control <?php echo !empty(form_error("nombre"))? 'is-invalid':'';?>" id="nombre" name="nombre" maxlength="200" value="<?php echo !empty(form_error("nombre"))? set_value("nombre"):$producto->nombre;?>">
@@ -32,12 +32,12 @@
                                     </div>      
                                     <div class="form-group">   
                                         <label for="precio" class="<?php echo !empty(form_error("precio"))? 'text-danger':'';?>">Precio</label>
-                                        <input type="number" class="form-control <?php echo !empty(form_error("precio"))? 'is-invalid':'';?>" id="precio" name="precio" maxlength="255" value="<?php echo $producto->precio?>">  
+                                        <input type="text" class="form-control <?php echo !empty(form_error("precio"))? 'is-invalid':'';?>" id="precio" name="precio" maxlength="255" value="<?php echo $producto->precio?>">  
                                         <?php echo form_error("precio", "<span class='help-block text-danger'>","</span>");?>
                                     </div>
                                     <div class="form-group">   
                                         <label for="stock" class="<?php echo !empty(form_error("stock"))? 'text-danger':'';?>">Stock:</label>
-                                        <input type="number" class="form-control <?php echo !empty(form_error("stock"))? 'is-invalid':'';?>" id="stock" name="stock" maxlength="255" value="<?php echo $producto->stock?>"> 
+                                        <input type="text" class="form-control <?php echo !empty(form_error("stock"))? 'is-invalid':'';?>" id="stock" name="stock" maxlength="255" value="<?php echo $producto->stock?>"> 
                                         <?php echo form_error("stock", "<span class='help-block text-danger'>","</span>");?> 
                                     </div>
                                     <div class="form-group">

@@ -91,7 +91,7 @@ class Productos extends CI_Controller {
 
 	public function edit($idproducto){
 		$data = array(
-			'producto' => $this->Productos_model->getProductos($idproducto),
+			'producto' => $this->Productos_model->getProducto($idproducto),
 		);
 
 		$this->load->view('layouts/header');

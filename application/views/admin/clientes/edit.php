@@ -24,7 +24,7 @@
                                     </div>
                                 <<?php endif; ?>
                                 <form action="<?php echo base_url();?>clientes/update" method="POST">
-                                    <input type="hidden" value="<?php echo $cliente->id;?>" name="id">
+                                    <input type="hidden" value="<?php echo $cliente->idcliente;?>" name="idcliente">
                                     <div class="form-group">   
                                         <label for="email" class="<?php echo !empty(form_error("email"))? 'text-danger':'';?>">Email:</label>
                                         <input type="email" class="form-control <?php echo !empty(form_error("email"))? 'is-invalid':'';?>" id="email" name="email" maxlength="200" value="<?php echo !empty(form_error("email"))? set_value("email"):$cliente->email;?>">

@@ -9,16 +9,6 @@ class Productos_model extends CI_Model {
 		return $resultados->result();
 	}
 
-	/*public function doesNombreExist($nombre){
-		/*$this->db->where("email",$email);
-		$resultado = $this->db->get("productos");*//*
-		$this->db->select('*');	
-		$this->db->like("nombre", $nombre);
-		$this->db->from("productos");
-		$resultado = $this->db->count_all_results();
-		return $resultado;		
-		}*/
-
 	public function save($data){
 		return $this->db->insert("productos",$data);
 	}
