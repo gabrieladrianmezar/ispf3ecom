@@ -10,7 +10,7 @@ Programs and technologies used:
 -Apache 2.4.48 Win64 OpenSSL 1.1.1k  
 -phpMyAdmin 5.1.1  
 -FileZilla FTP Server 0.9.41  
-as part of XAMPP Version 8.0.7
+as part of XAMPP Version 8.0.7  
 -MySQL 8.0.24  
 -Microsoft Visual Studio Code  
 -git version 2.32.0.windows.1
@@ -27,7 +27,7 @@ Programas y tecnologías usadas:
 -Apache 2.4.48 Win64 OpenSSL 1.1.1k  
 -phpMyAdmin 5.1.1  
 -FileZilla FTP Server 0.9.41  
-como parte de XAMPP Version 8.0.7
+como parte de XAMPP Version 8.0.7  
 -MySQL 8.0.24  
 -Microsoft Visual Studio Code  
 -git version 2.32.0.windows.1  
