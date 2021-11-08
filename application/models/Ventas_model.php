@@ -9,6 +9,11 @@ class Ventas_model extends CI_Model {
 		return $resultados->result();
 	}
 
+	public function getComprobantes(){
+		$resultados = $this->db->get("tipocomprobante");
+		return $resultados->result();
+	}
+
 	/*public function doesEmailExist($email){
 		/*$this->db->where("email",$email);
 		$resultado = $this->db->get("ventas");*//*
@@ -37,5 +42,13 @@ class Ventas_model extends CI_Model {
 	public function delete($idventa){
 		$this->db->where("idventa",$idventa);
 		return $this->db->delete("ventas");
+	}
+
+	public function getProductos($valor){	
+		$this->db->select("idproducto,nombre as label,precio,stock");
+		$this->db->from("productos");
+		$this->db->like("nombre",$valor);
+		$resultados = $this->db->get();
+		return $resultados->result_array();
 	}
 } 

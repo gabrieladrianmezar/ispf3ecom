@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="<?php echo base_url();?>plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>plugins/jqueryui/jquery-ui.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo base_url();?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
@@ -35,6 +36,10 @@
   <link rel="stylesheet" href="<?php echo base_url();?>plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url();?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed"> <!-- Tweak this to keep sidebar collapsed-->
 <div class="wrapper">
@@ -54,7 +59,7 @@
       </li>
       <!-- For demo purposes -->
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="https://github.com/iamSopapo/ispf3ecom" class="nav-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
+        <a href="https://github.com/gabrieladrianmezar/ispf3ecom" class="nav-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
       </li>
     </ul>
 

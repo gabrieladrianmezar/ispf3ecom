@@ -6,6 +6,7 @@ class Ventas extends CI_Controller {
 	 public function __construct(){
 		parent::__construct();
 		$this->load->model("Ventas_model");
+		$this->load->model("Clientes_model");
 	}
 
 	public function index()
@@ -21,9 +22,13 @@ class Ventas extends CI_Controller {
 
 	public function add()
     {
+		$data = array(
+			'tipocomprobantes' => $this->Ventas_model->getComprobantes(),
+			'clientes' => $this->Clientes_model->getClientes(),
+		);
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('admin/ventas/add');
+		$this->load->view('admin/ventas/add',$data);
 		$this->load->view('layouts/footer');	
     }
 
@@ -166,5 +171,11 @@ class Ventas extends CI_Controller {
     		$this->session->set_flashdata("error", "No se puedo guardar la informacion");
     		redirect(base_url()."ventas/add");
     	}
+	}
+
+	public function getProductos(){
+		$valor = $this->input->post("valor");
+		$clientes = $this->Ventas_model->getProductos($valor);
+		echo json_encode($clientes);
 	}
 }

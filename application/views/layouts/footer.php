@@ -1,6 +1,6 @@
 <!-- =============================================== -->
 <footer class="main-footer">
-<a href="<?php echo base_url();?>licensepage"><strong>Copyright &copy; </a> 2021 <a href="https://github.com/iamSopapo" target="_blank">iamSopapo</a>.</strong>
+<a href="<?php echo base_url();?>licensepage"><strong>Copyright &copy; </a> 2021 <a href="https://github.com/gabrieladrianmezar" target="_blank">Gabriel Adrián Meza Romero</a>.</strong>
     Todos los derechos reservados.
     <div class="float-right d-none d-sm-inline-block">
       <b>Versión</b> 1.0.0
@@ -18,37 +18,50 @@
 <!-- jQuery -->
 <script src="<?php echo base_url();?>plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="<?php echo base_url();?>plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?php echo base_url();?>plugins/jqueryui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo base_url();?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
+<script src="<?php echo base_url();?>plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
+<script src="<?php echo base_url();?>lugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
-<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="<?php echo base_url();?>plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="<?php echo base_url();?>plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
-<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="<?php echo base_url();?>plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<script src="<?php echo base_url();?>plugins/moment/moment.min.js"></script>
+<script src="<?php echo base_url();?>plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="<?php echo base_url();?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
-<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<script src="<?php echo base_url();?>plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="<?php echo base_url();?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
+<script src="<?php echo base_url();?>dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
+<script src="<?php echo base_url();?>dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<script src="<?php echo base_url();?>dist/js/demo.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url();?>plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url();?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo base_url();?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?php echo base_url();?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="<?php echo base_url();?>plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?php echo base_url();?>plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="<?php echo base_url();?>plugins/jszip/jszip.min.js"></script>
+<script src="<?php echo base_url();?>plugins/pdfmake/pdfmake.min.js"></script>
+<script src="<?php echo base_url();?>plugins/pdfmake/vfs_fonts.js"></script>
+<script src="<?php echo base_url();?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="<?php echo base_url();?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="<?php echo base_url();?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script>
 // Modal viewUsuario de usuarios/list
 $(document).ready(function () {
@@ -114,6 +127,116 @@ $(document).ready(function () {
     }); 
   });
 
+  $(function() { 
+    $(comprobantes).on("change",function(){
+      option = $(this).val();
+      if (option !="") {
+        infocomprobante = option.split("*");
+        $("#idcomprobante").val(infocomprobante[0]);
+        $("#iva").val(infocomprobante[2]);
+        $("#serie").val(infocomprobante[3]);
+        $("#numero").val(generarNumeroComprobante(infocomprobante[1]));
+      }
+      else{
+        $("#idcomprobante").val(null);
+        $("#iva").val(null);
+        $("#serie").val(null);
+        $("#numero").val(null);
+      }
+    })
+  })
+
+  $(document).on("click",".btn-check",function(){
+    cliente = $(this).val()
+    infocliente = cliente.split("*");
+    $("#idcliente").val(infocliente[0]);
+    $("#cliente").val(infocliente[1]);
+    $("#modal-default").modal("hide")
+  });
+  $("#producto").autocomplete({
+    source:function(request, response){ 
+      alert("base_url");
+      $.ajax({
+        url: "http://localhost/isfp3ecom/ventas/getProductos",
+        type: "POST",
+        dataType:"json",
+        data:{ valor: request.term},
+        success:function(data){
+          response(data);
+        }
+      });
+    },
+    minLength:2,
+    select:function(event, ui){
+      data = ui.item.idproducto + "*"+ ui.item.label+ "*"+ 
+            ui.item.precio+ "*"+ ui.item.stock;
+      $("#btn-agregar").val(data);
+      alert("hola");
+    },
+  });
+
+
+  //Paginas
+  $(function () {
+    $("#example1").DataTable({
+      "buttons": [/*"copy",*/ "csv", "excel", "pdf", "print", /*"colvis"*/],
+      "responsive": true, "lengthChange": true, "autoWidth": false,
+      "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por pagina",
+            "zeroRecords": "No se encontraron resultados en su busqueda",
+            "searchPlaceholder": "Buscar registros",
+            "info": "Mostrando registros de _START_ al _END_ de un total de  _TOTAL_ registros",
+            "infoEmpty": "No existen registros",
+            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "search": "Buscar:",
+            "paginate": {
+                "first": "Primero",
+                "last": "Último",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            },
+        },
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+
+  function generarNumeroComprobante(cantidad){
+    var numero = cantidad+1; //n debe ser el ultimo numero generado
+    var fn ='00000000'; //es la mascara de ceros
+    fn = fn.substring (0,8-numero.length) + numero;
+    return fn;
+  }
+
+    /*Con quilombo*
+    if (cantidad>=99999 && numero<   999999){
+      return Number(numero)+1;
+    }
+    if (numero>= 9999 && numero< 99999){
+      return "0" + (Number(numero)+1);
+    }
+    if (numero>= 999 && numer< 9999){
+      return "00" + (Number(numero)+1);
+    }
+    if (numero>= 99 && numero< 999){
+      return "000" + (Number(numero)+1);
+    }
+    if (numero>= 9 && numero< 99){
+      return "0000" + (Number(numero)+1);
+    }
+    if (numero< 9 ){
+      return "00000" + (Number(numero)+1);
+    }
+
+    */
+
 //$(document).on("click", ".open-viewUsuarioDialog", function () {
 //    var id = $(this).val(); 
 //        $.ajax({
@@ -130,6 +253,7 @@ $(document).ready(function () {
      // $('#addBookDialog').modal('show');
 //})
 //});
+
 </script>
 </body>
 </html>

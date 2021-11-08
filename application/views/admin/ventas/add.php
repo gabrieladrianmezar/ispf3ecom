@@ -22,15 +22,22 @@
                                     <label for="">Comprobante:</label>
                                     <select name="comprobantes" id="comprobantes" class="form-control" required>
                                         <option value="">Seleccione...</option>
-                                        <option value="1">Boleta</option>
-                                        <option value="2">Factura</option>
+                                        <?php foreach($tipocomprobantes as $tipocomprobante):
+                                        ?>
+                                            <?php $datacomprobante = $tipocomprobante->id."*".
+                                                    $tipocomprobante->cantidad."*".
+                                                    $tipocomprobante->iva."*".
+                                                    $tipocomprobante->serie;?>
+                                            <option value="<?php echo $datacomprobante;?>">
+                                            <?php echo $tipocomprobante->nombre?></option>
+                                        <?php endforeach;?>
                                     </select>
                                     <input type="hidden" id="idcomprobante" name="idcomprobante">
-                                    <input type="hidden" id="igv">
+                                    <input type="hidden" id="iva">
                                 </div>
                                 <div class="col-md-3">
                                     <label for="">Serie:</label>
-                                    <input type="text" class="form-control" name="serie" readonly>
+                                    <input type="text" class="form-control" name="serie" id="serie" readonly>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="">Numero:</label>
@@ -57,7 +64,7 @@
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <label for="">Producto:</label>
-                                    <input type="text" class="form-control" id="producto">
+                                    <input type="text" class="form-control" id="producto" autocomplete="on">
                                 </div>
                                 <div class="col-md-2">
                                     <label for="">&nbsp;</label>
@@ -131,9 +138,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title">Lista de Clientes</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Lita de Clientes</h4>
             </div>
             <div class="modal-body">
                 <table id="example1" class="table table-bordered table-striped table-hover">
@@ -141,12 +148,28 @@
                         <tr>
                             <th>#</th>
                             <th>Nombre</th>
-                            <th>Documento</th>
+                            <th>Email</th>
                             <th>Opcion</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <?php if(!empty($clientes)) ?>
+                            <?php foreach ($clientes as $cliente):?>
+                            <tr>
+                            <td><?php echo $cliente->idcliente;?></td>
+                            <td><?php echo $cliente->nombre;?></td>
+                            <td><?php echo $cliente->email;?></td>
+                            <?php $datacliente = $cliente->idcliente."*".
+                            $cliente->nombre."*".
+                            $cliente->email."*";
+                            ?>
+                            <td>
+                            <button type="button" class="btn btn-success btn-check" value="<?php echo $datacliente?>"><span class="fas fa-check"></span>
+
+                            </button>
+                            </td>
+                            </tr>
+                            <?php endforeach;?>
                     </tbody>
                 </table>
             </div>

@@ -41,7 +41,6 @@
                                             <td><?php echo $venta->email;?></td>
                                             <td><?php echo $venta->password;?></td>
                                             <td><?php echo $venta->nombre;?></td>
-                                            <td>
                                                 <div class="btn-group">
                                                     <!-- <a data-toggle="modal" value="" title="Ver venta" class="open-ViewventaDialog btn btn-info btn-view" href="#viewventaDialog">
                                                         <span class="fas fa-search"></span>
