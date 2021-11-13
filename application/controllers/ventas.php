@@ -175,7 +175,7 @@ class Ventas extends CI_Controller {
 
 	public function getProductos(){
 		$valor = $this->input->post("valor");
-		$clientes = $this->Ventas_model->getProductos($valor);
+		$clientes = $this->Ventas_model->getProductosDB($valor);
 		echo json_encode($clientes);
 	}
 }

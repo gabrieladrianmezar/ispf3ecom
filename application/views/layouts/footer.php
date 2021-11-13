@@ -18,7 +18,7 @@
 <!-- jQuery -->
 <script src="<?php echo base_url();?>plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="<?php echo base_url();?>plugins/jqueryui/jquery-ui.min.js"></script>
+<script src="<?php echo base_url();?>plugins/jquery-ui/jquery-ui.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
@@ -153,28 +153,56 @@ $(document).ready(function () {
     $("#cliente").val(infocliente[1]);
     $("#modal-default").modal("hide")
   });
+
   $("#producto").autocomplete({
     source:function(request, response){ 
-      alert("base_url");
       $.ajax({
-        url: "http://localhost/isfp3ecom/ventas/getProductos",
-        type: "POST",
+        url:"http://localhost/isfp3ecom/ventas/getProductos",
+        type:"POST",
         dataType:"json",
         data:{ valor: request.term},
         success:function(data){
           response(data);
         }
       });
-    },
-    minLength:2,
+    },  
+    minLength:1,
     select:function(event, ui){
-      data = ui.item.idproducto + "*"+ ui.item.label+ "*"+ 
-            ui.item.precio+ "*"+ ui.item.stock;
+      data = ui.item.idproducto + "*"+ ui.item.label + "*" + 
+            ui.item.precio + "*" + ui.item.stock;
       $("#btn-agregar").val(data);
-      alert("hola");
     },
   });
 
+    $("#btn-agregar").on("click",function(){
+      data = $(this).val();
+      if (data !='') {
+        infoproducto = data.split("*");
+        html = "<tr>";
+        html += "<td><input type='hidden' name='idproductos[]' value='"+infoproducto[0]+"'>"+infoproducto[1]+"</td>";
+        html += "<td><input type='hidden' name='precios[]' value='"+infoproducto[2]+"'>"+infoproducto[2]+"</td>";
+        html += "<td>"+infoproducto[3]+"</td>";
+        html += "<td><input type='text' name='cantidades[]' value='1' class='cantidades'></td>";
+        html += "<td><input type='hidden' name='importes[]' value='"+infoproducto[2]+"'><p>"+infoproducto[2]+"</p></td>";
+        html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fas minus-circle'></span></button></td>";
+        html += "</tr>";
+        $("#tbventas tbody").append(html);
+      }else{
+        alert("Seleccione un producto");
+      };
+    });
+
+    $(document).on("click",".btn-remove-producto", function(){
+      $(this.closest("tr").remove());
+    });
+    $(document).on("keyup","#tbventas input.cantidades", function(){
+      cantidad = $(this).val();
+      precio = $(this).closest("tr").find("td:eq(1)").text();
+      importe = cantidad * precio;
+
+      $(this).closest("tr").find("td:eq(4)").children("p").text(importe);
+      $(this).closest("tr").find("td:eq(4)").children("input").val(importe);
+    });
 
   //Paginas
   $(function () {
@@ -213,6 +241,15 @@ $(document).ready(function () {
     var fn ='00000000'; //es la mascara de ceros
     fn = fn.substring (0,8-numero.length) + numero;
     return fn;
+  }
+
+  function obtenerSubtotal(){
+    subtotal = 0;
+    $('#tbventas tbody tr').each(function(){
+      subtotal = subtotal + Number($(this).find("td:eq(4)").text());
+    });
+    $("input[name=subtotal]").val(subtotal);
+    
   }
 
     /*Con quilombo*

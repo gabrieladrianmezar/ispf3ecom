@@ -44,7 +44,7 @@ class Ventas_model extends CI_Model {
 		return $this->db->delete("ventas");
 	}
 
-	public function getProductos($valor){	
+	public function getProductosDB($valor){	
 		$this->db->select("idproducto,nombre as label,precio,stock");
 		$this->db->from("productos");
 		$this->db->like("nombre",$valor);

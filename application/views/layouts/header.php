@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="<?php echo base_url();?>plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>plugins/jqueryui/jquery-ui.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>plugins/jquery-ui/jquery-ui.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo base_url();?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->

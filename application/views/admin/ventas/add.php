@@ -64,7 +64,7 @@
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <label for="">Producto:</label>
-                                    <input type="text" class="form-control" id="producto" autocomplete="on">
+                                    <input type="text" class="form-control" id="producto">
                                 </div>
                                 <div class="col-md-2">
                                     <label for="">&nbsp;</label>
@@ -74,7 +74,6 @@
                             <table id="tbventas" class="table table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Codigo</th>
                                         <th>Nombre</th>
 
                                         <th>Precio</th>
@@ -98,8 +97,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <span class="input-group-addon">IGV:</span>
-                                        <input type="text" class="form-control" placeholder="Username" name="igv" readonly="readonly">
+                                        <span class="input-group-addon">IVA:</span>
+                                        <input type="text" class="form-control" placeholder="Username" name="iva" readonly="readonly">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
