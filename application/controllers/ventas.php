@@ -178,4 +178,78 @@ class Ventas extends CI_Controller {
 		$clientes = $this->Ventas_model->getProductosDB($valor);
 		echo json_encode($clientes);
 	}
+
+	public function guardar(){
+		$idcliente = $this->input->post("idcliente");
+		$fecha = $this->input->post("fecha");
+		$subtotal = $this->input->post("subtotal");
+		$iva = $this->input->post("iva");
+		$descuento = $this->input->post("descuento");
+		$total = $this->input->post("total");
+		$idcomprobante = $this->input->post("fecha");
+		$idusuario = $this->session->userdata("id");
+		$numerodocumento = $this->input->post("numero");
+		$serie = $this->input->post("serie");
+
+		$idproductos = $this->input->post("idproductos");
+		$precios = $this->input->post("precios");
+		$cantidades = $this->input->post("cantidades");
+		$importes = $this->input->post("importes");
+
+		$data = array(
+			"idcliente" => $idcliente,
+			"fecha" => $fecha,
+			"subtotal" => $subtotal,
+			"iva" => $iva,
+			"descuento" => $descuento,
+			"total" => $total,
+			"idcomprobante" => $idcomprobante,
+			"idusuario" => $idusuario,
+			"numerodocumento" => $numerodocumento,
+			"serie" => $serie,
+
+		);
+
+		if ($this->Ventas_model->save($data)){
+			$idventa = $this->Ventas_model->lastID();
+			$this->updateComprobante($idcomprobante);
+			$this->save_detalle($idproductos,$idventa,$precios,$cantidades,$importes); 
+		}else{
+			redirect(base_url(),"ventas/add");
+		}
+
+	}
+
+	protected function updateComprobante($idcomprobante){
+		$comprobanteActual = $this->Ventas_model->getComprobante($idcomprobante);
+		$data = array(
+			'cantidad' => $comprobanteActual->cantidad + 1,
+			
+		);
+		$this->Ventas_model->updateComprobante($idcomprobante,$data);
+	}
+
+	protected function save_detalle($productos,$idventa,$precios,$cantidades,$importes){
+		for ($i=0; $i < count($productos); $i++) {
+			$data = array(
+				'idproducto' => $productos[$i],
+				'idventa' => $idventa[$i],
+				'precio' => $precios[$i],
+				'cantidad' => $cantidades[$i],
+				'importe' => $importes[$i],
+
+			);
+			$this->Ventas_model->saveDetalle($data);
+			$this->updateProducto($productos[$i],$cantidades[$i]);
+			}
+	}
+
+	protected function updateProducto($idproducto,$cantidad){
+		$productoActual = $this->Productos_model->getProducto($idproducto);
+		$data = array(
+			"stock" => $productoActual->stock - $cantidad,
+
+		);
+		$this->Productos_model->update($idproducto,$data);
+	}
 }

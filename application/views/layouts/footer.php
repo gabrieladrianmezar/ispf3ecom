@@ -143,6 +143,7 @@ $(document).ready(function () {
         $("#serie").val(null);
         $("#numero").val(null);
       }
+      obtenerValores();
     })
   })
 
@@ -187,6 +188,7 @@ $(document).ready(function () {
         html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fas minus-circle'></span></button></td>";
         html += "</tr>";
         $("#tbventas tbody").append(html);
+        obtenerValores();
       }else{
         alert("Seleccione un producto");
       };
@@ -200,7 +202,7 @@ $(document).ready(function () {
       precio = $(this).closest("tr").find("td:eq(1)").text();
       importe = cantidad * precio;
 
-      $(this).closest("tr").find("td:eq(4)").children("p").text(importe);
+      $(this).closest("tr").find("td:eq(4)").children("p").text(importe.toFixed(2));
       $(this).closest("tr").find("td:eq(4)").children("input").val(importe);
     });
 
@@ -243,12 +245,18 @@ $(document).ready(function () {
     return fn;
   }
 
-  function obtenerSubtotal(){
+  function obtenerValores(){
     subtotal = 0;
     $('#tbventas tbody tr').each(function(){
       subtotal = subtotal + Number($(this).find("td:eq(4)").text());
     });
     $("input[name=subtotal]").val(subtotal);
+    porcentaje = $("#iva").val();
+    iva = subtotal * (porcentaje/100);
+    $("input[name=iva]").val(iva);
+    descuento = $("input[name=descuento]").val();
+    total = subtotal + iva - descuento;
+    $("input[name=total]").val(total.toFixed(2));
     
   }
 

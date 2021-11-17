@@ -9,6 +9,11 @@ class Ventas_model extends CI_Model {
 		return $resultados->result();
 	}
 
+	public function getComprobante($idcomprobante){
+		$this->db->where("id",$idcomprobante);
+		$resultado = $this->db->get("tipocomprobante");
+		return $resultado->result();
+	}
 	public function getComprobantes(){
 		$resultados = $this->db->get("tipocomprobante");
 		return $resultados->result();
@@ -50,5 +55,18 @@ class Ventas_model extends CI_Model {
 		$this->db->like("nombre",$valor);
 		$resultados = $this->db->get();
 		return $resultados->result_array();
+	}
+
+	public function lastID(){
+		return $this->db->insert_id();
+	}
+
+	public function updateComprobante($idcomprobante,$data){
+		$this->db->where("id",$idcomprobante);
+		$this->db->update("tipocomprobante",$data);
+	}
+
+	public function saveDetalle($data){
+		return $this->db->insert("detalleventas",$data);
 	}
 } 
