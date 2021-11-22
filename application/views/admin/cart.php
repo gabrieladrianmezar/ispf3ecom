@@ -1,11 +1,10 @@
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<div class="content-wrapper mains">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Ventas
-        <small>Nuevo</small>
+        Carrito
         </h1>
     </section>
     <!-- Main content -->
@@ -16,7 +15,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         
-                        <form action="<?php echo base_url();?>ventas/store" method="POST" class="form-horizontal">
+                        <form action="<?php echo base_url();?>cart/store" method="POST" class="form-horizontal">
                             <div class="form-group">
                                 <div class="col-md-3">
                                 <p>
@@ -28,16 +27,16 @@
                             
                         ?>
                     </p>
-                                    <label for="">Comprobante:</label>
-                                    <select name="comprobantes" id="comprobantes" class="form-control" required>
-                                        <option value="">Seleccione...</option>
-                                        <?php foreach($tipocomprobantes as $tipocomprobante):
+                                    <label type="hidden for=">Comprobante:</label>
+                                    <select type="hidden" name="comprobantes" id="comprobantes" class="form-control" >
+                                        <option type="hidden" value="" readonly>Seleccione...</option>
+                                        <?php foreach($tipocomprobante as $tipocomprobante):
                                         ?>
                                             <?php $datacomprobante = $tipocomprobante->id."*".
                                                     $tipocomprobante->cantidad."*".
                                                     $tipocomprobante->iva."*".
                                                     $tipocomprobante->serie;?>
-                                            <option value="<?php echo $datacomprobante;?>">
+                                            <option value="<?php echo $datacomprobante;?>" >
                                             <?php echo $tipocomprobante->nombre?></option>
                                         <?php endforeach;?>
                                     </select>
@@ -45,29 +44,25 @@
                                     <input type="hidden" id="iva">
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="">Serie:</label>
-                                    <input type="text" class="form-control" name="serie" id="serie" readonly>
+                                    <input type="hidden" class="form-control" name="serie" id="serie" readonly>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="">Numero:</label>
-                                    <input type="text" class="form-control" id="numero" name="numero" readonly>
+                                    <input type="hidden" class="form-control" id="numero" name="numero" readonly>
                                 </div>
                                  
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6">
-                                    <label for="">Cliente:</label>
                                     <div class="input-group">
-                                        <input type="hidden" name="idcliente" id="idcliente">
-                                        <input type="text" class="form-control" disabled="disabled" id="cliente">
-                                        <span class="input-group-btn">
+                                        <input type="hidden" name="idcliente" id="idcliente" value="<?php echo $this->session->userdata("idusuario")?>">
+                                        <input type="hidden" class="form-control" disabled="disabled" id="cliente" value="<?php echo $this->session->userdata("idusuario")?>">
+                                        <!-- <span class="input-group-btn">
                                             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-default" ><span class="fa fa-search"></span> Buscar</button>
-                                        </span>
+                                        </span> -->
                                     </div><!-- /input-group -->
                                 </div> 
                                 <div class="col-md-3">
-                                    <label for="">Fecha:</label>
-                                    <input type="date" class="form-control" name="fecha" required>
+                                    <input type="hidden" class="form-control" name="fecha" id="datePicker" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -101,25 +96,25 @@
                                 <div class="col-md-3">
                                     <div class="input-group">
                                         <span class="input-group-addon">Subtotal:</span>
-                                        <input type="text" class="form-control" placeholder="Username" name="subtotal" readonly="readonly">
+                                        <input type="text" class="form-control" placeholder="0.00" name="subtotal" value="<?php ?>" readonly="readonly">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
                                         <span class="input-group-addon">IVA:</span>
-                                        <input type="text" class="form-control" placeholder="Username" name="iva" readonly="readonly">
+                                        <input type="text" class="form-control" placeholder="0.00" name="iva" value="" readonly="readonly">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
                                         <span class="input-group-addon">Descuento:</span>
-                                        <input type="text" class="form-control" placeholder="Username" name="descuento" value="0.00" readonly="readonly">
+                                        <input type="text" class="form-control" placeholder="0.00" name="descuento" value="0.00" readonly="readonly">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
                                         <span class="input-group-addon">Total:</span>
-                                        <input type="text" class="form-control" placeholder="Username" name="total" readonly="readonly">
+                                        <input type="text" class="form-control" placeholder="0.00" value="" name="total" readonly="readonly">
                                     </div>
                                 </div>
                             </div>

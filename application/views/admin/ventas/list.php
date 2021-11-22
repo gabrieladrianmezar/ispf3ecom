@@ -27,10 +27,11 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Email</th>
-                                            <th><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Contraseña (For demo purposes)</a></th>
-                                            <th>Nombre</th>
-                                            <th>Opciones</th>
+                                            <th>Nombre Cliente</th>
+                                            <th>Tipo Comprobante</a></th>
+                                            <th>Número de Comprobante</th>
+                                            <th>Fecha</th>
+                                            <th>Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>

@@ -1,6 +1,6 @@
 <!-- =============================================== -->
-<footer class="main-footer">
-<a href="<?php echo base_url();?>licensepage"><strong>Copyright &copy; </a> 2021 <a href="https://github.com/gabrieladrianmezar" target="_blank">Gabriel Adrián Meza Romero</a>.</strong>
+<footer class="main-footer mains">  
+    <a href="<?php echo base_url();?>licensepage"><strong>Copyright &copy; </a> 2021 <a href="https://github.com/gabrieladrianmezar" target="_blank">Gabriel Adrián Meza Romero</a>.</strong>
     Todos los derechos reservados.
     <div class="float-right d-none d-sm-inline-block">
       <b>Versión</b> 1.0.0
@@ -64,6 +64,9 @@
 <script src="<?php echo base_url();?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script>
 // Modal viewUsuario de usuarios/list
+var cart = [0,0,0,0]
+
+
 $(document).ready(function () {
     var base_url= "<?php  echo base_url();?>";
     $(".viewUsuario").on("click", function(){
@@ -127,6 +130,19 @@ $(document).ready(function () {
     }); 
   });
 
+  $(document).ready( function() {
+    var now = new Date();
+    var month = (now.getMonth() + 1);               
+    var day = now.getDate();
+    if (month < 10) 
+        month = "0" + month;
+    if (day < 10) 
+        day = "0" + day;
+    var today = now.getFullYear() + '-' + month + '-' + day;
+    $('#datePicker').val(today);
+});
+
+
   $(function() { 
     $(comprobantes).on("change",function(){
       option = $(this).val();
@@ -175,7 +191,7 @@ $(document).ready(function () {
     },
   });
 
-    $("#btn-agregar").on("click",function(){
+  $("#btn-agregar").on("click",function(){
       data = $(this).val();
       if (data !='') {
         infoproducto = data.split("*");
@@ -189,6 +205,24 @@ $(document).ready(function () {
         html += "</tr>";
         $("#tbventas tbody").append(html);
         obtenerValores();
+      }else{
+        alert("Seleccione un producto");
+      };
+    });
+
+    $("#btn-to-cart").on("click",function(){
+      data = $(this).val();
+      if (data !='') {
+        infoproducto = data.split(",");
+        idproducto = parseInt(infoproducto[0])-1;
+        if (cart[idproducto]>0) {
+        cantidadproducto = cart[idproducto]+parseInt(infoproducto[1]);
+        cart[idproducto] = cantidadproducto;
+        alert(cart[idproducto]+"ojo");
+        }else{
+            cart[idproducto] = parseInt(infoproducto[1]);
+            alert(cart[idproducto]+"ejo");
+        }
       }else{
         alert("Seleccione un producto");
       };
@@ -258,6 +292,10 @@ $(document).ready(function () {
     total = subtotal + iva - descuento;
     $("input[name=total]").val(total.toFixed(2));
     
+  }
+
+  function añadirProducto(){
+
   }
 
     /*Con quilombo*

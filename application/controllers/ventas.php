@@ -5,8 +5,12 @@ class Ventas extends CI_Controller {
 
 	 public function __construct(){
 		parent::__construct();
+		if (!$this->session->userdata("login")) {
+			redirect(base_url());
+		}
 		$this->load->model("Ventas_model");
 		$this->load->model("Clientes_model");
+		$this->load->model("Productos_model");
 	}
 
 	public function index()
@@ -32,8 +36,9 @@ class Ventas extends CI_Controller {
 		$this->load->view('layouts/footer');	
     }
 
-    public function store()
+    public function storea()
     {
+		$fecha =
 		/*
 		if (!isset($_POST["email"]) || !isset($_POST["password"]) || !isset($_POST["nombre"]))
 		{
@@ -179,15 +184,15 @@ class Ventas extends CI_Controller {
 		echo json_encode($clientes);
 	}
 
-	public function guardar(){
+	public function store(){;
 		$idcliente = $this->input->post("idcliente");
 		$fecha = $this->input->post("fecha");
 		$subtotal = $this->input->post("subtotal");
 		$iva = $this->input->post("iva");
 		$descuento = $this->input->post("descuento");
 		$total = $this->input->post("total");
-		$idcomprobante = $this->input->post("fecha");
-		$idusuario = $this->session->userdata("id");
+		$idcomprobante = $this->input->post("idcomprobante");
+		$idusuario = $this->session->userdata("idusuario");
 		$numerodocumento = $this->input->post("numero");
 		$serie = $this->input->post("serie");
 
@@ -203,17 +208,28 @@ class Ventas extends CI_Controller {
 			"iva" => $iva,
 			"descuento" => $descuento,
 			"total" => $total,
-			"idcomprobante" => $idcomprobante,
+			"idtipocomprobante" => $idcomprobante,
 			"idusuario" => $idusuario,
 			"numerodocumento" => $numerodocumento,
 			"serie" => $serie,
 
 		);
 
+		//echo "-array ids: ";
+		//print_r ($idproductos);	
+		//echo " -cantidad prod: ";
+		//echo count($idproductos);
+		
 		if ($this->Ventas_model->save($data)){
 			$idventa = $this->Ventas_model->lastID();
+			//echo " -idventa: ";
+			//echo $idventa;}
+			//else{
+			//	echo " o ";
+			//}
 			$this->updateComprobante($idcomprobante);
-			$this->save_detalle($idproductos,$idventa,$precios,$cantidades,$importes); 
+			$this->save_detalle($idproductos,$idventa,$cantidades,$precios,$importes);
+			redirect(base_url()."ventas");
 		}else{
 			redirect(base_url(),"ventas/add");
 		}
@@ -229,14 +245,14 @@ class Ventas extends CI_Controller {
 		$this->Ventas_model->updateComprobante($idcomprobante,$data);
 	}
 
-	protected function save_detalle($productos,$idventa,$precios,$cantidades,$importes){
+	protected function save_detalle($productos,$idventa,$cantidades,$precios,$importes){
 		for ($i=0; $i < count($productos); $i++) {
 			$data = array(
 				'idproducto' => $productos[$i],
-				'idventa' => $idventa[$i],
-				'precio' => $precios[$i],
+				'idventa' => $idventa,
 				'cantidad' => $cantidades[$i],
-				'importe' => $importes[$i],
+				'precio' => $precios[$i],
+				'subtotal' => $importes[$i],
 
 			);
 			$this->Ventas_model->saveDetalle($data);

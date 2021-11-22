@@ -1,21 +1,21 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
+class ClienteAuth extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-        $this->load->model("Usuarios_model");
+        $this->load->model("Clienteslogin_model");
     }
 
     public function index()
     {
         /*Si esta logeado lo manda al dashboard de admin*/
 		if ($this->session->userdata("login")){
-			redirect(base_url()."dashboard");
+			redirect(base_url()."main");
 		}
 		else{
-		$this->load->view('admin/login');
+		$this->load->view('admin/clientelogin');
 		}
     }
 
@@ -23,7 +23,7 @@ class Auth extends CI_Controller {
 	{
     	$email      = $this->input->post("email");
         $password   = $this->input->post("password");
-        $res = $this->Usuarios_model->login($email, sha1($password));
+        $res = $this->Clienteslogin_model->login($email, sha1($password));
 
         if(!$res) {
             $this->session->set_flashdata("error","El email y o contraseña son incorrectos");
@@ -31,12 +31,12 @@ class Auth extends CI_Controller {
         }
         else{
             $data = array(
-                'idusuario' => $res->idusuario,
+                'idcliente' => $res->idcliente,
                 'nombre' => $res->nombre,
                 'login' => TRUE
             );
             $this->session->set_userdata($data);
-            redirect(base_url()."dashboard");
+            redirect(base_url()."main");
         }
         
 	}   
