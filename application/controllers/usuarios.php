@@ -45,6 +45,7 @@ class Usuarios extends CI_Controller {
 			redirect(base_url()."usuarios/add");
 		}*/
         $nombre = $this->input->post("nombre");
+		$rol = $this->input->post("rol");
 		/*if ($nombre = ""){
 			$this->session->set_flashdata("error", "Rellene el campo nombre");
 			redirect(base_url()."usuarios/add");
@@ -53,11 +54,14 @@ class Usuarios extends CI_Controller {
 		$this->form_validation->set_rules("email","Email","required|is_unique[usuarios.email]");
 		$this->form_validation->set_rules("password","Password","required");
 		$this->form_validation->set_rules("nombre","Nombre","required");
+		$this->form_validation->set_rules("rol","Rol","required");
 		if ($this->form_validation->run()){
 		$data = array(
 			'email' => $email,
 			'password' => sha1($password),
-			'nombre' => $nombre
+			'nombre' => $nombre,
+			'estado' => 1,
+			'idrol' => $rol
 		);
 
 		/*$emailrepetido = $this->Usuariosadmin_model->doesEmailExist($email);
@@ -105,6 +109,7 @@ class Usuarios extends CI_Controller {
 		$email = $this->input->post("email");
 		$password = $this->input->post("password");
         $nombre = $this->input->post("nombre");
+		$idrol = $this->input->post("idrol");
 	
 		$usuarioActual = $this->Usuariosadmin_model->getUsuario($idusuario);
 
@@ -118,11 +123,13 @@ class Usuarios extends CI_Controller {
 		$this->form_validation->set_rules("email","Email","required".$unique);
 		$this->form_validation->set_rules("password","Password","required");
 		$this->form_validation->set_rules("nombre","Nombre","required");
+		$this->form_validation->set_rules("idrol","ID Rol","required");
 		if ($this->form_validation->run()){
     	$data = array(
     		'email' => $email,
     		'password' => $password,
-            'nombre' => $nombre
+            'nombre' => $nombre,
+			'idrol' => $idrol
     	);
 
 		/*$emailrepetido = $this->Usuariosadmin_model->doesEmailExist($email);

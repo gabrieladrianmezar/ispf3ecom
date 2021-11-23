@@ -111,35 +111,16 @@ class Ventas extends CI_Controller {
 	}
 
 	public function update(){
-		$id = $this->input->post("id");
-		$email = $this->input->post("email");
-		$password = $this->input->post("password");
-        $nombre = $this->input->post("nombre");
-	
-		$ventaActual = $this->Ventas_model->getVenta($id);
+		$id = $this->input->post("idventa");
+		$estado = $this->input->post("estado");
 
-		if ($email == $ventaActual->email) {
-			$unique = '';
-		 }
-		 else{
-			$unique = '|is_unique[ventas.email]';
-		}
 
-		$this->form_validation->set_rules("email","Email","required".$unique);
-		$this->form_validation->set_rules("password","Password","required");
-		$this->form_validation->set_rules("nombre","Nombre","required");
+		$this->form_validation->set_rules("estado","Estado","required");
 		if ($this->form_validation->run()){
     	$data = array(
-    		'email' => $email,
-    		'password' => $password,
-            'nombre' => $nombre
+    		'estado' => $estado
     	);
 
-		/*$emailrepetido = $this->Ventas_model->doesEmailExist($email);
-		if ($emailrepetido != 0){
-			$this->session->set_flashdata("error", "El email ingresado ya se encuentra registrado");
-			redirect(base_url()."ventas/edit");
-		};*/
 
     	if ($this->Ventas_model->update($id,$data)){
     		redirect(base_url()."ventas");
@@ -212,7 +193,7 @@ class Ventas extends CI_Controller {
 			"idusuario" => $idusuario,
 			"numerodocumento" => $numerodocumento,
 			"serie" => $serie,
-
+			"estado" => 1,
 		);
 
 		//echo "-array ids: ";

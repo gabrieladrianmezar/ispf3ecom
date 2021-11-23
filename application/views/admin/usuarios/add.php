@@ -43,6 +43,11 @@
                                         <input type="text" class="form-control <?php echo !empty(form_error("nombre"))? 'is-invalid':'';?>" id="nombre" name="nombre" maxlength="255" value="<?php echo set_value("nombre");?>">
                                         <?php echo form_error("nombre", "<span class='help-block text-danger'>","</span>");?>
                                     </div>
+                                    <div class="form-group <?php echo !empty(form_error("rol"))? 'has-error':'';?>">   
+                                        <label for="rol" class="<?php echo !empty(form_error("rol"))? 'text-danger':'';?>">Rol:</label>
+                                        <input type="text" class="form-control <?php echo !empty(form_error("rol"))? 'is-invalid':'';?>" id="rol" name="rol" maxlength="1" value="<?php echo set_value("rol");?>">
+                                        <?php echo form_error("rol", "<span class='help-block text-danger'>","</span>");?>
+                                    </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                                     </div>

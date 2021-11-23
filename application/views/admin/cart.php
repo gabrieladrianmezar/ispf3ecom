@@ -21,7 +21,7 @@
                                 <p>
                         <?php
                             echo "ID: ";
-                            echo $this->session->userdata("idusuario");
+                            echo $this->session->userdata("idcliente");
                             echo " LastId: ";
                             echo $this->db->insert_id();
                             
@@ -54,8 +54,8 @@
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <div class="input-group">
-                                        <input type="hidden" name="idcliente" id="idcliente" value="<?php echo $this->session->userdata("idusuario")?>">
-                                        <input type="hidden" class="form-control" disabled="disabled" id="cliente" value="<?php echo $this->session->userdata("idusuario")?>">
+                                        <input type="hidden" name="idcliente" id="idcliente" value="<?php echo $this->session->userdata("idcliente")?>">
+                                        <input type="hidden" class="form-control" disabled="disabled" id="cliente" value="<?php echo $this->session->userdata("idcliente")?>">
                                         <!-- <span class="input-group-btn">
                                             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-default" ><span class="fa fa-search"></span> Buscar</button>
                                         </span> -->
@@ -75,7 +75,7 @@
                                     <button id="btn-agregar" type="button" class="btn btn-success btn-flat btn-block"><span class="fa fa-plus"></span> Agregar</button>
                                 </div>
                             </div>
-                            <table id="tbventas" class="table table-bordered table-striped table-hover">
+                            <table id="tbcart" class="table table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>Nombre</th>
@@ -87,7 +87,7 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tbcart-body">
                                 
                                 </tbody>
                             </table>
@@ -136,52 +136,19 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<?php
+$productos = $this->session->userdata("productos");
 
-<div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Lista de Clientes</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <table id="example1" class="table table-bordered table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Opcion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if(!empty($clientes)) ?>
-                            <?php foreach ($clientes as $cliente):?>
-                            <tr>
-                            <td><?php echo $cliente->idcliente;?></td>
-                            <td><?php echo $cliente->nombre;?></td>
-                            <td><?php echo $cliente->email;?></td>
-                            <?php $datacliente = $cliente->idcliente."*".
-                            $cliente->nombre."*".
-                            $cliente->email."*";
-                            ?>
-                            <td>
-                            <button type="button" class="btn btn-success btn-check" value="<?php echo $datacliente?>"><span class="fas fa-check"></span>
-
-                            </button>
-                            </td>
-                            </tr>
-                            <?php endforeach;?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+for ($i = 1; $i<$productos ; $i++){?>
+<script>
+    $html = "<tr>";
+    $html += "<td><input type='hidden' name='idproductos[]' value='"+infoproducto[0]+"'>"+infoproducto[1]+"</td>";
+    $html += "<td><input type='hidden' name='precios[]' value='"+infoproducto[2]+"'>"+infoproducto[2]+"</td>";
+    $html += "<td>"+infoproducto[3]+"</td>";
+    $html += "<td><input type='text' name='cantidades[]' value='1' class='cantidades'></td>";
+    $html += "<td><input type='hidden' name='importes[]' value='"+infoproducto[2]+"'><p>"+infoproducto[2]+"</p></td>";
+    $html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fas minus-circle'></span></button></td>";
+    $html += "</tr>";
+    $("#tbcart tbody").append(html);
+</script>
+<?php }?>

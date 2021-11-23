@@ -5,9 +5,9 @@ class Cart extends CI_Controller {
 
  	public function __construct(){
 		parent::__construct();
-		//if (!$this->session->userdata("login")){
-		//	redirect(base_url());
-		//}
+		if (!$this->session->userdata("login")){
+			redirect(base_url()."register/please");
+		}
         $this->load->model("Ventas_model");
 		$this->load->model("Clientes_model");
 		$this->load->model("Productos_model");
@@ -75,7 +75,7 @@ class Cart extends CI_Controller {
 			//}
 			$this->updateComprobante($idcomprobante);
 			$this->save_detalle($idproductos,$idventa,$cantidades,$precios,$importes);
-			redirect(base_url()."result/success");
+			redirect(base_url()."result");
 		}else{
 			redirect(base_url(),"result/error");
 		}

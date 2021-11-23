@@ -27,11 +27,18 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nombre Cliente</th>
-                                            <th>Tipo Comprobante</a></th>
-                                            <th>Número de Comprobante</th>
-                                            <th>Fecha</th>
+                                            <th>ID Cliente</th>
+                                            <th>Fecha</a></th>
+                                            <th>Subtotal</th>
+                                            <th>IVA</th>
+                                            <th>Descuento</th>
                                             <th>Total</th>
+                                            <th>ID Tipo Comprobante</th>
+                                            <th>ID Usuario</a></th>
+                                            <th>Número de Comprobante</th>
+                                            <th>Serie</th>
+                                            <th>Estado</th></th>
+                                            <th>Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -39,10 +46,19 @@
                                             <?php foreach ($ventas as $venta):?>
                                         <tr>
                                             <td><?php echo $venta->idventa;?></td>
-                                            <td><?php echo $venta->email;?></td>
-                                            <td><?php echo $venta->password;?></td>
-                                            <td><?php echo $venta->nombre;?></td>
-                                                <div class="btn-group">
+                                            <td><?php echo $venta->idcliente;?></td>
+                                            <td><?php echo $venta->fecha;?></td>
+                                            <td><?php echo $venta->subtotal;?></td>
+                                            <td><?php echo $venta->iva;?></td>
+                                            <td><?php echo $venta->descuento;?></td>
+                                            <td><?php echo $venta->total;?></td>
+                                            <td><?php echo $venta->idtipocomprobante;?></td>
+                                            <td><?php echo $venta->idusuario;?></td>
+                                            <td><?php echo $venta->numerodocumento;?></td>
+                                            <td><?php echo $venta->serie;?></td>
+                                            <td><?php echo $venta->estado;?></td>
+                                            <td>
+                                                  <div class="btn-group">
                                                     <!-- <a data-toggle="modal" value="" title="Ver venta" class="open-ViewventaDialog btn btn-info btn-view" href="#viewventaDialog">
                                                         <span class="fas fa-search"></span>
                                                     </a> -->

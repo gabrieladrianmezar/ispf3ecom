@@ -31,7 +31,7 @@
     <div class="card-body">
     <div class="mb-4">
       <div class="d-flex justify-content-center links">
-				No tienes una cuenta? <a href="#" class="ml-2">Regístrate</a>
+				No tienes una cuenta? <a href="<?php echo base_url();?>register" class="ml-2">Regístrate</a>
 			</div>
     </div>
       <!--<p class="login-box-msg">Ingresa tus datos para iniciar sesión</p> -->

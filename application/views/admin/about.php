@@ -15,7 +15,7 @@
                 <!-- Default box -->
                 <div class="box box-solid">
                     <div class="box-body">
-                        <p> Puedes contactarte con nosotros a través del siguiente formulario</p>
+                        <p> Fermosa Workout es un negocio que se especializa en la comercialización de suplementos deportivos</p>
                     </div>
                     <!-- /.box-body -->
                 </div>

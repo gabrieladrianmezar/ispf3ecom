@@ -8,12 +8,19 @@ class Dashboard extends CI_Controller {
 		if (!$this->session->userdata("login")){
 			redirect(base_url());
 		}
+		$this->load->model("Backend_model");
 	}
 
 	public function index(){	
+		$data = array(
+			"cantVentas" => $this->Backend_model->rowCount("ventas"),
+			"cantUsuarios" => $this->Backend_model->rowCount("usuarios"),
+			"cantClientes" => $this->Backend_model->rowCount("clientes"),
+			"cantProductos" => $this->Backend_model->rowCount("productos"),
+		);
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('admin/dashboard');
+		$this->load->view('admin/view-dashboard', $data);
 		$this->load->view('layouts/footer');
 	}
 }

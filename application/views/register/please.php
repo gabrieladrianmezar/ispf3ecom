@@ -1,3 +1,4 @@
+
         <!-- =============================================== -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -6,8 +7,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Inicio
-                <small>Inicio</small>
+                Registrate para proceder
                 </h1>
             </section>
             <!-- Main content -->
@@ -15,7 +15,7 @@
                 <!-- Default box -->
                 <div class="box box-solid">
                     <div class="box-body">
-                    <p>Esta es la vista del inicio</p>
+                        <p> Regístrate para poder acceder al carrito y poder realizar tu compra</p>
                     </div>
                     <!-- /.box-body -->
                 </div>

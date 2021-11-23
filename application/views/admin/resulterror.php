@@ -1,3 +1,4 @@
+
         <!-- =============================================== -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -6,8 +7,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                Inicio
-                <small>Inicio</small>
+                Error en la compra
                 </h1>
             </section>
             <!-- Main content -->
@@ -15,7 +15,7 @@
                 <!-- Default box -->
                 <div class="box box-solid">
                     <div class="box-body">
-                    <p>Esta es la vista del inicio</p>
+                        <p> Ha habido un error en tu compra, por favor intenta denuevo.</p>
                     </div>
                     <!-- /.box-body -->
                 </div>

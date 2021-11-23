@@ -279,6 +279,8 @@ $(document).ready(function () {
     return fn;
   }
 
+
+
   function obtenerValores(){
     subtotal = 0;
     $('#tbventas tbody tr').each(function(){

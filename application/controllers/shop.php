@@ -12,9 +12,9 @@ class Shop extends CI_Controller {
 	{	
 		$data = array(
 			'productos' => $this->Productos_model->getProductos(),
-		);	
+		);
 		$this->load->view('layouts/headermain');
-		$this->load->view('products/nanimo',$data);
+		$this->load->view('products/shop',$data);
 		$this->load->view('layouts/footermain');
 	}
 

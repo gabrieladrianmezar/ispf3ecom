@@ -31,7 +31,7 @@
     <div class="card-body">
     <div class="mb-4">
       <div class="d-flex justify-content-center links">
-				No tienes una cuenta? <a href="#" class="ml-2">Regístrate</a>
+				No tienes una cuenta? <a href="<?php echo base_url();?>register" class="ml-2">Regístrate</a>
 			</div>
     </div>
       <!--<p class="login-box-msg">Ingresa tus datos para iniciar sesión</p> -->
@@ -73,6 +73,7 @@
             </div> -->
           </div>
           <!-- /.col -->
+            <input type="productosinput" style="display:none" class="productosinput" id="productosinput" name="productosinput" value="<?php foreach($productos as $producto): echo $producto->idproducto;?>,<?php endforeach;?>0">
           <div class="social-auth-links text-center">
             <button type="submit" class="btn btn-primary btn-block" name="login">Iniciar sesión</button>
           </div>
