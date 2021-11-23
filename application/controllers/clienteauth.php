@@ -5,7 +5,7 @@ class ClienteAuth extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-        $this->load->model("Clienteslogin_model");
+        $this->load->model("Login_model");
         $this->load->model("Productos_model");
     }
 
@@ -27,7 +27,7 @@ class ClienteAuth extends CI_Controller {
 	{
     	$email = $this->input->post("email");
         $password = $this->input->post("password");
-        $res = $this->Clienteslogin_model->login($email, sha1($password));
+        $res = $this->Login_model->clientelogin($email, sha1($password));
 
         $productosinput = $this->input->post("productosinput");
         $productos = explode(",",$productosinput);

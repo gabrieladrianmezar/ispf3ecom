@@ -5,13 +5,13 @@ class Usuarios extends CI_Controller {
 
 	 public function __construct(){
 		parent::__construct();
-		$this->load->model("Usuariosadmin_model");
+		$this->load->model("Usuarios_model");
 	}
 
 	public function index()
 	{	
 		$data = array(
-			'usuarios' => $this->Usuariosadmin_model->getUsuarios(),
+			'usuarios' => $this->Usuarios_model->getUsuarios(),
 		);	
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
@@ -29,28 +29,11 @@ class Usuarios extends CI_Controller {
 
     public function store()
     {
-		/*
-		if (!isset($_POST["email"]) || !isset($_POST["password"]) || !isset($_POST["nombre"]))
-		{
-   			 $msg_to_user = '<h1>Fill out the forms</h1>';
-		}		else {*/
     	$email = $this->input->post("email");	
-		/*if (empty($email)){
-			$this->session->set_flashdata("error", "Rellene el campo email");
-			redirect(base_url()."usuarios/add");
-		}*/
     	$password = $this->input->post("password");
-		/*if (empty($password)){	
-			$this->session->set_flashdata("error", "Rellene el campo contraseña");
-			redirect(base_url()."usuarios/add");
-		}*/
         $nombre = $this->input->post("nombre");
 		$rol = $this->input->post("rol");
-		/*if ($nombre = ""){
-			$this->session->set_flashdata("error", "Rellene el campo nombre");
-			redirect(base_url()."usuarios/add");
-		}*/
-		
+
 		$this->form_validation->set_rules("email","Email","required|is_unique[usuarios.email]");
 		$this->form_validation->set_rules("password","Password","required");
 		$this->form_validation->set_rules("nombre","Nombre","required");
@@ -64,28 +47,14 @@ class Usuarios extends CI_Controller {
 			'idrol' => $rol
 		);
 
-		/*$emailrepetido = $this->Usuariosadmin_model->doesEmailExist($email);
-		if ($emailrepetido != 0){
-			$this->session->set_flashdata("error", "El email ingresado ya se encuentra registrado");
-			redirect(base_url()."usuarios/add");
-		};*/
-
-		#if ($email or $password or $nombre)	
-		/*if (!in_array("", $data) and !in_array("da39a3ee5e6b4b0d3255bfef95601890afd80709", $data))
-		{*/	
-			#echo "empty email:", empty($email),",empty nombre:", empty($nombre), ",in array hash blank:", in_array("da39a3ee5e6b4b0d3255bfef95601890afd80709", $data), ",password empty:",empty($password);
-			if ($this->Usuariosadmin_model->save($data)){
+			if ($this->Usuarios_model->save($data)){
 				redirect(base_url()."usuarios");
 			}
 			else{
 				$this->session->set_flashdata("error", "No se puedo guardar la informacion");
 				redirect(base_url()."usuarios/add");
     		}
-		/*}		
-			else {
-				$this->session->set_flashdata("error", "Todos los campos deben estar rellenados");
-				redirect(base_url()."usuarios/add");
-		}*/
+
 	}
 	else {
 		$this->add();
@@ -95,7 +64,7 @@ class Usuarios extends CI_Controller {
 
 	public function edit($idusuario){
 		$data = array(
-			'usuario' => $this->Usuariosadmin_model->getUsuario($idusuario),
+			'usuario' => $this->Usuarios_model->getUsuario($idusuario),
 		);
 
 		$this->load->view('layouts/header');
@@ -111,7 +80,7 @@ class Usuarios extends CI_Controller {
         $nombre = $this->input->post("nombre");
 		$idrol = $this->input->post("idrol");
 	
-		$usuarioActual = $this->Usuariosadmin_model->getUsuario($idusuario);
+		$usuarioActual = $this->Usuarios_model->getUsuario($idusuario);
 
 		if ($email == $usuarioActual->email) {
 			$unique = '';
@@ -132,13 +101,7 @@ class Usuarios extends CI_Controller {
 			'idrol' => $idrol
     	);
 
-		/*$emailrepetido = $this->Usuariosadmin_model->doesEmailExist($email);
-		if ($emailrepetido != 0){
-			$this->session->set_flashdata("error", "El email ingresado ya se encuentra registrado");
-			redirect(base_url()."usuarios/edit");
-		};*/
-
-    	if ($this->Usuariosadmin_model->update($idusuario,$data)){
+    	if ($this->Usuarios_model->update($idusuario,$data)){
     		redirect(base_url()."usuarios");
     	}
     	else{
@@ -153,25 +116,21 @@ class Usuarios extends CI_Controller {
 
 	public function view($idusuario){
 		$data = array(
-			'usuario' => $this->Usuariosadmin_model->getUsuario($idusuario),
+			'usuario' => $this->Usuarios_model->getUsuario($idusuario),
 		);
 
 		$this->load->view("admin/usuarios/view",$data);
 	}
 
-	#No es una eliminacion logica sino fisica.
 	public function delete($idusuario){
-		/*$data  = array(
+		$data  = array(
 			'estado' => "0", 
 		);
-		$this->Categorias_model->update($idusuario,$data);
-		echo "mantenimiento/categorias";*/
-		if ($this->Usuariosadmin_model->delete($idusuario)){
+		if ($this->Usuarios_model->update($idusuario,$data)){
     		redirect(base_url()."usuarios");
-    	}
-    	else{
-    		$this->session->set_flashdata("error", "No se puedo guardar la informacion");
-    		redirect(base_url()."usuarios/add");
-    	}
+    	} else {
+			$this->session->set_flashdata("error", "No se puedo guardar la informacion");
+			redirect(base_url()."usuarios");
+		}
 	}
 }

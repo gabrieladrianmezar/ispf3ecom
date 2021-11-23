@@ -36,69 +36,6 @@ class Ventas extends CI_Controller {
 		$this->load->view('layouts/footer');	
     }
 
-    public function storea()
-    {
-		$fecha =
-		/*
-		if (!isset($_POST["email"]) || !isset($_POST["password"]) || !isset($_POST["nombre"]))
-		{
-   			 $msg_to_user = '<h1>Fill out the forms</h1>';
-		}		else {*/
-    	$email = $this->input->post("email");	
-		/*if (empty($email)){
-			$this->session->set_flashdata("error", "Rellene el campo email");
-			redirect(base_url()."ventas/add");
-		}*/
-    	$password = $this->input->post("password");
-		/*if (empty($password)){	
-			$this->session->set_flashdata("error", "Rellene el campo contraseña");
-			redirect(base_url()."ventas/add");
-		}*/
-        $nombre = $this->input->post("nombre");
-		/*if ($nombre = ""){
-			$this->session->set_flashdata("error", "Rellene el campo nombre");
-			redirect(base_url()."ventas/add");
-		}*/
-		
-		$this->form_validation->set_rules("email","Email","required|is_unique[ventas.email]");
-		$this->form_validation->set_rules("password","Password","required");
-		$this->form_validation->set_rules("nombre","Nombre","required");
-		if ($this->form_validation->run()){
-		$data = array(
-			'email' => $email,
-			'password' => sha1($password),
-			'nombre' => $nombre
-		);
-
-		/*$emailrepetido = $this->Ventas_model->doesEmailExist($email);
-		if ($emailrepetido != 0){
-			$this->session->set_flashdata("error", "El email ingresado ya se encuentra registrado");
-			redirect(base_url()."ventas/add");
-		};*/
-
-		#if ($email or $password or $nombre)	
-		/*if (!in_array("", $data) and !in_array("da39a3ee5e6b4b0d3255bfef95601890afd80709", $data))
-		{*/	
-			#echo "empty email:", empty($email),",empty nombre:", empty($nombre), ",in array hash blank:", in_array("da39a3ee5e6b4b0d3255bfef95601890afd80709", $data), ",password empty:",empty($password);
-			if ($this->Ventas_model->save($data)){
-				redirect(base_url()."ventas");
-			}
-			else{
-				$this->session->set_flashdata("error", "No se puedo guardar la informacion");
-				redirect(base_url()."ventas/add");
-    		}
-		/*}		
-			else {
-				$this->session->set_flashdata("error", "Todos los campos deben estar rellenados");
-				redirect(base_url()."ventas/add");
-		}*/
-	}
-	else {
-		$this->add();
-	}
-	#}
-	}
-
 	public function edit($id){
 		$data = array(
 			'venta' => $this->Ventas_model->getVenta($id),
@@ -131,7 +68,7 @@ class Ventas extends CI_Controller {
     	}
 	}
 		else {
-			$this->edit($id);
+			redirect(base_url()."ventas");
 		}
 	}
 
@@ -145,11 +82,6 @@ class Ventas extends CI_Controller {
 
 	#No es una eliminacion logica sino fisica.
 	public function delete($id){
-		/*$data  = array(
-			'estado' => "0", 
-		);
-		$this->Categorias_model->update($id,$data);
-		echo "mantenimiento/categorias";*/
 		if ($this->Ventas_model->delete($id)){
     		redirect(base_url()."ventas");
     	}
@@ -196,18 +128,8 @@ class Ventas extends CI_Controller {
 			"estado" => 1,
 		);
 
-		//echo "-array ids: ";
-		//print_r ($idproductos);	
-		//echo " -cantidad prod: ";
-		//echo count($idproductos);
-		
 		if ($this->Ventas_model->save($data)){
 			$idventa = $this->Ventas_model->lastID();
-			//echo " -idventa: ";
-			//echo $idventa;}
-			//else{
-			//	echo " o ";
-			//}
 			$this->updateComprobante($idcomprobante);
 			$this->save_detalle($idproductos,$idventa,$cantidades,$precios,$importes);
 			redirect(base_url()."ventas");
