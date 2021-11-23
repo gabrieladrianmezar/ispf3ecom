@@ -78,7 +78,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-          <a href="<?php echo base_url(); ?>auth/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+          <a href="<?php echo base_url(); ?>log/auth/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
       </li>
     </ul>
   </nav>

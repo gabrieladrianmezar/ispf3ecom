@@ -7,7 +7,9 @@
                 <h1>
                 Ventas
                 <small>Listado</small>
-                <div class="float-right d-none d-sm-inline-block"> <a href="<?php echo base_url();?>ventas/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
+                <div class="float-right d-none d-sm-inline-block"> <?php if($permisos->insert ==1):?>
+                    <a href="<?php echo base_url();?>ventasventas/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
+                    <?php endif;?>
                 </h1>
             </section>
             <!-- Main content -->
@@ -68,9 +70,12 @@
                                                     </button>
                                                     
                                                     <!-- <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a> -->                
-
-                                                    <a href="<?php echo base_url()?>ventas/edit/<?php echo $venta->idventa;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
-                                                    <a href="<?php echo base_url();?>ventas/delete/<?php echo $venta->idventa;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <?php if($permisos->update ==1):?>
+                                                    <a href="<?php echo base_url()?>ventas/ventas/edit/<?php echo $venta->idventa;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
+                                                    <?php endif; ?>
+                                                    <?php if($permisos->delete ==1):?>
+                                                    <a href="<?php echo base_url();?>ventas/ventas/delete/<?php echo $venta->idventa;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <?php endif; ?>
                                                     <script type="text/javascript">
                                                         var elems = document.getElementsByClassName('btn btn-danger');
                                                         var confirmIt = function (e) {

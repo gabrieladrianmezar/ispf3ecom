@@ -15,7 +15,7 @@ class Auth extends CI_Controller {
 			redirect(base_url()."dashboard");
 		}
 		else{
-		$this->load->view('admin/login');
+		$this->load->view('login/login');
 		}
     }
 
@@ -33,7 +33,8 @@ class Auth extends CI_Controller {
             $data = array(
                 'idusuario' => $res->idusuario,
                 'nombre' => $res->nombre,
-                'login' => TRUE
+                'login' => TRUE,
+                'rol' => $res->idrol
             );
             $this->session->set_userdata($data);
             redirect(base_url()."dashboard");

@@ -31,12 +31,12 @@
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Fermosa</b>Workout</a>
+      <a href="http://localhost/isfp3ecom/" class="h1"><b>Fermosa</b>Workout</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Ya tienes una cuenta? <a href="<?php echo base_url();?>clienteauth" class="ml-2">Inicia sesión</a></p>
+      <p class="login-box-msg">Ya tienes una cuenta? <a href="<?php echo base_url();?>log/clienteauth" class="ml-2">Inicia sesión</a></p>
 
-      <form action="<?php echo base_url();?>register/create" method="post">
+      <form action="<?php echo base_url();?>log/register/create" method="post">
         <div class="input-group mb-3">
         <input type="text" class="form-control <?php echo !empty(form_error("nombre"))? 'is-invalid':'';?>" placeholder="Nombre de usuario" id="nombre" name="nombre" maxlength="255" value="<?php echo set_value("nombre");?>">
           <div class="input-group-append">

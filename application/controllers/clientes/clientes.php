@@ -3,14 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Clientes extends CI_Controller {
 
+	 private $permisos;
 	 public function __construct(){
 		parent::__construct();
+		$this->permisos = $this->backend_lib->control();
 		$this->load->model("Clientes_model");
 	}
 
 	public function index()
 	{	
 		$data = array(
+			'permisos' => $this->permisos,
 			'clientes' => $this->Clientes_model->getClientes(),
 		);	
 		$this->load->view('layouts/header');
@@ -45,11 +48,11 @@ class Clientes extends CI_Controller {
 
 
 			if ($this->Clientes_model->save($data)){
-				redirect(base_url()."clientes");
+				redirect(base_url()."clientes/clientes");
 			}
 			else{
 				$this->session->set_flashdata("error", "No se puedo guardar la informacion");
-				redirect(base_url()."clientes/add");
+				redirect(base_url()."clientes/clientes/add");
     		}
 	}
 	else {
@@ -95,11 +98,11 @@ class Clientes extends CI_Controller {
     	);
 
     	if ($this->Clientes_model->update($idcliente,$data)){
-    		redirect(base_url()."clientes");
+    		redirect(base_url()."clientes/clientes");
     	}
     	else{
     		$this->session->set_flashdata("error", "No se puedo actualizar la informacion");
-    		redirect(base_url()."clientes/edit".$idcliente);
+    		redirect(base_url()."clientes/clientes/edit".$idcliente);
     	}
 	}
 		else {
@@ -121,10 +124,10 @@ class Clientes extends CI_Controller {
 			'estado' => "0", 
 		);
 		if ($this->Clientes_model->update($idcliente,$data)){
-    		redirect(base_url()."clientes");
+    		redirect(base_url()."clientes/clientes");
     	} else {
 			$this->session->set_flashdata("error", "No se puedo guardar la informacion");
-			redirect(base_url()."clientes");
+			redirect(base_url()."clientes/clientes");
 		}
 	}
 }

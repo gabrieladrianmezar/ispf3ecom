@@ -3,14 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios extends CI_Controller {
 
+	private $permisos;
 	 public function __construct(){
 		parent::__construct();
+		$this->permisos = $this->backend_lib->control();
 		$this->load->model("Usuarios_model");
 	}
 
 	public function index()
 	{	
 		$data = array(
+			'permisos' => $this->permisos,
 			'usuarios' => $this->Usuarios_model->getUsuarios(),
 		);	
 		$this->load->view('layouts/header');
@@ -48,11 +51,11 @@ class Usuarios extends CI_Controller {
 		);
 
 			if ($this->Usuarios_model->save($data)){
-				redirect(base_url()."usuarios");
+				redirect(base_url()."usuarios/usuarios");
 			}
 			else{
 				$this->session->set_flashdata("error", "No se puedo guardar la informacion");
-				redirect(base_url()."usuarios/add");
+				redirect(base_url()."usuarios/usuarios/add");
     		}
 
 	}
@@ -102,11 +105,11 @@ class Usuarios extends CI_Controller {
     	);
 
     	if ($this->Usuarios_model->update($idusuario,$data)){
-    		redirect(base_url()."usuarios");
+    		redirect(base_url()."usuarios/usuarios");
     	}
     	else{
     		$this->session->set_flashdata("error", "No se puedo actualizar la informacion");
-    		redirect(base_url()."usuarios/edit".$idusuario);
+    		redirect(base_url()."usuarios/usuarios/edit".$idusuario);
     	}
 	}
 		else {
@@ -127,10 +130,10 @@ class Usuarios extends CI_Controller {
 			'estado' => "0", 
 		);
 		if ($this->Usuarios_model->update($idusuario,$data)){
-    		redirect(base_url()."usuarios");
+    		redirect(base_url()."usuarios/usuarios");
     	} else {
 			$this->session->set_flashdata("error", "No se puedo guardar la informacion");
-			redirect(base_url()."usuarios");
+			redirect(base_url()."usuarios/usuarios");
 		}
 	}
 }

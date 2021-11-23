@@ -533,7 +533,7 @@ call the “shirts” controller class and the “id_123” method.</p>
 For example, if a user accesses a password protected area of your web
 application and you wish to be able to redirect them back to the same
 page after they log in, you may find this example useful:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;login/(.+)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;auth/login/$1&#39;</span><span class="p">;</span>
+<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$route</span><span class="p">[</span><span class="s1">&#39;login/(.+)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;login/auth/login/$1&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition note">

@@ -27,7 +27,7 @@
                                     if($this->session->flashdata("error")){
                                     unset($_SESSION['error']);
                                  }?>
-                                <form action="<?php echo base_url();?>clientes/store" method="POST">
+                                <form action="<?php echo base_url();?>clientes/clientes/store" method="POST">
                                     <div class="form-group">   
                                         <label for="email" class="<?php echo !empty(form_error("email"))? 'text-danger':'';?>">Email:</label>
                                         <input type="email" class="form-control <?php echo !empty(form_error("email"))? 'is-invalid':'';?>" id="email" name="email" minlength="3" maxlength="200" value="<?php echo set_value("email");?>">

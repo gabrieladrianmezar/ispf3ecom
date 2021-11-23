@@ -23,7 +23,7 @@
                                         
                                     </div>
                                 <<?php endif; ?>
-                                <form action="<?php echo base_url();?>ventas/update" method="POST">
+                                <form action="<?php echo base_url();?>ventas/ventas/update" method="POST">
                                     <input type="hidden" value="<?php echo $venta->idventa;?>" name="idventa">
                                     <div class="form-group">   
                                         <label for="estado" class="<?php echo !empty(form_error("estado"))? 'text-danger':'';?>">Estado:</label>

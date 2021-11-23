@@ -17,6 +17,8 @@
                         <?php 
                             echo "Login:";
                             echo $this->session->userdata("login");
+                            echo " Rol:";
+                            echo $this->session->userdata("rol");
                         ?>
                     </p>
                     <p>

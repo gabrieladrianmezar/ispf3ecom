@@ -69,7 +69,7 @@ $(document).ready(function () {
     $(".viewUsuario").on("click", function(){
         var id = $(this).val(); 
         $.ajax({
-            url: base_url + "usuarios/view/" + id,
+            url: base_url + "usuarios/usuarios/view/" + id,
             type:"POST",
             success:function(resp){
               $("#viewUsuarioModal .modal-body").html(resp);
@@ -85,7 +85,7 @@ $(document).ready(function () {
     $(".viewCliente").on("click", function(){
         var id = $(this).val(); 
         $.ajax({
-            url: base_url + "clientes/view/" + id,
+            url: base_url + "clientes/clientes/view/" + id,
             type:"POST",
             success:function(resp){
               $("#viewClienteModal .modal-body").html(resp);
@@ -101,7 +101,7 @@ $(document).ready(function () {
     $(".viewProducto").on("click", function(){
         var id = $(this).val(); 
         $.ajax({
-            url: base_url + "productos/view/" + id,
+            url: base_url + "productos/productos/view/" + id,
             type:"POST",
             success:function(resp){
               $("#viewProductoModal .modal-body").html(resp);
@@ -117,7 +117,7 @@ $(document).ready(function () {
     $(".viewVenta").on("click", function(){
         var id = $(this).val(); 
         $.ajax({
-            url: base_url + "ventas/view/" + id,
+            url: base_url + "ventas/ventas/view/" + id,
             type:"POST",
             success:function(resp){
               $("#viewVentaModal .modal-body").html(resp);

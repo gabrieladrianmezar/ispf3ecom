@@ -23,7 +23,7 @@
                                         
                                     </div>
                                 <<?php endif; ?>
-                                <form action="<?php echo base_url();?>usuarios/update" method="POST">
+                                <form action="<?php echo base_url();?>usuarios/usuarios/update" method="POST">
                                     <input type="hidden" value="<?php echo $usuario->idusuario;?>" name="idusuario">
                                     <div class="form-group">   
                                         <label for="email" class="<?php echo !empty(form_error("email"))? 'text-danger':'';?>">Email:</label>

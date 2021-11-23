@@ -19,7 +19,7 @@ class ClienteAuth extends CI_Controller {
 			redirect(base_url()."main");
 		}
 		else{
-		$this->load->view('admin/clientelogin',$data);
+		$this->load->view('login/clientelogin',$data);
 		}
     }
 

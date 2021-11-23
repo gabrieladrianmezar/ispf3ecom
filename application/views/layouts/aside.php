@@ -64,7 +64,7 @@
             </ul> -->
           </li> 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="<?php echo base_url();?>estadisticas" class="nav-link">
               <i class="nav-icon fas fa-chart-bar"></i>
               <p>
                 Estadisticas
@@ -72,7 +72,7 @@
             </a>
           </li> 
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url();?>usuarios" class="nav-link"> 
+            <a href="<?php echo base_url();?>usuarios/usuarios" class="nav-link"> 
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Usuarios
@@ -125,7 +125,7 @@
             </ul> -->
           </li>
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url();?>clientes" class="nav-link"> 
+            <a href="<?php echo base_url();?>clientes/clientes" class="nav-link"> 
               <i class="nav-icon fas fa-id-card"></i>
               <p>
                 Clientes
@@ -133,93 +133,31 @@
               </p>
             </a>
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url();?>productos" class="nav-link">
+            <a href="<?php echo base_url();?>productos/productos" class="nav-link">
               <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
                 Productos <?php /* echo base_url();?*/ ?>
                 <!-- <i class="right fas fa-angle-left"></i> -->
               </p>
             </a>
-            <!-- <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
-            </ul> -->
           </li>
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url();?>ventas" class="nav-link">
+            <a href="<?php echo base_url();?>ventas/ventas" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Ventas
                  <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
-            <!-- <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Icons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/buttons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buttons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/sliders.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/modals.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modals & Alerts</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/navbar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Navbar & Tabs</p>
-                </a>
-              </li>
-                Ventas
-              <li class="nav-item">
-                <a href="pages/UI/timeline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Timeline</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/ribbons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ribbons</p>
-                </a>
-              </li>
-            </ul> -->
+          </li>   
+          <li class="nav-item has-treeview">
+            <a href="<?php echo base_url();?>sysadmin/permisos" class="nav-link">
+              <i class="nav-icon fas fa-lock"></i>
+              <p>
+                Permisos
+                 <!-- <i class="fas fa-angle-left right"></i> -->
+              </p>
+            </a>
           </li>         
         </ul>
       </nav>

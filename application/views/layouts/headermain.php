@@ -53,7 +53,7 @@
         <a href="<?php echo base_url();?>" class="nav-link"><b>Inicio</b></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo base_url();?>shop" class="nav-link"><b>Productos</b></a>
+        <a href="<?php echo base_url();?>productos/shop" class="nav-link"><b>Productos</b></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<?php echo base_url();?>about" class="nav-link"><b>Acerca</b></a>
@@ -82,7 +82,7 @@
           <a href="<?php echo base_url();?>cart" class="nav-link"><i class="fas fa-shopping-cart"></i><b>Carrito</b></a>
         </li>
         <li class="nav-item">
-            <a href="<?php echo base_url(); ?>auth/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+            <a href="<?php echo base_url(); ?>log/auth/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
         </li>
     </ul>
     <?php else : ?>
@@ -91,7 +91,7 @@
           <a href="<?php echo base_url();?>cart" class="nav-link"><i class="fas fa-shopping-cart"></i><b> Carrito</b></a>
         </li>
         <li class="nav-item">
-            <a href="<?php echo base_url(); ?>clienteauth" class="nav-link"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</a>
+            <a href="<?php echo base_url(); ?>log/clienteauth" class="nav-link"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</a>
         </li>
     </ul>
     <?php endif; ?>

@@ -1,103 +1,36 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Ventas extends CI_Controller {
+class Cart extends CI_Controller {
 
-	 public function __construct(){
+ 	public function __construct(){
 		parent::__construct();
-		if (!$this->session->userdata("login")) {
-			redirect(base_url());
+		if (!$this->session->userdata("login")){
+			redirect(base_url()."log/register/please");
 		}
-		$this->load->model("Ventas_model");
+        $this->load->model("Ventas_model");
 		$this->load->model("Clientes_model");
 		$this->load->model("Productos_model");
 	}
 
-	public function index()
-	{	
-		$data = array(
-			'ventas' => $this->Ventas_model->getVentas(),
-		);	
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/aside');
-		$this->load->view('admin/ventas/list',$data);
-		$this->load->view('layouts/footer');
-	}
-
-	public function add()
+    public function index()
     {
 		$data = array(
-			'tipocomprobantes' => $this->Ventas_model->getComprobantes(),
+			'tipocomprobante' => $this->Ventas_model->getComprobante(1),
 			'clientes' => $this->Clientes_model->getClientes(),
 		);
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/aside');
-		$this->load->view('admin/ventas/add',$data);
-		$this->load->view('layouts/footer');	
+		$this->load->view('layouts/headermain');
+		$this->load->view('admin/cart',$data);
+		$this->load->view('layouts/footermain');	
     }
 
-	public function edit($id){
-		$data = array(
-			'venta' => $this->Ventas_model->getVenta($id),
-		);
-
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/aside');
-		$this->load->view('admin/ventas/edit',$data);
-		$this->load->view('layouts/footer');	
-	}
-
-	public function update(){
-		$id = $this->input->post("idventa");
-		$estado = $this->input->post("estado");
-
-
-		$this->form_validation->set_rules("estado","Estado","required");
-		if ($this->form_validation->run()){
-    	$data = array(
-    		'estado' => $estado
-    	);
-
-
-    	if ($this->Ventas_model->update($id,$data)){
-    		redirect(base_url()."ventas");
-    	}
-    	else{
-    		$this->session->set_flashdata("error", "No se puedo actualizar la informacion");
-    		redirect(base_url()."ventas/edit".$id);
-    	}
-	}
-		else {
-			redirect(base_url()."ventas");
-		}
-	}
-
-	public function view($id){
-		$data = array(
-			'venta' => $this->Ventas_model->getVenta($id),
-		);
-
-		$this->load->view("admin/ventas/view",$data);
-	}
-
-	#No es una eliminacion logica sino fisica.
-	public function delete($id){
-		if ($this->Ventas_model->delete($id)){
-    		redirect(base_url()."ventas");
-    	}
-    	else{
-    		$this->session->set_flashdata("error", "No se puedo guardar la informacion");
-    		redirect(base_url()."ventas/add");
-    	}
-	}
-
-	public function getProductos(){
+    public function getProductos(){
 		$valor = $this->input->post("valor");
 		$clientes = $this->Ventas_model->getProductosDB($valor);
 		echo json_encode($clientes);
 	}
 
-	public function store(){;
+    public function store(){;
 		$idcliente = $this->input->post("idcliente");
 		$fecha = $this->input->post("fecha");
 		$subtotal = $this->input->post("subtotal");
@@ -125,16 +58,26 @@ class Ventas extends CI_Controller {
 			"idusuario" => $idusuario,
 			"numerodocumento" => $numerodocumento,
 			"serie" => $serie,
-			"estado" => 1,
+
 		);
 
+		//echo "-array ids: ";
+		//print_r ($idproductos);	
+		//echo " -cantidad prod: ";
+		//echo count($idproductos);
+		
 		if ($this->Ventas_model->save($data)){
 			$idventa = $this->Ventas_model->lastID();
+			//echo " -idventa: ";
+			//echo $idventa;}
+			//else{
+			//	echo " o ";
+			//}
 			$this->updateComprobante($idcomprobante);
 			$this->save_detalle($idproductos,$idventa,$cantidades,$precios,$importes);
-			redirect(base_url()."ventas");
+			redirect(base_url()."result");
 		}else{
-			redirect(base_url(),"ventas/add");
+			redirect(base_url(),"result/error");
 		}
 
 	}
