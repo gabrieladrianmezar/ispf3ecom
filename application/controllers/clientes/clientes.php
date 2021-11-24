@@ -85,7 +85,6 @@ class Clientes extends CI_Controller {
 	public function update(){
 		$idcliente = $this->input->post("idcliente");
     	$email = $this->input->post("email");	
-    	$password = $this->input->post("password");
         $nombre = $this->input->post("nombre");
 		$direccion = $this->input->post("direccion");
 		$telefono = $this->input->post("telefono");
@@ -113,7 +112,6 @@ class Clientes extends CI_Controller {
 		}
 		
 		$this->form_validation->set_rules("email","Email","required".$unique);
-		$this->form_validation->set_rules("password","Password","required");
 		$this->form_validation->set_rules("nombre","Nombre","required|min_length[1]|max_length[30]".$unique2);
 		$this->form_validation->set_rules("direccion","Direccion","required");
 		$this->form_validation->set_rules("telefono","Telefono","required");
@@ -121,7 +119,6 @@ class Clientes extends CI_Controller {
 		if ($this->form_validation->run()){
     	$data = array(
     		'email' => $email,
-    		'password' => $password,
             'nombre' => $nombre,
 			'direccion' => $direccion,
 			'telefono' => $telefono,

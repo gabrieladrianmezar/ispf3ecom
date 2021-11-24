@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Ventas_model extends CI_Model {
 
 	public function getVentas(){
-		$this->db->where("estado",!0);
+		$this->db->where("estado > 0");
 		$resultados = $this->db->get("ventas");
 		return $resultados->result();
 	}
@@ -108,6 +108,7 @@ class Ventas_model extends CI_Model {
 		$this->db->from("ventas");
 		$this->db->where("fecha >=",$year."-01-01");
 		$this->db->where("fecha <=",$year."-12-31");
+		$this->db->where("ventas.estado = 3");
 		$this->db->group_by("mes");
 		$this->db->order_By("mes");
 		$resultados = $this->db->get();

@@ -316,7 +316,7 @@ $(document).ready(function () {
   function datagrafico(base_url,year){
     namesMonth=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre", "Octubre","Noviembre","Diciembre"];
     $.ajax({
-      url: base_url + "dashboard/getData",
+      url: base_url + "ventas/estadisticas/getData",
       type:"POST",
       data:{year: year},
       dataType:"json",
@@ -339,10 +339,10 @@ $(document).ready(function () {
         type: 'column'
     },
     title: {
-        text: 'Ventas anuales'
+        text: 'Montos acumulados en ventas'
     },
     subtitle: {
-        text: 'Año' + year
+        text: 'Año ' + year
     },
     xAxis: {
         categories: meses,
@@ -379,19 +379,6 @@ $(document).ready(function () {
     series: [{
         name: 'Meses',
         data: montos
-
-    }, {
-        name: 'New York',
-        data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-    }, {
-        name: 'London',
-        data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-
-    }, {
-        name: 'Berlin',
-        data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-
     }]
 });
   }

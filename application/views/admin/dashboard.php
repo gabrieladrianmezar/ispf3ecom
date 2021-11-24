@@ -14,22 +14,20 @@
                     <div class="box-body">
                     <p>
                         <?php 
-                            echo "Login:";
-                            echo $this->session->userdata("login");
-                            echo "Rol:";
+                            echo "ID Rol de Usuario:";
                             echo $this->session->userdata("rol");
                         ?>
 
                     </p>
                     <p>
                         <?php
-                            echo "ID: ";
+                            echo "ID de Usuario: ";
                             echo $this->session->userdata("idusuario");
                         ?>
                     </p>
                     <p>
                         <?php 
-                            echo " Nombre: ";
+                            echo "Nombre de Usuario: ";
                             $nombre = $this->session->userdata("nombre");
                             $palabras = str_word_count($nombre);
                             if ($palabras > 20 and strlen($nombre) < 100){

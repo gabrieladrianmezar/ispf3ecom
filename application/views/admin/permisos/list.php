@@ -76,10 +76,6 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group">
-                                                <button type="button" class="viewPermiso btn btn-info btn-view" value="<?php echo $permiso->id;?>" data-toggle="modal" data-target="#viewPermisoModal">
-                                                        <span class="fas fa-search"></span>
-                                                    </button>
-                                                    
                                                     <!-- <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a> -->                
                                                     <?php if($permisosP->update ==1):?>
                                                     <a href="<?php echo base_url()?>sysadmin/permisos/edit/<?php echo $permiso->id;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
@@ -87,15 +83,6 @@
                                                     <?php if($permisosP->delete ==1):?>
                                                     <a href="<?php echo base_url();?>sysadmin/permisos/delete/<?php echo $permiso->id;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
                                                     <?php endif; ?>
-                                                    <script type="text/javascript">
-                                                        var elems = document.getElementsByClassName('btn btn-danger');
-                                                        var confirmIt = function (e) {
-                                                            if (!confirm('Estas seguro de que deseas eliminar ese registro?')) e.preventDefault();
-                                                        };
-                                                        for (var i = 0, l = elems.length; i < l; i++) {
-                                                            elems[i].addEventListener('click', confirmIt, false);
-                                                        }
-                                                    </script>
                                                 </div>
                                             </td>
                                         </tr>
@@ -112,24 +99,3 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-<div class="modal fade" id="viewPermisoModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Informacion del Permiso</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->

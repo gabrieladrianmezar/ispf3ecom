@@ -79,7 +79,6 @@ class Usuarios extends CI_Controller {
 	public function update(){
 		$idusuario = $this->input->post("idusuario");
 		$email = $this->input->post("email");
-		$password = $this->input->post("password");
         $nombre = $this->input->post("nombre");
 		$idrol = $this->input->post("idrol");
 	
@@ -93,13 +92,11 @@ class Usuarios extends CI_Controller {
 		}
 
 		$this->form_validation->set_rules("email","Email","required".$unique);
-		$this->form_validation->set_rules("password","Password","required");
 		$this->form_validation->set_rules("nombre","Nombre","required");
 		$this->form_validation->set_rules("idrol","ID Rol","required");
 		if ($this->form_validation->run()){
     	$data = array(
     		'email' => $email,
-    		'password' => $password,
             'nombre' => $nombre,
 			'idrol' => $idrol
     	);
