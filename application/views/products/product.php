@@ -44,23 +44,14 @@
                   <small>Exceptuando impuestos: $<?php echo $producto->precio;?> </small>
                 </h4>
               </div>
-
-              <div class="mt-4">
+              <form action="<?php echo base_url();?>productos/product/indexadd/<?php echo strval($producto->idproducto);?>" method='post'>
+                <button type="submit" class="buttonAdd btn btn-success btn-flat" name="add" id="add" value="<?php echo $producto->idproducto?>">Añadir al carrito</button>
+              </form>
+                <p>En el carrito: <?php echo $this->session->userdata("producto".strval($producto->idproducto)) ;?></p>
+                <div class="mt-4">
                 <div class="btn btn-primary btn-lg btn-flat">
                   <i class="fas fa-cart-plus fa-lg mr-2"></i> 
                   Añadir al carrito
-                  <?php 
-                  echo strval($producto->idproducto);
-                  echo $this->session->userdata("1");
-                  $cantidad = $this->session->userdata[strval($producto->idproducto)];
-                  echo " /-/corneta/-/ ";
-                  echo $cantidad;
-                  echo " //corneta// ";
-                  $this->session->set_userdata(strval($producto->idproducto), $cantidad);
-                  echo $this->session->userdata(strval($producto->idproducto));
-                  echo " /-/corneta/-/ "
-                  ?>
-                  
                 </div>
               </div>
 

@@ -31,8 +31,10 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Email</th>
-                                            <th><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Contraseña (For demo purposes)</a></th>
                                             <th>Nombre</th>
+                                            <th>Direccion</th>
+                                            <th>Telefono</th>
+                                            <th>Dni</th>
                                             <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -42,8 +44,10 @@
                                         <tr>
                                             <td><?php echo $cliente->idcliente;?></td>
                                             <td><?php echo $cliente->email;?></td>
-                                            <td><?php echo $cliente->password;?></td>
                                             <td><?php echo $cliente->nombre;?></td>
+                                            <td><?php echo $cliente->direccion;?></td>
+                                            <td><?php echo $cliente->telefono;?></td>
+                                            <td><?php echo $cliente->dni;?></td>
                                             <td>
                                                 <div class="btn-group">
                                                 <button type="button" class="viewCliente btn btn-info btn-view" value="<?php echo $cliente->idcliente;?>" data-toggle="modal" data-target="#viewClienteModal">

@@ -43,6 +43,11 @@
                                         <input type="number" class="form-control <?php echo !empty(form_error("stock"))? 'is-invalid':'';?>" id="stock" name="stock" maxlength="255" value="<?php echo set_value("stock");?>">
                                         <?php echo form_error("stock", "<span class='help-block text-danger'>","</span>");?>
                                     </div>
+                                    <div class="form-group <?php echo !empty(form_error("stock"))? 'has-error':'';?>">   
+                                        <label for="imagen" class="<?php echo !empty(form_error("imagen"))? 'text-danger':'';?>">Imagen:</label>
+                                        <input type="number" class="form-control <?php echo !empty(form_error("imagen"))? 'is-invalid':'';?>" id="imagen" name="imagen" maxlength="255" value="<?php echo set_value("imagen");?>">
+                                        <?php echo form_error("imagen", "<span class='help-block text-danger'>","</span>");?>
+                                    </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                                     </div>

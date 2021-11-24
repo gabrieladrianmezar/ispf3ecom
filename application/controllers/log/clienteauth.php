@@ -43,13 +43,13 @@ class ClienteAuth extends CI_Controller {
                 'nombre' => $res->nombre,
                 'login' => TRUE,
             );
-
             for ($i = 0; $i<$cantidad ; $i++) {
-                $data[$productos[$i]] = 0;
-            }
+                $data["producto".strval($productos[$i])] = 0;
+            };
             $data['productos'] = $cantidad;
-            print_r($data);
+            //print_r($data);
             $this->session->set_userdata($data);
+            //print_r($this->session->userdata());
             redirect(base_url()."main");
         }
         

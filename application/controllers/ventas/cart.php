@@ -18,10 +18,11 @@ class Cart extends CI_Controller {
 		$data = array(
 			'tipocomprobante' => $this->Ventas_model->getComprobante(1),
 			'clientes' => $this->Clientes_model->getClientes(),
+			'productos' => $this->Productos_model->getProductos(),
 		);
 		$this->load->view('layouts/headermain');
 		$this->load->view('admin/cart',$data);
-		$this->load->view('layouts/footermain');	
+		$this->load->view('layouts/footermain');
     }
 
     public function getProductos(){
@@ -38,7 +39,6 @@ class Cart extends CI_Controller {
 		$descuento = $this->input->post("descuento");
 		$total = $this->input->post("total");
 		$idcomprobante = $this->input->post("idcomprobante");
-		$idusuario = $this->session->userdata("idusuario");
 		$numerodocumento = $this->input->post("numero");
 		$serie = $this->input->post("serie");
 
@@ -55,10 +55,10 @@ class Cart extends CI_Controller {
 			"descuento" => $descuento,
 			"total" => $total,
 			"idtipocomprobante" => $idcomprobante,
-			"idusuario" => $idusuario,
+			"idusuario" => 1,
 			"numerodocumento" => $numerodocumento,
 			"serie" => $serie,
-
+			"estado" => 1
 		);
 
 		//echo "-array ids: ";

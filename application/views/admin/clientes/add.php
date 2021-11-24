@@ -43,6 +43,21 @@
                                         <input type="text" class="form-control <?php echo !empty(form_error("nombre"))? 'is-invalid':'';?>" id="nombre" name="nombre" maxlength="255" value="<?php echo set_value("nombre");?>">
                                         <?php echo form_error("nombre", "<span class='help-block text-danger'>","</span>");?>
                                     </div>
+                                    <div class="form-group <?php echo !empty(form_error("direccion"))? 'has-error':'';?>">   
+                                        <label for="direccion" class="<?php echo !empty(form_error("direccion"))? 'text-danger':'';?>">Direccion:</label>
+                                        <input type="text" class="form-control <?php echo !empty(form_error("direccion"))? 'is-invalid':'';?>" id="direccion" name="direccion" maxlength="255" value="<?php echo set_value("direccion");?>">
+                                        <?php echo form_error("direccion", "<span class='help-block text-danger'>","</span>");?>
+                                    </div>
+                                    <div class="form-group <?php echo !empty(form_error("telefono"))? 'has-error':'';?>">   
+                                        <label for="telefono" class="<?php echo !empty(form_error("telefono"))? 'text-danger':'';?>">Telefono:</label>
+                                        <input type="text" class="form-control <?php echo !empty(form_error("telefono"))? 'is-invalid':'';?>" id="telefono" name="telefono" maxlength="255" value="<?php echo set_value("telefono");?>">
+                                        <?php echo form_error("telefono", "<span class='help-block text-danger'>","</span>");?>
+                                    </div>
+                                    <div class="form-group <?php echo !empty(form_error("dni"))? 'has-error':'';?>">   
+                                        <label for="dni" class="<?php echo !empty(form_error("dni"))? 'text-danger':'';?>">Dni:</label>
+                                        <input type="text" class="form-control <?php echo !empty(form_error("dni"))? 'is-invalid':'';?>" id="dni" name="dni" maxlength="255" value="<?php echo set_value("dni");?>">
+                                        <?php echo form_error("dni", "<span class='help-block text-danger'>","</span>");?>
+                                    </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                                     </div>

@@ -30,8 +30,8 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Email</th>
-                                            <th><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Contraseña (For demo purposes)</a></th>
                                             <th>Nombre</th>
+                                            <th>ID Rol</th>
                                             <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -41,8 +41,8 @@
                                         <tr>
                                             <td><?php echo $usuario->idusuario;?></td>
                                             <td><?php echo $usuario->email;?></td>
-                                            <td><?php echo $usuario->password;?></td>
                                             <td><?php echo $usuario->nombre;?></td>
+                                            <td><?php echo $usuario->idrol;?></td>
                                             <td>
                                                 <div class="btn-group">
 

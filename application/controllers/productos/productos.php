@@ -35,15 +35,19 @@ class Productos extends CI_Controller {
     	$nombre = $this->input->post("nombre");	
     	$precio = $this->input->post("precio");
         $stock = $this->input->post("stock");
+		$imagen = $this->input->post("imagen");
 		
 		$this->form_validation->set_rules("nombre","Nombre","required|is_unique[productos.nombre]");
 		$this->form_validation->set_rules("precio","Precio","required");
 		$this->form_validation->set_rules("stock","Stock","required");
+		$this->form_validation->set_rules("imagen","Imagen","required");
 		if ($this->form_validation->run()){
 		$data = array(
 			'nombre' => $nombre,
 			'precio' => $precio,
-			'stock' => $stock
+			'stock' => $stock,
+			'imagen' => $imagen,
+			'estado' => 1
 		);
 
 			if ($this->Productos_model->save($data)){
@@ -76,6 +80,7 @@ class Productos extends CI_Controller {
 		$nombre = $this->input->post("nombre");
 		$precio = $this->input->post("precio");
         $stock = $this->input->post("stock");
+		$imagen = $this->input->post("imagen");
 	
 		$productoActual = $this->Productos_model->getProductos($idproducto);
 
@@ -89,11 +94,13 @@ class Productos extends CI_Controller {
 		$this->form_validation->set_rules("nombre","Nombre","required".$unique);
 		$this->form_validation->set_rules("precio","Precio","required");
 		$this->form_validation->set_rules("stock","Stock","required");
+		$this->form_validation->set_rules("imagen","Imagen","required");
 		if ($this->form_validation->run()){
     	$data = array(
     		'nombre' => $nombre,
     		'precio' => $precio,
-            'stock' => $stock
+            'stock' => $stock,
+			'imagen' => $imagen
     	);
 
     	if ($this->Productos_model->update($idproducto,$data)){

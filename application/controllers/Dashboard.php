@@ -8,7 +8,7 @@ class Dashboard extends CI_Controller {
 		if (!$this->session->userdata("login")){
 			redirect(base_url());
 		}
-		$this->load->model("Backend_model");
+		$this->load->model("Ventas_model");
 	}
 
 	public function index(){	
@@ -17,10 +17,17 @@ class Dashboard extends CI_Controller {
 			"cantUsuarios" => $this->Backend_model->rowCount("usuarios"),
 			"cantClientes" => $this->Backend_model->rowCount("clientes"),
 			"cantProductos" => $this->Backend_model->rowCount("productos"),
+			"years" => $this->Ventas_model->years(),
 		);
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
 		$this->load->view('admin/view-dashboard', $data);
 		$this->load->view('layouts/footer');
+	}
+
+	public function getData(){
+		$year = $this->input->post("year");
+		$resultados = $this->Ventas_model->montos($year);
+		echo json_encode($resultados);
 	}
 }

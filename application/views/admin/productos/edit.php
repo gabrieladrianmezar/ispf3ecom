@@ -40,6 +40,11 @@
                                         <input type="text" class="form-control <?php echo !empty(form_error("stock"))? 'is-invalid':'';?>" id="stock" name="stock" maxlength="255" value="<?php echo $producto->stock?>"> 
                                         <?php echo form_error("stock", "<span class='help-block text-danger'>","</span>");?> 
                                     </div>
+                                    <div class="form-group">   
+                                        <label for="imagen" class="<?php echo !empty(form_error("imagen"))? 'text-danger':'';?>">Imagen:</label>
+                                        <input type="text" class="form-control <?php echo !empty(form_error("imagen"))? 'is-invalid':'';?>" id="imagen" name="imagen" maxlength="255" value="<?php echo $producto->imagen?>"> 
+                                        <?php echo form_error("imagen", "<span class='help-block text-danger'>","</span>");?> 
+                                    </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                                     </div>

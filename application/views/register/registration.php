@@ -80,6 +80,30 @@
             </div>
           </div>
         </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control <?php echo !empty(form_error("direccion"))? 'is-invalid':'';?>" placeholder="Direccion" id="direccion" name="direccion" minlength="5" maxlength="50" value="<?php echo set_value("direccion");?>">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="number" class="form-control <?php echo !empty(form_error("telefono"))? 'is-invalid':'';?>" placeholder="Telefono" id="telefono" name="telefono" minlength="3" maxlength="200" value="<?php echo set_value("telefono");?>">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="number" class="form-control <?php echo !empty(form_error("dni"))? 'is-invalid':'';?>" placeholder="Dni" id="dni" name="dni" minlength="3" maxlength="200" value="<?php echo set_value("dni");?>">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Ventas_model extends CI_Model {
 
 	public function getVentas(){
-		/*$this->db->where("idventa",">1");*/
+		$this->db->where("estado",!0);
 		$resultados = $this->db->get("ventas");
 		return $resultados->result();
 	}
@@ -92,5 +92,25 @@ class Ventas_model extends CI_Model {
 
 	public function saveDetalle($data){
 		return $this->db->insert("detalleventas",$data);
+	}
+
+	public function years(){
+		$this->db->select("YEAR(fecha) as year");
+		$this->db->from("ventas");
+		$this->db->group_by("year");
+		$this->db->order_by("year","desc");
+		$resultados = $this->db->get();
+		return $resultados->result();
+	}
+
+	public function montos($year){
+		$this->db->select("MONTH(fecha) as mes, SUM(total) as monto");
+		$this->db->from("ventas");
+		$this->db->where("fecha >=",$year."-01-01");
+		$this->db->where("fecha <=",$year."-12-31");
+		$this->db->group_by("mes");
+		$this->db->order_By("mes");
+		$resultados = $this->db->get();
+		return $resultados->result();
 	}
 } 

@@ -79,7 +79,7 @@
     <?php if( isset($_SESSION['idcliente'])==true || isset($_SESSION['idusuario'])==true) :  ?>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="<?php echo base_url();?>cart" class="nav-link"><i class="fas fa-shopping-cart"></i><b>Carrito</b></a>
+          <a href="<?php echo base_url();?>ventas/cart" class="nav-link"><i class="fas fa-shopping-cart"></i><b>Carrito</b></a>
         </li>
         <li class="nav-item">
             <a href="<?php echo base_url(); ?>log/auth/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
@@ -88,7 +88,7 @@
     <?php else : ?>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="<?php echo base_url();?>cart" class="nav-link"><i class="fas fa-shopping-cart"></i><b> Carrito</b></a>
+          <a href="<?php echo base_url();?>ventas/cart" class="nav-link"><i class="fas fa-shopping-cart"></i><b> Carrito</b></a>
         </li>
         <li class="nav-item">
             <a href="<?php echo base_url(); ?>log/clienteauth" class="nav-link"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</a>

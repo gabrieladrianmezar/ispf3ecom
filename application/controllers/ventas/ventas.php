@@ -95,13 +95,15 @@ class Ventas extends CI_Controller {
 
 	#No es una eliminacion logica sino fisica.
 	public function delete($id){
-		if ($this->Ventas_model->delete($id)){
+		$data  = array(
+			'estado' => "0", 
+		);
+		if ($this->Ventas_model->update($id,$data)){
     		redirect(base_url()."ventas/ventas");
-    	}
-    	else{
+    	} else {
     		$this->session->set_flashdata("error", "No se puedo guardar la informacion");
-    		redirect(base_url()."ventas/ventas/add");
-    	}
+    		redirect(base_url()."ventas/ventas");
+		}
 	}
 
 	public function getProductos(){

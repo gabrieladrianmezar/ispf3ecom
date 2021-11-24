@@ -163,6 +163,24 @@ $(document).ready(function () {
     })
   })
 
+  function generarComprobante(){
+    option = $(comprobantes).val();
+      if (option !="") {
+        infocomprobante = option.split("*");
+        $("#idcomprobante").val(infocomprobante[0]);
+        $("#iva").val(infocomprobante[2]);
+        $("#serie").val(infocomprobante[3]);
+        $("#numero").val(generarNumeroComprobante(infocomprobante[1]));
+      }
+      else{
+        $("#idcomprobante").val(null);
+        $("#iva").val(null);
+        $("#serie").val(null);
+        $("#numero").val(null);
+      }
+      obtenerValores();
+  }
+
   $(document).on("click",".btn-check",function(){
     cliente = $(this).val()
     infocliente = cliente.split("*");
@@ -171,10 +189,30 @@ $(document).ready(function () {
     $("#modal-default").modal("hide")
   });
 
+  /*$(document).ready(function(){
+    var base_url= "";
+    $('.buttonAdd').click(function(){
+        var id = $(this).val();
+        $.ajax({
+            url: base_url + "ventas/cart/addTo" + id,
+            type:"POST",
+            success:function(resp){
+              alert("Producto añadido");
+              //alert(resp);
+            }
+        /*data =  {'action': id};
+        $.post(ajaxurl, data, function (response) {
+            // Response div goes here.
+            alert("action performed successfully");
+        });*/
+    /*});
+  });
+});*/
+
   $("#producto").autocomplete({
     source:function(request, response){ 
       $.ajax({
-        url:"http://localhost/isfp3ecom/ventas/getProductos",
+        url:"http://localhost/isfp3ecom/ventas/productosdetalle/getProductos",
         type:"POST",
         dataType:"json",
         data:{ valor: request.term},
@@ -192,6 +230,7 @@ $(document).ready(function () {
   });
 
   $("#btn-agregar").on("click",function(){
+      generarComprobante()
       data = $(this).val();
       if (data !='') {
         infoproducto = data.split("*");
@@ -201,7 +240,7 @@ $(document).ready(function () {
         html += "<td>"+infoproducto[3]+"</td>";
         html += "<td><input type='text' name='cantidades[]' value='1' class='cantidades'></td>";
         html += "<td><input type='hidden' name='importes[]' value='"+infoproducto[2]+"'><p>"+infoproducto[2]+"</p></td>";
-        html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fas minus-circle'></span></button></td>";
+        html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fas fa-minus-circle'></span></button></td>";
         html += "</tr>";
         $("#tbventas tbody").append(html);
         obtenerValores();

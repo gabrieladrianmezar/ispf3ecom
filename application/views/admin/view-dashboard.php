@@ -15,21 +15,19 @@
                     <div class="box-body">
                     <p>
                         <?php 
-                            echo "Login:";
-                            echo $this->session->userdata("login");
-                            echo " Rol:";
+                            echo "Rol de Usuario:";
                             echo $this->session->userdata("rol");
                         ?>
                     </p>
                     <p>
                         <?php
-                            echo "ID: ";
+                            echo "ID de Usuario: ";
                             echo $this->session->userdata("idusuario");
                         ?>
                     </p>
                     <p>
                         <?php 
-                            echo " Nombre: ";
+                            echo " Nombre de Usuario: ";
                             $nombre = $this->session->userdata("nombre");
                             $palabras = str_word_count($nombre);
                             if ($palabras > 20 and strlen($nombre) < 100){
@@ -118,7 +116,12 @@
                         <h3 class="box-title">Monthly Recap Report</h3>
 
                         <div class="box-tools pull-right">
-
+                        <select name="year" id="year" class="form-control">
+                            <?php echo $years ?>
+                            <?php foreach($years as $year):?>
+                                    <option value="<?php echo $year->year;?>"><?php echo $year->year;?></option>
+                            <?php endforeach;?>
+                            </select>
                         </div>
                     </div>
                     <!-- /.box-header -->
@@ -126,6 +129,15 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div id="grafico">
+                                <figure class="highcharts-figure">
+                                    <div id="grafico"></div>
+                                    <p class="highcharts-description">
+                                        A basic column chart compares rainfall values between four cities.
+                                        Tokyo has the overall highest amount of rainfall, followed by New York.
+                                        The chart is making use of the axis crosshair feature, to highlight
+                                        months as they are hovered over.
+                                    </p>
+                                </figure>
                                     
                                 </div>
                             </div>

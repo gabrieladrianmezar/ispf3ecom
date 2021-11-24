@@ -21,11 +21,10 @@
                                 <div class="col-md-3">
                                 <p>
                         <?php
-                            echo "ID: ";
-                            echo $this->session->userdata("idusuario");
-                            echo " LastId: ";
-                            echo $this->db->insert_id();
-                            
+                            //echo "ID: ";
+                            //echo $this->session->userdata("idusuario");
+                            //echo " LastId: ";
+                            //echo $this->db->insert_id();
                         ?>
                     </p>
                                     <label for="">Comprobante:</label>
@@ -126,7 +125,7 @@
                             
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-success btn-flat">Guardar</button>
+                                    <button type="submit" class="btnSale btn btn-success btn-flat">Guardar</button>
                                 </div>
                                 
                             </div>
