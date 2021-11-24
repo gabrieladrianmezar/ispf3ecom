@@ -45,9 +45,7 @@
                                             <td><?php echo $usuario->nombre;?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <!-- <a data-toggle="modal" value="" title="Ver usuario" class="open-ViewUsuarioDialog btn btn-info btn-view" href="#viewUsuarioDialog">
-                                                        <span class="fas fa-search"></span>
-                                                    </a> -->
+
                                                    
                                                     <button type="button" class="viewUsuario btn btn-info btn-view" value="<?php echo $usuario->idusuario;?>" data-toggle="modal" data-target="#viewUsuarioModal">
                                                         <span class="fas fa-search"></span>
@@ -106,18 +104,3 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
-<!-- <div class="modal fade" idusuario="viewUsuarioDialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Información del Usuario</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidusuarioden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-
-            </div>
-        </div>
-    </div>
-</div> -->

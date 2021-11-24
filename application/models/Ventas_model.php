@@ -33,6 +33,30 @@ class Ventas_model extends CI_Model {
 		return $this->db->insert("ventas",$data);
 	}
 
+	public function getVentaJoined($idventa){
+		$this->db->select("v.idventa, v.idcliente, v.fecha, v.subtotal, v.iva, v.descuento, v.idtipocomprobante, v.idusuario, v.numerodocumento, v.serie, v.estado, v.total, c.nombre, c.direccion, c.telefono, c.dni, tc.nombre as tipocomprobanteA");
+		$this->db->from("ventas v");
+		$this->db->join("clientes c", "v.idcliente = c.idcliente");
+		$this->db->join("tipocomprobante tc", "v.idtipocomprobante = tc.id");
+		$this->db->where("v.idventa",$idventa);
+		/*$this->db->query("SELECT ventas.idventa, ventas.idcliente, ventas.fecha, ventas.subtotal, ventas.iva, ventas.descuento,ventas.idtipocomprobante, ventas.idusuario, ventas.numerodocumento, ventas.serie, ventas.estado, ventas.total, clientes.nombre, clientes.direccion, clientes.telefono, clientes.dni, tipocomprobante.nombre FROM ventas JOIN clientes ON ventas.idcliente=clientes.idcliente JOIN tipocomprobante ON ventas.idtipocomprobante=tipocomprobante.id; WHERE ventas.idventa");*/
+		$resultado = $this->db->get();		
+		return $resultado->row();
+	}
+
+	public function getDetalle($idventa){
+		/*$this->db->select("dt.id, dt.idproducto, dt.idventa, dt.cantidad, dt.precio, dt.subtotal, pr.idproducto, pr.nombre");
+		$this->db->from(" detalleventas dt");
+		$this->db->join(" productos pr", " dt.idproducto = pr.idproducto");
+		$this->db->where("dt.idventa",$idventa);*/
+		$this->db->select("detalleventas.id, detalleventas.idproducto, detalleventas.idventa, detalleventas.cantidad, detalleventas.precio, detalleventas.subtotal, productos.idproducto, productos.nombre");
+		$this->db->from("detalleventas");
+		$this->db->join("productos", "detalleventas.idproducto = productos.idproducto");
+		$this->db->where("detalleventas.idventa",$idventa);
+		$resultados = $this->db->get();
+		return $resultados->result();
+	}
+
 	public function getVenta($idventa){
 		$this->db->where("idventa",$idventa);
 		$resultado = $this->db->get("ventas");		

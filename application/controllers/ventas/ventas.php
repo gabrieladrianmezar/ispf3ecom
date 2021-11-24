@@ -75,12 +75,22 @@ class Ventas extends CI_Controller {
 		}
 	}
 
+
 	public function view($id){
+		$data = array(
+			'venta' => $this->Ventas_model->getVentaJoined($id),
+			'detalles' => $this->Ventas_model->getDetalle($id),
+		);
+
+		$this->load->view("admin/ventas/view2",$data);
+	}
+
+	public function view2($id){
 		$data = array(
 			'venta' => $this->Ventas_model->getVenta($id),
 		);
 
-		$this->load->view("admin/ventas/view",$data);
+		$this->load->view("admin/ventas/view2",$data);
 	}
 
 	#No es una eliminacion logica sino fisica.

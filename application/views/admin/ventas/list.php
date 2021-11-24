@@ -8,7 +8,7 @@
                 Ventas
                 <small>Listado</small>
                 <div class="float-right d-none d-sm-inline-block"> <?php if($permisos->insert ==1):?>
-                    <a href="<?php echo base_url();?>ventasventas/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
+                    <a href="<?php echo base_url();?>ventas/ventas/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
                     <?php endif;?>
                 </h1>
             </section>
@@ -61,9 +61,6 @@
                                             <td><?php echo $venta->estado;?></td>
                                             <td>
                                                   <div class="btn-group">
-                                                    <!-- <a data-toggle="modal" value="" title="Ver venta" class="open-ViewventaDialog btn btn-info btn-view" href="#viewventaDialog">
-                                                        <span class="fas fa-search"></span>
-                                                    </a> -->
                                                    
                                                     <button type="button" class="viewVenta btn btn-info btn-view" value="<?php echo $venta->idventa;?>" data-toggle="modal" data-target="#viewVentaModal">
                                                         <span class="fas fa-search"></span>
@@ -106,34 +103,20 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Informacion del venta</h4>
+        <h4 class="modal-title">Informacion de la venta</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
+          <span aria-hidusuarioden="true">&times;</span></button>
       </div>
       <div class="modal-body">
         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
-      </div>
+        <button type="button" class="btn btn-primary btn-print"><span class="fa fa-print">Imprimir</span></button>
+    </div>
     </div>
     <!-- /.modal-content -->
   </div>
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
-<!-- <div class="modal fade" id="viewventaDialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Información del venta</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-
-            </div>
-        </div>
-    </div>
-</div> -->
