@@ -19,16 +19,6 @@ class Ventas_model extends CI_Model {
 		return $resultados->result();
 	}
 
-	/*public function doesEmailExist($email){
-		/*$this->db->where("email",$email);
-		$resultado = $this->db->get("ventas");*//*
-		$this->db->select('*');	
-		$this->db->like("email", $email);
-		$this->db->from("ventas");
-		$resultado = $this->db->count_all_results();
-		return $resultado;		
-		}*/
-
 	public function save($data){
 		return $this->db->insert("ventas",$data);
 	}
@@ -45,10 +35,6 @@ class Ventas_model extends CI_Model {
 	}
 
 	public function getDetalle($idventa){
-		/*$this->db->select("dt.id, dt.idproducto, dt.idventa, dt.cantidad, dt.precio, dt.subtotal, pr.idproducto, pr.nombre");
-		$this->db->from(" detalleventas dt");
-		$this->db->join(" productos pr", " dt.idproducto = pr.idproducto");
-		$this->db->where("dt.idventa",$idventa);*/
 		$this->db->select("detalleventas.id, detalleventas.idproducto, detalleventas.idventa, detalleventas.cantidad, detalleventas.precio, detalleventas.subtotal, productos.idproducto, productos.nombre");
 		$this->db->from("detalleventas");
 		$this->db->join("productos", "detalleventas.idproducto = productos.idproducto");
