@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<?php 
-        
-  /*session_start(); */
-  /*if( isset($_SESSION['id'])==false ){
-    header("location: index.php");
-  }
-  */
 
-?>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,18 +55,6 @@
         <a href="https://github.com/gabrieladrianmezar/ispf3ecom" class="nav-link" target="_blank"><i class="fab fa-github"></i> GitHub Repo</a>
       </li>
     </ul>
-
-    <!-- SEARCH FORM -->
-    <!--  <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form> -->
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">

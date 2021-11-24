@@ -64,12 +64,4 @@ class Register extends CI_Controller {
 		$this->load->view('register/success');	
 	}
 
-
-	public function view($idcliente){
-		$data = array(
-			'cliente' => $this->Clientes_model->getCliente($idcliente),
-		);
-
-		$this->load->view("admin/clientes/view",$data);
-	}
 }

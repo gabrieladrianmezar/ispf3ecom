@@ -18,7 +18,7 @@ public function index($idproducto)
    $this->load->view('layouts/footermain');
 }
 
-public function indexadd($idproducto){
+/*public function indexadd($idproducto){
    $producto = $this->input->post("add");
    $this->session->set_userdata("producto".strval($producto),$this->session->userdata("producto".strval($producto))+1);
    //echo $this->session->userdata("producto".strval($producto));
@@ -29,7 +29,7 @@ public function indexadd($idproducto){
    $this->load->view('layouts/headermain');
    $this->load->view('products/product',$data);
    $this->load->view('layouts/footermain');
-}
+}*/
 
 }
 ?>
