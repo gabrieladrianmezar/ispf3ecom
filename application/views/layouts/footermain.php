@@ -189,25 +189,6 @@ $(document).ready(function () {
     $("#modal-default").modal("hide")
   });
 
-  /*$(document).ready(function(){
-    var base_url= "";
-    $('.buttonAdd').click(function(){
-        var id = $(this).val();
-        $.ajax({
-            url: base_url + "ventas/cart/addTo" + id,
-            type:"POST",
-            success:function(resp){
-              alert("Producto añadido");
-              //alert(resp);
-            }
-        /*data =  {'action': id};
-        $.post(ajaxurl, data, function (response) {
-            // Response div goes here.
-            alert("action performed successfully");
-        });*/
-    /*});
-  });
-});*/
 
   $("#producto").autocomplete({
     source:function(request, response){ 
@@ -335,48 +316,6 @@ $(document).ready(function () {
     
   }
 
-  function añadirProducto(){
-
-  }
-
-    /*Con quilombo*
-    if (cantidad>=99999 && numero<   999999){
-      return Number(numero)+1;
-    }
-    if (numero>= 9999 && numero< 99999){
-      return "0" + (Number(numero)+1);
-    }
-    if (numero>= 999 && numer< 9999){
-      return "00" + (Number(numero)+1);
-    }
-    if (numero>= 99 && numero< 999){
-      return "000" + (Number(numero)+1);
-    }
-    if (numero>= 9 && numero< 99){
-      return "0000" + (Number(numero)+1);
-    }
-    if (numero< 9 ){
-      return "00000" + (Number(numero)+1);
-    }
-
-    */
-
-//$(document).on("click", ".open-viewUsuarioDialog", function () {
-//    var id = $(this).val(); 
-//        $.ajax({
-//            url: base_url + "usuarios/view" + id,
-//            type:"POST",
-//            success:function(resp){
-//                $("#viewUsuarioDialog .modal-body").html(resp);
-//                alert(resp);
-//            }
-     //var myBookId = $(this).data('id');
-     //$(".modal-body #bookId").val( myBookId );
-     // As pointed out in comments,  
-     // it is unnecessary to have to manually call the modal.
-     // $('#addBookDialog').modal('show');
-//})
-//});
 
 </script>
 </body>

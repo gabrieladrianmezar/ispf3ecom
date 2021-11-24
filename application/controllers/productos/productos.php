@@ -124,7 +124,6 @@ class Productos extends CI_Controller {
 		$this->load->view("admin/productos/view",$data);
 	}
 
-	#No es una eliminacion logica sino fisica.
 
 	public function delete($idproducto){
 		$data  = array(

@@ -82,18 +82,9 @@ class Ventas extends CI_Controller {
 			'detalles' => $this->Ventas_model->getDetalle($id),
 		);
 
-		$this->load->view("admin/ventas/view2",$data);
+		$this->load->view("admin/ventas/view",$data);
 	}
 
-	public function view2($id){
-		$data = array(
-			'venta' => $this->Ventas_model->getVenta($id),
-		);
-
-		$this->load->view("admin/ventas/view2",$data);
-	}
-
-	#No es una eliminacion logica sino fisica.
 	public function delete($id){
 		$data  = array(
 			'estado' => "0", 

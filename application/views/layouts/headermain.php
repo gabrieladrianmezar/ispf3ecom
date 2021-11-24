@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<?php 
-        
-  /*session_start(); */
-  /*if( isset($_SESSION['id'])==false ){
-    header("location: index.php");
-  }
-  */
 
-?>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,18 +54,6 @@
         <a href="<?php echo base_url();?>contactmain" class="nav-link"><b>Contacto</b></a>
       </li>
     </ul>
-
-    <!-- SEARCH FORM -->
-    <!--  <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form> -->
 
     <!-- Right navbar links -->
     <?php if( isset($_SESSION['idcliente'])==true || isset($_SESSION['idusuario'])==true) :  ?>
