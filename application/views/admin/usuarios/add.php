@@ -27,7 +27,7 @@
                                     if($this->session->flashdata("error")){
                                     unset($_SESSION['error']);
                                  }?>
-                                <form action="<?php echo base_url();?>usuarios/store" method="POST">
+                                <form action="<?php echo base_url();?>usuarios/usuarios/store" method="POST">
                                     <div class="form-group">   
                                         <label for="email" class="<?php echo !empty(form_error("email"))? 'text-danger':'';?>">Email:</label>
                                         <input type="email" class="form-control <?php echo !empty(form_error("email"))? 'is-invalid':'';?>" id="email" name="email" minlength="3" maxlength="200" value="<?php echo set_value("email");?>">
@@ -42,6 +42,11 @@
                                         <label for="nombre" class="<?php echo !empty(form_error("nombre"))? 'text-danger':'';?>">Nombre:</label>
                                         <input type="text" class="form-control <?php echo !empty(form_error("nombre"))? 'is-invalid':'';?>" id="nombre" name="nombre" maxlength="255" value="<?php echo set_value("nombre");?>">
                                         <?php echo form_error("nombre", "<span class='help-block text-danger'>","</span>");?>
+                                    </div>
+                                    <div class="form-group <?php echo !empty(form_error("rol"))? 'has-error':'';?>">   
+                                        <label for="rol" class="<?php echo !empty(form_error("rol"))? 'text-danger':'';?>">Rol:</label>
+                                        <input type="text" class="form-control <?php echo !empty(form_error("rol"))? 'is-invalid':'';?>" id="rol" name="rol" maxlength="1" value="<?php echo set_value("rol");?>">
+                                        <?php echo form_error("rol", "<span class='help-block text-danger'>","</span>");?>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>

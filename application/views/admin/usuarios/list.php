@@ -7,7 +7,9 @@
                 <h1>
                 Usuarios
                 <small>Listado</small>
-                <div class="float-right d-none d-sm-inline-block"> <a href="<?php echo base_url();?>usuarios/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
+                <div class="float-right d-none d-sm-inline-block"><?php if($permisos->insert ==1):?>
+                     <a href="<?php echo base_url();?>usuarios/usuarios/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
+                     <?php endif; ?>
                 </h1>
             </section>
             <!-- Main content -->
@@ -28,8 +30,8 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Email</th>
-                                            <th><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Contraseña (For demo purposes)</a></th>
                                             <th>Nombre</th>
+                                            <th>ID Rol</th>
                                             <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -39,22 +41,23 @@
                                         <tr>
                                             <td><?php echo $usuario->idusuario;?></td>
                                             <td><?php echo $usuario->email;?></td>
-                                            <td><?php echo $usuario->password;?></td>
                                             <td><?php echo $usuario->nombre;?></td>
+                                            <td><?php echo $usuario->idrol;?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <!-- <a data-toggle="modal" value="" title="Ver usuario" class="open-ViewUsuarioDialog btn btn-info btn-view" href="#viewUsuarioDialog">
-                                                        <span class="fas fa-search"></span>
-                                                    </a> -->
+
                                                    
                                                     <button type="button" class="viewUsuario btn btn-info btn-view" value="<?php echo $usuario->idusuario;?>" data-toggle="modal" data-target="#viewUsuarioModal">
                                                         <span class="fas fa-search"></span>
                                                     </button>
                                                     
                                                     <!-- <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a> -->                
-
-                                                    <a href="<?php echo base_url()?>usuarios/edit/<?php echo $usuario->idusuario;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
-                                                    <a href="<?php echo base_url();?>usuarios/delete/<?php echo $usuario->idusuario;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <?php if($permisos->update ==1):?>
+                                                    <a href="<?php echo base_url()?>usuarios/usuarios/edit/<?php echo $usuario->idusuario;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
+                                                    <?php endif;?>
+                                                    <?php if($permisos->delete ==1):?>
+                                                    <a href="<?php echo base_url();?>usuarios/usuarios/delete/<?php echo $usuario->idusuario;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <?php endif;?>
                                                     <script type="text/javascript">
                                                         var elems = document.getElementsByClassName('btn btn-danger');
                                                         var confirmIt = function (e) {
@@ -101,18 +104,3 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
-<!-- <div class="modal fade" idusuario="viewUsuarioDialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Información del Usuario</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidusuarioden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-
-            </div>
-        </div>
-    </div>
-</div> -->

@@ -5,7 +5,7 @@ class Auth extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-        $this->load->model("Usuarios_model");
+        $this->load->model("Login_model");
     }
 
     public function index()
@@ -15,7 +15,7 @@ class Auth extends CI_Controller {
 			redirect(base_url()."dashboard");
 		}
 		else{
-		$this->load->view('admin/login');
+		$this->load->view('login/login');
 		}
     }
 
@@ -23,7 +23,7 @@ class Auth extends CI_Controller {
 	{
     	$email      = $this->input->post("email");
         $password   = $this->input->post("password");
-        $res = $this->Usuarios_model->login($email, sha1($password));
+        $res = $this->Login_model->userlogin($email, sha1($password));
 
         if(!$res) {
             $this->session->set_flashdata("error","El email y o contraseña son incorrectos");
@@ -31,9 +31,10 @@ class Auth extends CI_Controller {
         }
         else{
             $data = array(
-                'id' => $res->id,
+                'idusuario' => $res->idusuario,
                 'nombre' => $res->nombre,
-                'login' => TRUE
+                'login' => TRUE,
+                'rol' => $res->idrol
             );
             $this->session->set_userdata($data);
             redirect(base_url()."dashboard");

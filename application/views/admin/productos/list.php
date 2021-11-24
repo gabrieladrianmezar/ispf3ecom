@@ -8,7 +8,9 @@
                 <h1>
                 Productos
                 <small>Listado</small>
-                <div class="float-right d-none d-sm-inline-block"> <a href="<?php echo base_url();?>productos/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
+                <div class="float-right d-none d-sm-inline-block"> <?php if($permisos->insert ==1):?>
+                    <a href="<?php echo base_url();?>productos/productos/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
+                    <?php endif; ?>
                 </h1>
             </section>
             <!-- Main content -->
@@ -31,6 +33,7 @@
                                             <th>Nombre</th>
                                             <th>Precio</th>
                                             <th>Stock</th>
+                                            <th>Imagen</th>
                                             <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -42,6 +45,7 @@
                                             <td><?php echo $producto->nombre;?></td>
                                             <td><?php echo $producto->precio;?></td>
                                             <td><?php echo $producto->stock;?></td>
+                                            <td><?php echo $producto->imagen;?></td>
                                             <td>
                                                 <div class="btn-group">
                                                 <button type="button" class="viewProducto btn btn-info btn-view" value="<?php echo $producto->idproducto;?>" data-toggle="modal" data-target="#viewProductoModal">
@@ -50,8 +54,12 @@
                                                     
                                                     <!-- <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a> -->                
 
-                                                    <a href="<?php echo base_url()?>productos/edit/<?php echo $producto->idproducto;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
-                                                    <a href="<?php echo base_url();?>productos/delete/<?php echo $producto->idproducto;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <?php if($permisos->update ==1):?>
+                                                    <a href="<?php echo base_url()?>productos/productos/edit/<?php echo $producto->idproducto;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
+                                                    <?php endif;?>
+                                                    <?php if($permisos->delete ==1):?>
+                                                    <a href="<?php echo base_url();?>productos/productos/delete/<?php echo $producto->idproducto;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <?php endif;?>
                                                     <script type="text/javascript">
                                                         var elems = document.getElementsByClassName('btn btn-danger');
                                                         var confirmIt = function (e) {

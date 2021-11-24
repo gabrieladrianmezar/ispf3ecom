@@ -26,12 +26,12 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="index2.html" class="h1"><b>Fermosa</b>Workout</a>
+      <a href="http://localhost/isfp3ecom/" class="h1"><b>Fermosa</b>Workout</a>
     </div>
     <div class="card-body">
     <div class="mb-4">
       <div class="d-flex justify-content-center links">
-				No tienes una cuenta? <a href="#" class="ml-2">Regístrate</a>
+				No tienes una cuenta? <a href="<?php echo base_url();?>log/register" class="ml-2">Regístrate</a>
 			</div>
     </div>
       <!--<p class="login-box-msg">Ingresa tus datos para iniciar sesión</p> -->
@@ -45,7 +45,7 @@
         if($this->session->flashdata("error")){
         unset($_SESSION['error']);
       }?>
-      <form action="<?php echo base_url();?>auth/login" method="post">
+      <form action="<?php echo base_url();?>log/clienteauth/login" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email">
           <div class="input-group-append">
@@ -73,6 +73,7 @@
             </div> -->
           </div>
           <!-- /.col -->
+            <input type="productosinput" style="display:none" class="productosinput" id="productosinput" name="productosinput" value="<?php foreach($productos as $producto): echo $producto->idproducto;?>,<?php endforeach;?>0">
           <div class="social-auth-links text-center">
             <button type="submit" class="btn btn-primary btn-block" name="login">Iniciar sesión</button>
           </div>
@@ -95,6 +96,12 @@
       <div class="mb-4">
 					<div class="d-flex justify-content-center links">
 						<a href="#">Olvidaste tu contraseña?</a>
+					</div>
+      </div>
+
+      <div class="mb-4">
+					<div class="d-flex justify-content-center links">
+						<a href="<?php echo base_url();?>log/auth">Soy administrador</a>
 					</div>
       </div>
 

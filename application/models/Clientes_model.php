@@ -4,20 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Clientes_model extends CI_Model {
 
 	public function getClientes(){
-		/*$this->db->where("idcliente",">1");*/
+		$this->db->where("estado","1");
 		$resultados = $this->db->get("clientes");
 		return $resultados->result();
 	}
-
-	/*public function doesEmailExist($email){
-		/*$this->db->where("email",$email);
-		$resultado = $this->db->get("clientes");*//*
-		$this->db->select('*');	
-		$this->db->like("email", $email);
-		$this->db->from("clientes");
-		$resultado = $this->db->count_all_results();
-		return $resultado;		
-		}*/
 
 	public function save($data){
 		return $this->db->insert("clientes",$data);

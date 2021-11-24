@@ -8,7 +8,9 @@
                 <h1>
                 Clientes
                 <small>Listado</small>
-                <div class="float-right d-none d-sm-inline-block"> <a href="<?php echo base_url();?>clientes/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
+                <div class="float-right d-none d-sm-inline-block"> <?php if($permisos->insert ==1):?>
+                    <a href="<?php echo base_url();?>clientes/clientes/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
+                    <?php endif;?>
                 </h1>
             </section>
             <!-- Main content -->
@@ -29,8 +31,10 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Email</th>
-                                            <th><a href="https://md5decrypt.net/en/Sha1/" target="_blank">Contraseña (For demo purposes)</a></th>
                                             <th>Nombre</th>
+                                            <th>Direccion</th>
+                                            <th>Telefono</th>
+                                            <th>Dni</th>
                                             <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -40,8 +44,10 @@
                                         <tr>
                                             <td><?php echo $cliente->idcliente;?></td>
                                             <td><?php echo $cliente->email;?></td>
-                                            <td><?php echo $cliente->password;?></td>
                                             <td><?php echo $cliente->nombre;?></td>
+                                            <td><?php echo $cliente->direccion;?></td>
+                                            <td><?php echo $cliente->telefono;?></td>
+                                            <td><?php echo $cliente->dni;?></td>
                                             <td>
                                                 <div class="btn-group">
                                                 <button type="button" class="viewCliente btn btn-info btn-view" value="<?php echo $cliente->idcliente;?>" data-toggle="modal" data-target="#viewClienteModal">
@@ -50,8 +56,12 @@
                                                     
                                                     <!-- <a href="#" class="btn btn-info"><span class="fa fa-eye"></span></a> -->                
 
-                                                    <a href="<?php echo base_url()?>clientes/edit/<?php echo $cliente->idcliente;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
-                                                    <a href="<?php echo base_url();?>clientes/delete/<?php echo $cliente->idcliente;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <?php if($permisos->update ==1):?>
+                                                    <a href="<?php echo base_url()?>clientes/clientes/edit/<?php echo $cliente->idcliente;?>" class="btn btn-warning"><span class="fas fa-edit"></span></a>
+                                                    <?php endif;?>
+                                                    <?php if($permisos->delete ==1):?>
+                                                    <a href="<?php echo base_url();?>clientes/clientes/delete/<?php echo $cliente->idcliente;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
+                                                    <?php endif;?>
                                                     <script type="text/javascript">
                                                         var elems = document.getElementsByClassName('btn btn-danger');
                                                         var confirmIt = function (e) {

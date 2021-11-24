@@ -17,6 +17,8 @@
 
 <!-- jQuery -->
 <script src="<?php echo base_url();?>plugins/jquery/jquery.min.js"></script>
+<!-- jQuery Print -->
+<script src="<?php echo base_url();?>plugins/jquery-print/jquery.print.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url();?>plugins/jquery-ui/jquery-ui.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -32,6 +34,11 @@
 <!-- JQVMap -->
 <script src="<?php echo base_url();?>plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="<?php echo base_url();?>plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- HighCharts-->
+<script src="<?php echo base_url();?>plugins/highcharts/exporting.js"></script>
+<script src="<?php echo base_url();?>plugins/highcharts/highcharts.js"></script>
+<script src="<?php echo base_url();?>plugins/highcharts/export-data.js"></script>
+<script src="<?php echo base_url();?>plugins/highcharts/accessibility.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="<?php echo base_url();?>plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
@@ -65,11 +72,17 @@
 <script>
 // Modal viewUsuario de usuarios/list
 $(document).ready(function () {
-    var base_url= "<?php  echo base_url();?>";
+    var base_url = "<?php  echo base_url();?>";
+    var year = (new Date).getFullYear();
+    datagrafico(base_url,year);
+    $("#year").on("change",function(){
+      yearselect = $(this).val();
+      datagrafico(base_url,yearselect);
+    });
     $(".viewUsuario").on("click", function(){
         var id = $(this).val(); 
         $.ajax({
-            url: base_url + "usuarios/view/" + id,
+            url: base_url + "usuarios/usuarios/view/" + id,
             type:"POST",
             success:function(resp){
               $("#viewUsuarioModal .modal-body").html(resp);
@@ -85,7 +98,7 @@ $(document).ready(function () {
     $(".viewCliente").on("click", function(){
         var id = $(this).val(); 
         $.ajax({
-            url: base_url + "clientes/view/" + id,
+            url: base_url + "clientes/clientes/view/" + id,
             type:"POST",
             success:function(resp){
               $("#viewClienteModal .modal-body").html(resp);
@@ -95,13 +108,15 @@ $(document).ready(function () {
     }); 
   });
 
+
+
 // Modal viewProducto de productos/list
 $(document).ready(function () {
     var base_url= "<?php  echo base_url();?>";
     $(".viewProducto").on("click", function(){
         var id = $(this).val(); 
         $.ajax({
-            url: base_url + "productos/view/" + id,
+            url: base_url + "productos/productos/view/" + id,
             type:"POST",
             success:function(resp){
               $("#viewProductoModal .modal-body").html(resp);
@@ -111,21 +126,30 @@ $(document).ready(function () {
     }); 
   });
 
+$(document).ready(function (){
+  $(".viewVentaPrint").on("click", function(){
+    $("#viewVentaModal .modal-body").print({
+      title:"Comprobante de Venta"
+    });
+  });
+});
 // Modal viewVenta de ventas/list
 $(document).ready(function () {
     var base_url= "<?php  echo base_url();?>";
     $(".viewVenta").on("click", function(){
         var id = $(this).val(); 
         $.ajax({
-            url: base_url + "ventas/view/" + id,
+            url: base_url + "ventas/ventas/view/" + id,
             type:"POST",
             success:function(resp){
               $("#viewVentaModal .modal-body").html(resp);
               //alert(resp);
             }
         });
-    }); 
+    })
+    ; 
   });
+
 
   $(function() { 
     $(comprobantes).on("change",function(){
@@ -147,6 +171,26 @@ $(document).ready(function () {
     })
   })
 
+ /* $(function(){
+    $("detailVenta").on("click",function(){
+      option = $(this).val();
+      if (option !="") {
+        infocomprobante = option.split("*");
+        $("#idcomprobante").val(infocomprobante[0]);
+        $("#iva").val(infocomprobante[2]);
+        $("#serie").val(infocomprobante[3]);
+        $("#numero").val(generarNumeroComprobante(infocomprobante[1]));
+      }
+      else{
+        $("#idcomprobante").val(null);
+        $("#iva").val(null);
+        $("#serie").val(null);
+        $("#numero").val(null);
+      }
+      obtenerValores();
+    })
+  })*/
+
   $(document).on("click",".btn-check",function(){
     cliente = $(this).val()
     infocliente = cliente.split("*");
@@ -155,10 +199,11 @@ $(document).ready(function () {
     $("#modal-default").modal("hide")
   });
 
+
   $("#producto").autocomplete({
     source:function(request, response){ 
       $.ajax({
-        url:"http://localhost/isfp3ecom/ventas/getProductos",
+        url:"http://localhost/isfp3ecom/ventas/productosdetalle/getProductos",
         type:"POST",
         dataType:"json",
         data:{ valor: request.term},
@@ -184,8 +229,8 @@ $(document).ready(function () {
         html += "<td><input type='hidden' name='precios[]' value='"+infoproducto[2]+"'>"+infoproducto[2]+"</td>";
         html += "<td>"+infoproducto[3]+"</td>";
         html += "<td><input type='text' name='cantidades[]' value='1' class='cantidades'></td>";
-        html += "<td><input type='hidden' name='importes[]' value='"+infoproducto[2]+"'><p>"+infoproducto[2]+"</p></td>";
-        html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fas minus-circle'></span></button></td>";
+        html += "<td><input type='hidden' id='importes' class='importes' name='importes[]' value='"+infoproducto[2]+"'><p>"+infoproducto[2]+"</p></td>";
+        html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fas fa-minus-circle'></span></button></td>";
         html += "</tr>";
         $("#tbventas tbody").append(html);
         obtenerValores();
@@ -194,8 +239,16 @@ $(document).ready(function () {
       };
     });
 
+    $(document).on("click",".cantidades",function(){
+      obtenerValores();
+    });
+    $(document).on("click",".btnSale",function(){
+      obtenerValores();
+    });
+
     $(document).on("click",".btn-remove-producto", function(){
       $(this.closest("tr").remove());
+      obtenerValores();
     });
     $(document).on("keyup","#tbventas input.cantidades", function(){
       cantidad = $(this).val();
@@ -239,9 +292,9 @@ $(document).ready(function () {
   });
 
   function generarNumeroComprobante(cantidad){
-    var numero = cantidad+1; //n debe ser el ultimo numero generado
+    var numero = parseInt(cantidad)+1; //n debe ser el ultimo numero generado
     var fn ='00000000'; //es la mascara de ceros
-    fn = fn.substring (0,8-numero.length) + numero;
+    fn = fn.substring (0,8-numero.toString().length) + numero.toString();
     return fn;
   }
 
@@ -258,6 +311,76 @@ $(document).ready(function () {
     total = subtotal + iva - descuento;
     $("input[name=total]").val(total.toFixed(2));
     
+  };
+
+  function datagrafico(base_url,year){
+    namesMonth=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre", "Octubre","Noviembre","Diciembre"];
+    $.ajax({
+      url: base_url + "ventas/estadisticas/getData",
+      type:"POST",
+      data:{year: year},
+      dataType:"json",
+      success:function(data){
+        var meses = new Array();
+        var montos = new Array();
+        $.each(data,function(key,value){
+          meses.push(namesMonth[value.mes - 1]);
+          valor = Number(value.monto);
+          montos.push(valor);
+        });
+        graficar(meses,montos,year);
+      }
+    })
+  }
+
+  function graficar(meses,montos,year){
+    Highcharts.chart('grafico', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Montos acumulados en ventas'
+    },
+    subtitle: {
+        text: 'Año ' + year
+    },
+    xAxis: {
+        categories: meses,
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Cantidad'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">Monto: </td>' +
+            '<td style="padding:0"><b>{point.y:.2f} pesos</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        },
+        series:{
+          dataLabels:{
+            enabled:true,
+            formatter:function(){
+              return Highcharts.numberFormat(this.y,2)
+            }
+          }
+        }
+    },
+    series: [{
+        name: 'Meses',
+        data: montos
+    }]
+});
   }
 
     /*Con quilombo*

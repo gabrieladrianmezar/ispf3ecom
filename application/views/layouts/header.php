@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="<?php echo base_url();?>plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url();?>dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>dist/css/styles.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url();?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
@@ -52,7 +53,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo base_url();?>" class="nav-link">Inicio</a>
+        <a href="<?php echo base_url();?>dashboard" class="nav-link">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<?php echo base_url();?>contact" class="nav-link">Contacto</a>
@@ -78,7 +79,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-          <a href="<?php echo base_url(); ?>auth/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+          <a href="<?php echo base_url(); ?>log/auth/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
       </li>
     </ul>
   </nav>

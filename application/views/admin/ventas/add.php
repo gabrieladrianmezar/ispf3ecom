@@ -16,9 +16,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         
-                        <form action="<?php echo base_url();?>ventas/store" method="POST" class="form-horizontal">
+                        <form action="<?php echo base_url();?>ventas/ventas/store" method="POST" class="form-horizontal">
                             <div class="form-group">
                                 <div class="col-md-3">
+                                <p>
+                        <?php
+                            //echo "ID: ";
+                            //echo $this->session->userdata("idusuario");
+                            //echo " LastId: ";
+                            //echo $this->db->insert_id();
+                        ?>
+                    </p>
                                     <label for="">Comprobante:</label>
                                     <select name="comprobantes" id="comprobantes" class="form-control" required>
                                         <option value="">Seleccione...</option>
@@ -117,7 +125,7 @@
                             
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-success btn-flat">Guardar</button>
+                                    <button type="submit" class="btnSale btn btn-success btn-flat">Guardar</button>
                                 </div>
                                 
                             </div>

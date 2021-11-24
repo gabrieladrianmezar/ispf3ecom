@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Productos_model extends CI_Model {
 
 	public function getProductos(){
-		/*$this->db->where("idproducto",">1");*/
+		$this->db->where("estado","1");
 		$resultados = $this->db->get("productos");
 		return $resultados->result();
 	}

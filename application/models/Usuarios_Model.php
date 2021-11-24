@@ -3,17 +3,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios_model extends CI_Model {
 
-	public function login($email, $password)
-	{
-        $this->db->where("email", $email);
-        $this->db->where("password", $password);
-		
-        $resultados = $this->db->get("usuarios");
-        if ($resultados->num_rows() > 0) {
-            return $resultados->row();
-        }
-        else{
-            return false;
-        }
+	public function getUsuarios(){
+		$this->db->where("estado","1");
+		$resultados = $this->db->get("usuarios");
+		return $resultados->result();
 	}
-}
+
+	public function save($data){
+		return $this->db->insert("usuarios",$data);
+	}
+
+	public function getUsuario($idusuario){
+		$this->db->where("idusuario",$idusuario);
+		$resultado = $this->db->get("usuarios");		
+		return $resultado->row();
+	}
+
+	public function update($idusuario,$data){
+		$this->db->where("idusuario",$idusuario);
+		return $this->db->update("usuarios",$data);
+	}
+
+	public function delete($idusuario){
+		$this->db->where("idusuario",$idusuario);
+		return $this->db->delete("usuarios");
+	}
+
+	public function getRoles(){
+		$resultados = $this->db->get("roles");
+		return $resultados->result();
+	}
+
+} 
