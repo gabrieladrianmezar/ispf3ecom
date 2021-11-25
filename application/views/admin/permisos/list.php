@@ -8,7 +8,8 @@
                 <h1>
                 Permisos
                 <small>Listado</small>
-                <div class="float-right d-none d-sm-inline-block"><?php if($permisosP->insert ==1):?>
+                <div class=""><?php if($permisosP->insert ==1):?>
+                     <small>Añadir nuevo</small>
                      <a href="<?php echo base_url();?>sysadmin/permisos/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
                      <?php endif;?>
                 </h1>

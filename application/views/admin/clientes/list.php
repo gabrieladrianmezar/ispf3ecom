@@ -8,7 +8,8 @@
                 <h1>
                 Clientes
                 <small>Listado</small>
-                <div class="float-right d-none d-sm-inline-block"> <?php if($permisos->insert ==1):?>
+                <div class=""> <?php if($permisos->insert ==1):?>
+                    <small>Añadir nuevo</small>
                     <a href="<?php echo base_url();?>clientes/clientes/add" class="btn btn-primary"><span class="fa fa-plus"></span></a></div>
                     <?php endif;?>
                 </h1>

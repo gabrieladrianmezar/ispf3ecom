@@ -42,7 +42,9 @@
                   <small>Exceptuando impuestos: $<?php echo $producto->precio;?> </small>
                 </h4>
               </div>
+              <?php if($this->session->userdata("login")): ?>
               <div class="btn-group">
+
               <p style="font-size: 25px">En el carrito:&nbsp&nbsp</p>
               <form action="<?php echo base_url();?>productos/product/indexadd/<?php echo strval($producto->idproducto);?>" method='post'>
                 <button type="submit" class="buttonAdd btn btn-success btn-flat inline" name="add" id="add" value="<?php echo $producto->idproducto?>"><span class='fas fa-plus-circle'></span></button>
@@ -52,6 +54,7 @@
                 <button type="submit" class="buttonAdd btn btn-danger btn-flat inline" name="add" id="add" value="<?php echo $producto->idproducto?>"><span class='fas fa-minus-circle'></span></button>
               </form>
               </div>
+              <?php endif; ?>
             </div>
           </div>
           <div class="row mt-4">
