@@ -46,6 +46,11 @@
             </div>
           </div>
           <div class="row mt-4">
+              <form action="<?php echo base_url();?>productos/product/indexadd/<?php echo strval($producto->idproducto);?>" method='post'>
+                <button type="submit" class="buttonAdd btn btn-success btn-flat" name="add" id="add" value="<?php echo $producto->idproducto?>">Añadir al carrito</button>
+              </form>
+                <p>En el carrito: <?php echo $this->session->userdata("producto".strval($producto->idproducto)) ;?></p>
+                <div class="mt-4">
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
                 <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Description</a>
