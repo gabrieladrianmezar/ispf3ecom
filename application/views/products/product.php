@@ -1,4 +1,4 @@
-<div class="content-wrapper mains">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -42,14 +42,20 @@
                   <small>Exceptuando impuestos: $<?php echo $producto->precio;?> </small>
                 </h4>
               </div>
-
+              <div class="btn-group">
+              <p style="font-size: 25px">En el carrito:&nbsp&nbsp</p>
+              <form action="<?php echo base_url();?>productos/product/indexadd/<?php echo strval($producto->idproducto);?>" method='post'>
+                <button type="submit" class="buttonAdd btn btn-success btn-flat inline" name="add" id="add" value="<?php echo $producto->idproducto?>"><span class='fas fa-plus-circle'></span></button>
+              </form>
+              <p style="font-size: 28px"><?php echo $this->session->userdata("producto".strval($producto->idproducto)) ;?></p>
+              <form action="<?php echo base_url();?>productos/product/indexremove/<?php echo strval($producto->idproducto);?>" method='post'>
+                <button type="submit" class="buttonAdd btn btn-danger btn-flat inline" name="add" id="add" value="<?php echo $producto->idproducto?>"><span class='fas fa-minus-circle'></span></button>
+              </form>
+              </div>
             </div>
           </div>
           <div class="row mt-4">
-              <form action="<?php echo base_url();?>productos/product/indexadd/<?php echo strval($producto->idproducto);?>" method='post'>
-                <button type="submit" class="buttonAdd btn btn-success btn-flat" name="add" id="add" value="<?php echo $producto->idproducto?>">Añadir al carrito</button>
-              </form>
-                <p>En el carrito: <?php echo $this->session->userdata("producto".strval($producto->idproducto)) ;?></p>
+              
                 <div class="mt-4">
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">

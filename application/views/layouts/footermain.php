@@ -1,5 +1,5 @@
 <!-- =============================================== -->
-<footer class="main-footer mains">  
+<footer class="main-footer">  
     <a href="<?php echo base_url();?>licensepage"><strong>Copyright &copy; </a> 2021 <a href="https://github.com/gabrieladrianmezar" target="_blank">Gabriel Adrián Meza Romero</a>.</strong>
     Todos los derechos reservados.
     <div class="float-right d-none d-sm-inline-block">
@@ -64,8 +64,8 @@
 <script src="<?php echo base_url();?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script>
 // Modal viewUsuario de usuarios/list
-var cart = [0,0,0,0]
-
+obtenerValores()
+generarComprobante()
 
 $(document).ready(function () {
     var base_url= "<?php  echo base_url();?>";
@@ -81,6 +81,10 @@ $(document).ready(function () {
         });
     }); 
   });
+    $(document).on("click",".btn-remove-producto", function(){
+      $(this.closest("tr").remove());
+      obtenerValores();
+    });
 
 // Modal viewCliente de clientes/list
 $(document).ready(function () {
@@ -251,13 +255,14 @@ $(document).ready(function () {
     $(document).on("click",".btn-remove-producto", function(){
       $(this.closest("tr").remove());
     });
-    $(document).on("keyup","#tbventas input.cantidades", function(){
+    $(document).on("input","#tbventas input.cantidades", function(){
       cantidad = $(this).val();
       precio = $(this).closest("tr").find("td:eq(1)").text();
       importe = cantidad * precio;
 
       $(this).closest("tr").find("td:eq(4)").children("p").text(importe.toFixed(2));
       $(this).closest("tr").find("td:eq(4)").children("input").val(importe);
+      obtenerValores();
     });
 
   //Paginas
@@ -318,5 +323,7 @@ $(document).ready(function () {
 
 
 </script>
+<!-- MercadoPago -->
+<script src="https://sdk.mercadopago.com/js/v2"></script>
 </body>
 </html>

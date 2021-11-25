@@ -14,6 +14,7 @@ class Shop extends CI_Controller {
 			'productos' => $this->Productos_model->getProductos(),
 		);
 		$this->load->view('layouts/headermain');
+		$this->load->view('layouts/aside2');
 		$this->load->view('products/shop',$data);
 		$this->load->view('layouts/footermain');
 	}

@@ -21,6 +21,7 @@ class Cart extends CI_Controller {
 			'productos' => $this->Productos_model->getProductos(),
 		);
 		$this->load->view('layouts/headermain');
+		$this->load->view('layouts/aside2');
 		$this->load->view('admin/cart',$data);
 		$this->load->view('layouts/footermain');
     }
@@ -38,6 +39,7 @@ class Cart extends CI_Controller {
 		$iva = $this->input->post("iva");
 		$descuento = $this->input->post("descuento");
 		$total = $this->input->post("total");
+		if (strlen($total)>4){
 		$idcomprobante = $this->input->post("idcomprobante");
 		$numerodocumento = $this->input->post("numero");
 		$serie = $this->input->post("serie");
@@ -66,6 +68,7 @@ class Cart extends CI_Controller {
 		//echo " -cantidad prod: ";
 		//echo count($idproductos);
 		
+		
 		if ($this->Ventas_model->save($data)){
 			$idventa = $this->Ventas_model->lastID();
 			//echo " -idventa: ";
@@ -77,8 +80,10 @@ class Cart extends CI_Controller {
 			$this->save_detalle($idproductos,$idventa,$cantidades,$precios,$importes);
 			redirect(base_url()."result");
 		}else{
-			redirect(base_url(),"result/error");
-		}
+			redirect(base_url()."result/error");
+		}} else {
+		redirect(base_url()."result/error");
+	};
 
 	}
 

@@ -237,6 +237,7 @@ $(document).ready(function () {
 
       $(this).closest("tr").find("td:eq(4)").children("p").text(importe.toFixed(2));
       $(this).closest("tr").find("td:eq(4)").children("input").val(importe);
+      obtenerValores()
     });
 
   //Paginas

@@ -9,6 +9,7 @@ class About extends CI_Controller {
 
 	public function index(){	
 		$this->load->view('layouts/headermain');
+		$this->load->view('layouts/aside2');
 		$this->load->view('admin/about');
 		$this->load->view('layouts/footermain');
 	}

@@ -33,14 +33,19 @@
   <link rel="stylesheet" href="<?php echo base_url();?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <script>
+</script>    
 </head>
 <body class="hold-transition sidebar-mini layout-fixed"> <!-- Tweak this to keep sidebar collapsed-->
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light mains">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<?php echo base_url();?>" class="nav-link"><b>Inicio</b></a>
       </li>

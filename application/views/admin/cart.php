@@ -1,6 +1,6 @@
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper mains">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -86,18 +86,21 @@
                                     </tr>
                                 </thead>
                                 <tbody id="tbventas-body">
-                                    <?php //for($i = 1; $i<=$this->session->userdata('productos') ; $i++) :?>
-                                    <?php //if($this->session->userdata('producto').strval($i)>0):?>
-                                <!--<tr>
-                                    <td><input type='hidden' name='idproductos[]' value='<?php echo $i;?>'><?php echo $i;?></td>
-                                    <td><input type='hidden' name='precios[]' value='"+infoproducto[2]+"'>"+infoproducto[2]+"</td>
-                                    <td>"+infoproducto[3]+"</td>"
-                                    <td><input type='text' name='cantidades[]' value='<?php echo $this->session->userdata('producto').strval($i)?>' class='cantidades'></td>
-                                    <td><input type='hidden' name='importes[]' value='"+infoproducto[2]+"'><p>"+infoproducto[2]+"</p></td>
+                             <?php for($i = 1; $i<=$this->session->userdata('productos') ; $i++) :?>
+                                    <?php $producto='producto'.strval($i)?>
+
+                                    <?php if($this->session->userdata($producto)>0):?>
+                                <tr>
+                                    <td><input type='hidden' name='idproductos[]' value='<?php echo $productos[$i-1]->idproducto;?>'><?php echo $productos[$i-1]->nombre;?></td>
+                                    <td><input type='hidden' name='precios[]' value='<?php echo $productos[$i-1]->precio;?>'><?php echo $productos[$i-1]->precio;?></td>
+                                    <td><?php echo $productos[$i-1]->stock;?></td>
+                                    <td><input type='text' id="<?php echo $i?>"name='cantidades[]' value='<?php echo $this->session->userdata($producto)?>' class='cantidades'></td>
+                                    <td><input type='hidden' name='importes[]' value='<?php echo $productos[$i-1]->precio;?>'><p><?php echo $productos[$i-1]->precio;?></p></td>
                                     <td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fas fa-minus-circle'></span></button></td>
-                                </tr>-->
-                                    <?php //endif?>
-                                    <?php //endfor;?>
+                                
+                                </tr> 
+                                    <?php endif;?>
+                                    <?php endfor;?>
                                 </tbody>
                             </table>
 
@@ -131,9 +134,10 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <button type="submit" class="btn btn-success btn-flat">Avanzar con la compra</button>
-                                </div>
-                                
+                                </div>                                
                             </div>
+
+
                         </form>
                     </div>
                 </div>
@@ -145,19 +149,3 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<?php
-$productos = $this->session->userdata("productos");
-
-for ($i = 1; $i<$productos ; $i++){?>
-<script>
-    $html = "<tr>";
-    $html += "<td><input type='hidden' name='idproductos[]' value='"+infoproducto[0]+"'>"+infoproducto[1]+"</td>";
-    $html += "<td><input type='hidden' name='precios[]' value='"+infoproducto[2]+"'>"+infoproducto[2]+"</td>";
-    $html += "<td>"+infoproducto[3]+"</td>";
-    $html += "<td><input type='text' name='cantidades[]' value='1' class='cantidades'></td>";
-    $html += "<td><input type='hidden' name='importes[]' value='"+infoproducto[2]+"'><p>"+infoproducto[2]+"</p></td>";
-    $html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fas minus-circle'></span></button></td>";
-    $html += "</tr>";
-    $("#tbcart tbody").append(html);
-</script>
-<?php }?>

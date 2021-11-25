@@ -16,6 +16,7 @@ class Register extends CI_Controller {
 	public function please()
     {
 		$this->load->view('layouts/headermain');
+		$this->load->view('layouts/aside2');
 		$this->load->view('register/please');
 		$this->load->view('layouts/footermain');	
     }
