@@ -17,7 +17,7 @@ as part of XAMPP Version 8.0.7
 -CodeIgniter 3.1.11  
 -AdminLTE 3.0.5  
 
-
+```
 ├───application
 │   ├───cache
 │   ├───config
@@ -453,6 +453,7 @@ as part of XAMPP Version 8.0.7
 └───vendor
     ├───bin
     └───composer
+```
 
 **Español**  
 
