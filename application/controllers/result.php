@@ -9,6 +9,12 @@ class Result extends CI_Controller {
 
 	public function index()
 	{	
+		for($i = 1; $i<=$this->session->userdata('productos') ; $i++){
+			$producto='producto'.strval($i);
+			if($this->session->userdata('productos')>0){
+			$this->session->set_userdata($producto,"0");
+			};
+		};
 		$this->load->view('layouts/headermain');
 		$this->load->view('layouts/aside2');
 		$this->load->view('admin/resultsuccess');

@@ -63,6 +63,7 @@ class Ventas_model extends CI_Model {
 		$this->db->select("idproducto,nombre as label,precio,stock");
 		$this->db->from("productos");
 		$this->db->like("nombre",$valor);
+		$this->db->where("estado","1");
 		$resultados = $this->db->get();
 		return $resultados->result_array();
 	}
@@ -72,8 +73,11 @@ class Ventas_model extends CI_Model {
 	}
 
 	public function updateComprobante($idcomprobante,$data){
-		$this->db->where("id",$idcomprobante);
-		$this->db->update("tipocomprobante",$data);
+		//$this->db->where("id",$idcomprobante);
+		//$this->db->update("tipocomprobante",$data);
+		$this->db->set("cantidad", 'cantidad+1', FALSE);
+		$this->db->where('id', $idcomprobante);
+		return $this->db->update("tipocomprobante");
 	}
 
 	public function saveDetalle($data){

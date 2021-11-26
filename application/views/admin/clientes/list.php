@@ -64,13 +64,13 @@
                                                     <a href="<?php echo base_url();?>clientes/clientes/delete/<?php echo $cliente->idcliente;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
                                                     <?php endif;?>
                                                     <script type="text/javascript">
-                                                        var elems = document.getElementsByClassName('btn btn-danger');
-                                                        var confirmIt = function (e) {
-                                                            if (!confirm('Estas seguro de que deseas eliminar ese registro?')) e.preventDefault();
-                                                        };
-                                                        for (var i = 0, l = elems.length; i < l; i++) {
-                                                            elems[i].addEventListener('click', confirmIt, false);
-                                                        }
+                                                       // var elems = document.getElementsByClassName('btn btn-danger');
+                                                       // var confirmIt = function (e) {
+                                                       //     if (!confirm('Estas seguro de que deseas eliminar ese registro?')) e.preventDefault();
+                                                       // };
+                                                       // for (var i = 0, l = elems.length; i < l; i++) {
+                                                       //     elems[i].addEventListener('click', confirmIt, false);
+                                                       // }
                                                     </script>
                                                 </div>
                                             </td>

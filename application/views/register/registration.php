@@ -31,7 +31,7 @@
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="http://localhost/isfp3ecom/" class="h1"><b>Fermosa</b>Workout</a>
+      <a href="<?php echo base_url()?>" class="h1"><b>Fermosa</b>Workout</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Ya tienes una cuenta? <a href="<?php echo base_url();?>log/clienteauth" class="ml-2">Inicia sesión</a></p>
@@ -59,13 +59,18 @@
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
-            </div>
+            </div> 
             <div class="input-group-append">
                 <div class="input-group-text">
-                    <input type="checkbox" id="showPass" name="showPass" value="show" class="fas fa-eye">
+                    <button type="button" id="showPass" name="showPass" value="show" style="background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;"class=""><span class="fas fa-eye"></span></button>  
                 </div>
             </div>
-          </div>
+          </div> 
         </div>
         <div class="input-group mb-3">
         <input type="password" class="form-control <?php echo !empty(form_error("passwordconf"))? 'is-invalid':'';?>" placeholder="Reintroducir contreseña" id="passwordconf" name="passwordconf" maxlength="255" value="<?php echo set_value("retypepassword");?>">
@@ -75,16 +80,21 @@
             </div>
             <div class="input-group-append">
                 <div class="input-group-text">
-                    <input type="checkbox" id="showPassConf" name="showPassConf" value="showconf" class="fas fa-eye">
+                    <button type="button" id="showPassConf" name="showPassConf" value="showconf" style="    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;" class=""><span class="fas fa-eye"></span></button>
                 </div>
-            </div>
-          </div>
+            </div> 
+          </div> 
         </div>
         <div class="input-group mb-3">
           <input type="text" class="form-control <?php echo !empty(form_error("direccion"))? 'is-invalid':'';?>" placeholder="Direccion" id="direccion" name="direccion" minlength="5" maxlength="50" value="<?php echo set_value("direccion");?>">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-map-marker-alt"></span>
             </div>
           </div>
         </div>
@@ -92,7 +102,7 @@
           <input type="number" class="form-control <?php echo !empty(form_error("telefono"))? 'is-invalid':'';?>" placeholder="Telefono" id="telefono" name="telefono" minlength="3" maxlength="200" value="<?php echo set_value("telefono");?>">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-mobile-alt"></span>
             </div>
           </div>
         </div>
@@ -100,7 +110,7 @@
           <input type="number" class="form-control <?php echo !empty(form_error("dni"))? 'is-invalid':'';?>" placeholder="Dni" id="dni" name="dni" minlength="3" maxlength="200" value="<?php echo set_value("dni");?>">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-address-card"></span>
             </div>
           </div>
         </div>
@@ -164,25 +174,45 @@
     registerbtn.disabled = !this.checked;
     };
 
+    var showP = new Boolean(false);
     var showPass = document.getElementById('showPass');
     var password = document.getElementById('password');
-    showPass.onchange = function() {
+    showPass.onclick = function(){
+      if(!showP){
+        showP = true
+        password.type = 'password'
+      }else{
+        showP = false
+        password.type = 'text'
+      }
+    }
+    /*showPass.onchange = function() {
         if(!this.checked){
             password.type = 'password'
         } else {
             password.type = 'text'
         };
-    };
+    };*/
 
+    var showPC = new Boolean(false);
     var showPassConf = document.getElementById('showPassConf');
     var passwordconf = document.getElementById('passwordconf');
-    showPassConf.onchange = function() {
+    showPassConf.onclick = function(){
+      if(!showPC){
+        showPC = true
+        passwordconf.type = 'password'
+      }else{
+        showPC = false
+        passwordconf.type = 'text'
+      }
+    }
+    /*showPassConf.onchange = function() {
         if(!this.checked){
             passwordconf.type = 'password'
         } else {
             passwordconf.type = 'text'
         };
-    };
+    };*/
 </script>
 </body>
 </html>

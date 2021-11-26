@@ -64,8 +64,8 @@
 <script src="<?php echo base_url();?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script>
 // Modal viewUsuario de usuarios/list
-obtenerValores()
-generarComprobante()
+obtenerValores();
+generarComprobante();
 
 $(document).ready(function () {
     var base_url= "<?php  echo base_url();?>";
@@ -197,7 +197,7 @@ $(document).ready(function () {
   $("#producto").autocomplete({
     source:function(request, response){ 
       $.ajax({
-        url:"http://localhost/isfp3ecom/ventas/productosdetalle/getProductos",
+        url:"<?php echo base_url()?>/ventas/productosdetalle/getProductos",
         type:"POST",
         dataType:"json",
         data:{ valor: request.term},
@@ -254,6 +254,15 @@ $(document).ready(function () {
 
     $(document).on("click",".btn-remove-producto", function(){
       $(this.closest("tr").remove());
+    });
+    $(document).on("keyup","#tbventas input.cantidades", function(){
+      cantidad = $(this).val();
+      precio = $(this).closest("tr").find("td:eq(1)").text();
+      importe = cantidad * precio;
+
+      $(this).closest("tr").find("td:eq(4)").children("p").text(importe.toFixed(2));
+      $(this).closest("tr").find("td:eq(4)").children("input").val(importe);
+      obtenerValores();
     });
     $(document).on("input","#tbventas input.cantidades", function(){
       cantidad = $(this).val();

@@ -183,7 +183,7 @@ $(document).ready(function () {
   $("#producto").autocomplete({
     source:function(request, response){ 
       $.ajax({
-        url:"http://localhost/isfp3ecom/ventas/productosdetalle/getProductos",
+        url:"<?php echo base_url()?>/ventas/productosdetalle/getProductos",
         type:"POST",
         dataType:"json",
         data:{ valor: request.term},

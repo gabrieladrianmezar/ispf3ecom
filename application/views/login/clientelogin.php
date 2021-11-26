@@ -26,7 +26,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="http://localhost/isfp3ecom/" class="h1"><b>Fermosa</b>Workout</a>
+      <a href="<?php echo base_url()?>" class="h1"><b>Fermosa</b>Workout</a>
     </div>
     <div class="card-body">
     <div class="mb-4">

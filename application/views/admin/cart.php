@@ -95,7 +95,7 @@
                                     <td><input type='hidden' name='precios[]' value='<?php echo $productos[$i-1]->precio;?>'><?php echo $productos[$i-1]->precio;?></td>
                                     <td><?php echo $productos[$i-1]->stock;?></td>
                                     <td><input type='text' id="<?php echo $i?>"name='cantidades[]' value='<?php echo $this->session->userdata($producto)?>' class='cantidades'></td>
-                                    <td><input type='hidden' name='importes[]' value='<?php echo $productos[$i-1]->precio;?>'><p><?php echo $productos[$i-1]->precio;?></p></td>
+                                    <td><input type='hidden' name='importes[]' value='<?php echo $productos[$i-1]->precio;?>'><p><?php echo $productos[$i-1]->precio*$this->session->userdata($producto);?></p></td>
                                     <td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fas fa-minus-circle'></span></button></td>
                                 
                                 </tr> 
@@ -149,3 +149,5 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script>
+</script>

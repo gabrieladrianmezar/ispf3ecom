@@ -59,15 +59,6 @@
                                                     <?php if($permisos->delete ==1):?>
                                                     <a href="<?php echo base_url();?>usuarios/usuarios/delete/<?php echo $usuario->idusuario;?>" class="btn btn-danger"><span class="fas fa-trash"></span></a>
                                                     <?php endif;?>
-                                                    <script type="text/javascript">
-                                                        var elems = document.getElementsByClassName('btn btn-danger');
-                                                        var confirmIt = function (e) {
-                                                            if (!confirm('Estas seguro de que deseas eliminar ese registro?')) e.preventDefault();
-                                                        };
-                                                        for (var i = 0, l = elems.length; i < l; i++) {
-                                                            elems[i].addEventListener('click', confirmIt, false);
-                                                        }
-                                                    </script>
                                                 </div>
                                             </td>
                                         </tr>

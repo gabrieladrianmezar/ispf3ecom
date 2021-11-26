@@ -35,8 +35,8 @@ class Register extends CI_Controller {
 		$this->form_validation->set_rules("passwordconf","Password Confirmation","required|matches[password]");
 		$this->form_validation->set_rules("nombre","Nombre","required|min_length[1]|max_length[30]|is_unique[clientes.nombre]");
 		$this->form_validation->set_rules("direccion","Direccion","required");
-		$this->form_validation->set_rules("telefono","Telefono","required");
-		$this->form_validation->set_rules("dni","Dni","required|min_length[1]|max_length[9]|is_unique[clientes.dni]");
+		$this->form_validation->set_rules("telefono","Telefono","required|min_length[11]|max_length[15]");
+		$this->form_validation->set_rules("dni","Dni","required|min_length[1]|max_length[18]|is_unique[clientes.dni]");
 		if ($this->form_validation->run()){
 		$data = array(
 			'email' => $email,
