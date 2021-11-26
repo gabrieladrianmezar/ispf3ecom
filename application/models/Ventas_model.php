@@ -4,9 +4,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Ventas_model extends CI_Model {
 
 	public function getVentas(){
-		$this->db->where("estado > 0");
-		$resultados = $this->db->get("ventas");
-		return $resultados->result();
+		//$this->db->where("estado > 0");
+		//$resultados = $this->db->get("ventas");
+		$this->db->select("v.*,c.nombre,tc.nombre as tipocomprobante,e.nombre as estadopago");
+		$this->db->from("ventas v");
+		$this->db->join("clientes c","v.idcliente = c.idcliente");
+		$this->db->join("estados e","v.estado = e.idestado");
+		$this->db->join("tipocomprobante tc","v.idtipocomprobante = tc.id");
+		$resultados = $this->db->get();
+		if ($resultados->num_rows() > 0) {
+			return $resultados->result();
+		}else
+		{
+			return false;
+		}
+	}
+
+	public function getVentasbyDate($fechainicio,$fechafin){
+		$this->db->select("v.*,clientes.nombre as nombre,tipocomprobante.nombre as tipocomprobante");
+		$this->db->from("ventas v");
+		$this->db->join("clientes","v.idcliente = clientes.idcliente");
+		$this->db->join("tipocomprobante","v.idtipocomprobante = tipocomprobante.id");
+		$this->db->where("v.fecha >=",$fechainicio);
+		$this->db->where("v.fecha <=",$fechafin);
+		$resultados = $this->db->get();
+		if ($resultados->num_rows() > 0) {
+			return $resultados->result();
+		}else
+		{
+			return false;
+		}
 	}
 
 	public function getComprobante($idcomprobante){

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ClienteAuth extends CI_Controller {
+class Clienteauth extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
@@ -35,7 +35,7 @@ class ClienteAuth extends CI_Controller {
 
         if(!$res) {
             $this->session->set_flashdata("error","El email y o contraseña son incorrectos");
-            redirect(base_url());
+            redirect(base_url().'log/clienteauth');
         }
         else{
             $data = array(

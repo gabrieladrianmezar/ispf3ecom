@@ -48,6 +48,7 @@ class Register extends CI_Controller {
 			'dni' => $dni,
 		); 
 			if ($this->Clientes_model->save($data)){
+				$this->session->set_flashdata("message", "La cuenta ha sido registrada exitosamente");
 				redirect(base_url()."log/clienteauth");
 			}
 			else{

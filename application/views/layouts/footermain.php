@@ -234,6 +234,7 @@ $(document).ready(function () {
       };
     });
 
+
     $("#btn-to-cart").on("click",function(){
       data = $(this).val();
       if (data !='') {

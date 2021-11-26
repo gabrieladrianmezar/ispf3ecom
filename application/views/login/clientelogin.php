@@ -45,6 +45,16 @@
         if($this->session->flashdata("error")){
         unset($_SESSION['error']);
       }?>
+            <?php if($this->session->flashdata("message")):?>
+        <div class="alert alert-success">
+          <p><?php echo $this->session->flashdata("message")?></p>
+        </div>
+      <?php endif; ?>
+      <?php 
+        /* Clearing flashdata on without redirect*/
+        if($this->session->flashdata("message")){
+        unset($_SESSION['message']);
+      }?>
       <form action="<?php echo base_url();?>log/clienteauth/login" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="email">

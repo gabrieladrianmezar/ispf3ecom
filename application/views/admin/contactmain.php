@@ -19,11 +19,11 @@
                     </div>
                     <!-- /.box-body -->
                 </div>
-                <div class="grid">
+                <div class="">
                            
                     <!-- CONTACT FORM -->
-                    <form id="fs-frm" action="https://formspree.io/f/mjvjnnyk" method="POST" class=" grid">
-                        <div class="">
+                    <form id="fs-frm" action="https://formspree.io/f/mjvjnnyk" method="POST" class="grid">
+                        <div class="grid">
                             <div class="">
                                 <label for="full-name" class="contact__label">Nombre</label>
                                 <input type="text" name="name" id="full-name" class="" placeholder="Nombre y Apellido" required="">

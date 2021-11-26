@@ -79,6 +79,15 @@
             </a>
           </li>   
           <li class="nav-item has-treeview">
+            <a href="<?php echo base_url();?>ventas/reportes" class="nav-link">
+              <i class="nav-icon fas fa-address-book"></i>
+              <p>
+                Reportes
+                 <!-- <i class="fas fa-angle-left right"></i> -->
+              </p>
+            </a>
+          </li>   
+          <li class="nav-item has-treeview">
             <a href="<?php echo base_url();?>sysadmin/permisos" class="nav-link">
               <i class="nav-icon fas fa-lock"></i>
               <p>

@@ -15,7 +15,7 @@
                 <!-- Default box -->
                 <div class="box box-solid">
                     <div class="box-body">
-                        <p> Regístrate para poder acceder al carrito y poder realizar tu compra</p>
+                        <p><a href="<?php echo base_url();?>log/register" class="ml-2">Regístrate</a> para poder acceder al carrito y poder realizar tu compra</p>
                     </div>
                     <!-- /.box-body -->
                 </div>

@@ -33,9 +33,8 @@
                     <div class="col-sm-2">
                     <a href="product/index/<?php echo $producto->idproducto;?>" data-toggle="lightbox" data-title="sample 4 - red">
                         <img src="<?php echo $producto->imagen;?>" class="img-fluid mb-2" alt="red sample"/>
-                        <?php echo $producto->nombre;?>
-                    </a>
-                    
+                        </b><?php echo $producto->nombre;?>
+                    </a> 
                 </div>
                   <?php endif;?>
                   <?php endforeach; ?>

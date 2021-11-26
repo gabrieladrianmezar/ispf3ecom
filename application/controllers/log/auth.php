@@ -27,7 +27,7 @@ class Auth extends CI_Controller {
 
         if(!$res) {
             $this->session->set_flashdata("error","El email y o contraseña son incorrectos");
-            redirect(base_url());
+            redirect(base_url().'log/auth');
         }
         else{
             $data = array(
