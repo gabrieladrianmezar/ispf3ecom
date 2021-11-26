@@ -1,5 +1,8 @@
 # ispf3ecom
 
+Alojado en: http://gamezar.xyz/
+Live Site at: http://gamezar.xyz/
+
 **English**  
 
 Store CRUD Project for Programming 3 taught by Professor Christian Cerquand from Instituto Superior Fermosa.  
@@ -7,16 +10,27 @@ Store CRUD Project for Programming 3 taught by Professor Christian Cerquand from
 
 #Programs and technologies used:  
 -PHP 8.0.7  
+-HTML5
+-CSS3
+-JavaScript
 -Apache 2.4.48 Win64 OpenSSL 1.1.1k  
--phpMyAdmin 5.1.1  
 -FileZilla FTP Server 0.9.41  
-as part of XAMPP Version 8.0.7  
 -MySQL 8.0.24  
--Microsoft Visual Studio Code  
--git version 2.32.0.windows.1
+#Libraries used (not including libraries included by libraries):
+-Bootstrap 4
+-Highcharts JS 9.3.1
+-jQuery 3.6.0
+#Framework used:
 -CodeIgniter 3.1.11  
+#Template used:
 -AdminLTE 3.0.5  
+#Supporting technologies used:
+-git version 2.32.0.windows.1
+-phpMyAdmin 5.1.1 
+#Text Editor used:
+-Microsoft Visual Studio Code (1.57.1) 
 
+**File Structure**
 ```
 ├───application
 │   ├───cache
