@@ -66,37 +66,6 @@ Store CRUD Project for Programming 3 taught by Professor Christian Cerquand from
 │       ├───login
 │       ├───products
 │       └───register
-├───assets
-│   └───template
-│       ├───bootstrap
-│       │   ├───css
-│       │   ├───fonts
-│       │   └───js
-│       ├───datatables.net
-│       │   └───js
-│       ├───datatables.net-bs
-│       │   ├───css
-│       │   └───js
-│       ├───dist
-│       │   ├───css
-│       │   │   ├───alt
-│       │   │   └───skins
-│       │   ├───img
-│       │   │   └───credit
-│       │   └───js
-│       │       └───pages
-│       ├───fastclick
-│       │   └───lib
-│       ├───font-awesome
-│       │   ├───css
-│       │   ├───fonts
-│       │   ├───less
-│       │   └───scss
-│       ├───jquery
-│       └───jquery-slimscroll
-│           └───examples
-│               └───libs
-│                   └───prettify
 ├───build
 │   ├───config
 │   ├───js
@@ -112,40 +81,6 @@ Store CRUD Project for Programming 3 taught by Professor Christian Cerquand from
 │   ├───img
 │   │   └───credit
 │   └───js
-│       └───pages
-├───docs
-│   ├───assets
-│   │   ├───css
-│   │   │   └───alt
-│   │   ├───img
-│   │   ├───js
-│   │   │   └───pages
-│   │   └───plugins
-│   │       ├───bootstrap
-│   │       │   └───js
-│   │       ├───fontawesome-free
-│   │       │   ├───css
-│   │       │   └───webfonts
-│   │       ├───jquery
-│   │       ├───overlayScrollbars
-│   │       │   ├───css
-│   │       │   └───js
-│   │       └───popper
-│   │           ├───esm
-│   │           └───umd
-│   ├───components
-│   ├───javascript
-│   ├───_includes
-│   └───_layouts
-├───pages
-│   ├───charts
-│   ├───examples
-│   ├───forms
-│   ├───layout
-│   ├───mailbox
-│   ├───search
-│   ├───tables
-│   └───UI
 ├───plugins
 │   ├───bootstrap
 │   │   └───js
@@ -436,37 +371,34 @@ Store CRUD Project for Programming 3 taught by Professor Christian Cerquand from
 │   │   └───js
 │   ├───toastr
 │   └───uplot
-├───system
-│   ├───core
-│   │   └───compat
-│   ├───database
-│   │   └───drivers
-│   │       ├───cubrid
-│   │       ├───ibase
-│   │       ├───mssql
-│   │       ├───mysql
-│   │       ├───mysqli
-│   │       ├───oci8
-│   │       ├───odbc
-│   │       ├───pdo
-│   │       │   └───subdrivers
-│   │       ├───postgre
-│   │       ├───sqlite
-│   │       ├───sqlite3
-│   │       └───sqlsrv
-│   ├───fonts
-│   ├───helpers
-│   ├───language
-│   │   └───english
-│   └───libraries
-│       ├───Cache
-│       │   └───drivers
-│       ├───Javascript
-│       └───Session
-│           └───drivers
-└───vendor
-    ├───bin
-    └───composer
+└───system
+    ├───core
+    │   └───compat
+    ├───database
+    │   └───drivers
+    │       ├───cubrid
+    │       ├───ibase
+    │       ├───mssql
+    │       ├───mysql
+    │       ├───mysqli
+    │       ├───oci8
+    │       ├───odbc
+    │       ├───pdo
+    │       │   └───subdrivers
+    │       ├───postgre
+    │       ├───sqlite
+    │       ├───sqlite3
+    │       └───sqlsrv
+    ├───fonts
+    ├───helpers
+    ├───language
+    │   └───english
+    └───libraries
+        ├───Cache
+        │   └───drivers
+        ├───Javascript
+        └───Session
+            └───drivers
 ```
 
 **Relational model**
