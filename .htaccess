@@ -23,5 +23,5 @@
  
 Options +FollowSymLinks
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^isfp3ecom.herokuapp.com/index.php[nc]
-RewriteRule ^(.*)$ https://isfp3ecom.herokuapp.com/index.php/$1 [r=301,nc]
+RewriteCond %{HTTP_HOST} ^index.php[nc]
+RewriteRule ^(.*)$ index.php/$1 [r=301,nc]
