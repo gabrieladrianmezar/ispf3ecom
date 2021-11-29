@@ -73,7 +73,7 @@
                                     <button id="btn-agregar" type="button" class="detailVenta btn btn-success btn-flat btn-block"><span class="fa fa-plus"></span> Agregar</button>
                                 </div>
                             </div>
-                            <table id="tbventas" class="table table-bordered table-striped table-hover">
+                            <table id="tbventas" class="table table-bordered table-striped btn-hover table-hover">
                                 <thead>
                                     <tr>
                                         <th>Nombre</th>

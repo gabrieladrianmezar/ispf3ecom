@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://isfp3ecom.herokuapp.com/';
+$config['base_url'] = 'http://localhost/ispf3ecom/';
 
 /*
 |--------------------------------------------------------------------------

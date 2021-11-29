@@ -1,27 +1,8 @@
-#//Rewrite to www
-#Options +FollowSymLinks
-#Options -Indexes
-#DirectoryIndex index.html index.php
-#RewriteEngine on
-#RewriteCond $1 !^(index\.php|images|robots\.txt)
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteCond %{HTTP_HOST} ^gamezar.xyz/index.php[nc]
-##RewriteRule ^(.*)$ index.php/$1 [L,QSA]
-
-#<IfModule mod_rewrite.c>
-
-# RewriteEngine on
-# RewriteCond $1 !^(index\.php)
-# RewriteRule ^(.*)$ index.php/$1 [L]
-
-#</IfModule>
-
-
- # allow_override On
- # mod_rewrite is installed
- 
 Options +FollowSymLinks
+Options -Indexes
+DirectoryIndex index.html index.php
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^index.php[nc]
-RewriteRule ^(.*)$ index.php/$1 [r=301,nc]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|images|robots\.txt)
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]

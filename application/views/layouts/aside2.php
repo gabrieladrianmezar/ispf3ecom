@@ -9,10 +9,11 @@
     ?>
 
 <!-- =============================================== --> 
-  <!-- Main Sidebar Container -->
+  <!-- Main Sidebar Container sidebar-dark-primary -->
+
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?php echo base_url();?>dashboard" class="brand-link">
+    <a aria-label="Abrir menu desplegable" href="<?php echo base_url();?>" class="brand-link">
       <img src="<?php echo base_url();?>dist/img/FermosaWorkoutLogo.png" alt="Fermosa Workout Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Fermosa Workout</span>
@@ -22,12 +23,12 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
 
-      <!-- Sidebar Menu -->
+      <!-- Sidebar Menu role="menu"-->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="<?php echo base_url();?>" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
@@ -44,7 +45,7 @@
               </p>
             </a> 
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="<?php echo base_url();?>contactmain" class="nav-link"> 
               <i class="nav-icon fas fa-envelope-square"></i>
               <p>
@@ -52,7 +53,7 @@
                 <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="<?php echo base_url();?>productos/shop" class="nav-link">
               <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
@@ -61,7 +62,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a href="<?php echo base_url();?>ventas/cart" class="nav-link">
               <i class="nav-icon fas fa-shopping-cart"></i>
               <p>

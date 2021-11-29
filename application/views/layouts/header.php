@@ -4,7 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Fermosa Workout | Dashboard</title>
+    <!-- Primary Meta Tags -->
+  <title>Fermosa Workout | gabrieladrianmezar</title>
+  <meta name="title" content="Fermosa Workout | gabrieladrianmezar">
+  <meta name="description" content="Personal project based upon building a eCommerce website and CRUD panel">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gamezar.xyz/">
+  <meta property="og:title" content="Fermosa Workout | gabrieladrianmezar">
+  <meta property="og:description" content="Personal project based upon building a eCommerce website and CRUD panel">
+  <meta property="og:image" content="">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -27,7 +36,7 @@
   <!-- Daterange picker -->
   <link rel="stylesheet" href="<?php echo base_url();?>plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
-  <link rel="stylesheet" href="<?php echo base_url();?>plugins/summernote/summernote-bs4.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>plugins/summernote/summernote-bs4.css" disabled>
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- DataTables -->

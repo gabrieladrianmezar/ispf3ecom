@@ -1,6 +1,6 @@
 <!-- =============================================== -->
 <footer class="main-footer">  
-    <a href="<?php echo base_url();?>licensepage"><strong>Copyright &copy; </a> 2021 <a href="https://github.com/gabrieladrianmezar" target="_blank">Gabriel Adrián Meza Romero</a>.</strong>
+    <a rel="noopener" href="<?php echo base_url();?>licensepage"><strong>Copyright &copy; </a> 2021 <a rel="noopener" href="https://github.com/gabrieladrianmezar" target="_blank">Gabriel Adrián Meza Romero</a>.</strong>
     Todos los derechos reservados.
     <div class="float-right d-none d-sm-inline-block">
       <b>Versión</b> 1.0.0
@@ -39,16 +39,10 @@
 <script src="<?php echo base_url();?>plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<?php echo base_url();?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="<?php echo base_url();?>plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="<?php echo base_url();?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url();?>dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url();?>dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url();?>dist/js/demo.js"></script>
 <!-- DataTables -->
 <script src="<?php echo base_url();?>plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url();?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -334,6 +328,5 @@ $(document).ready(function () {
 
 </script>
 <!-- MercadoPago -->
-<script src="https://sdk.mercadopago.com/js/v2"></script>
 </body>
 </html>
