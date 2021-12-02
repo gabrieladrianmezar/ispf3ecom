@@ -5,7 +5,9 @@ Live Site at: http://gamezar.xyz/
 
 **English**  
 
-Ecommerce + CRUD Project. Guests can sign up then sign in as customers and add products from the catalogue to a cart with which they can make purchases. System users can sign in into the "admin panel" and create, delete or edit user, sale, customer, product and permission data acorrding to their role. 
+-Ecommerce + CRUD Project.  
+-Guests can sign up then sign in as customers and add products from the catalogue to a cart with which they can make purchases. 
+-System users can sign in into the "admin panel" and create, delete or edit user, sale, customer, product and permission data acorrding to their role.  
 The system is in Spanish.
 
 **#Programs and technologies used:**  
