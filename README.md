@@ -5,8 +5,8 @@ Live Site at: http://gamezar.xyz/
 
 **English**  
 
-Store CRUD Project for Programming 3 taught by Professor Christian Cerquand from Instituto Superior Fermosa. The system is in Spanish.
-2021  
+Ecommerce + CRUD Project. Guests can sign up then sign in as customers and add products from the catalogue to a cart with which they can make purchases. System users can sign in into the "admin panel" and create, delete or edit user, sale, customer, product and permission data acorrding to their role. 
+The system is in Spanish.
 
 **#Programs and technologies used:**  
 -PHP 8.0.7  
