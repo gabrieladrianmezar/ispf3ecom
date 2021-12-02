@@ -8,7 +8,7 @@ Live Site at: http://gamezar.xyz/
 Store CRUD Project for Programming 3 taught by Professor Christian Cerquand from Instituto Superior Fermosa. The system is in Spanish.
 2021  
 
-**#Programs and technologies used:**
+**#Programs and technologies used:**  
 -PHP 8.0.7  
 -HTML5
 -CSS3
